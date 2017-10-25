@@ -10,22 +10,41 @@ namespace OverSurgery
 {
     class DatabaseConnection
     {
-        #region ATTRIBUTES
-        private string connectionStr;
+        #region ATTRIBUTES 
+        // Creates an instance of the DatabaseConnection class.
+        private static DatabaseConnection _instance;
+
+        // To ask Cristina: In the example this is private but can be accessed in Program.cs but can't here without being public. Why?
+        private static string connectionStr;
+        public static string ConnectionStr
+        {
+            set
+            {
+                connectionStr = value;
+            }
+        }
+
 
         // The SqlCconnection object used to store the connection to
         // the database.
-        SqlConnection connectionToDB;
+        private SqlConnection connectionToDB;
 
         // The DataAdapter object used to open a table of the 
         // database.
         private SqlDataAdapter dataAdapter;
 
-        // Creates an instance of the DatabaseConnection class.
-        private static DatabaseConnection _instance;
+       
         #endregion
 
         #region METHODS
+
+        public static DatabaseConnection getDatabaseConnectionInstance()
+        {
+            if (_instance == null)     
+                _instance = new DatabaseConnection();
+            
+            return _instance;
+        }
 
         /// <summary>
         /// Open the connection.
@@ -47,15 +66,20 @@ namespace OverSurgery
         /// <returns>Returns the data set.</returns>
         public DataSet getDataSet(string SqlStatement)
         {
-            DataSet dataSet;
+            DataSet dataSet = new DataSet();
+
+            // Opens connection.
+            openConnection();
 
             // Create the object dataAdapter to manipulate a table from the
             // database SurgeryDatabase specified by connectionToDB.
             dataAdapter = new SqlDataAdapter(SqlStatement, connectionToDB);
 
-            // Create the dataset
-            dataSet = new DataSet();
+            // Fills in the data set.
             dataAdapter.Fill(dataSet);
+
+            // Closes the connection.
+            closeConnection();
 
             // Return the dataset.
             return dataSet;
@@ -69,25 +93,9 @@ namespace OverSurgery
             // Closes the connection to the database.
             connectionToDB.Close();
         }
-
-        public static DatabaseConnection getDatabaseConnectionInstance()
-        {
-            if (_instance == null)     
-                _instance = new DatabaseConnection();
-            
-            return _instance;
-        }
         #endregion
 
         #region CONSTRUCTORS
-
-        // This constructor is specified in the lecture slides but is not 
-        // used in the example. When used it breaks the getDatabaseConnectionInstance() method.
-        // I have commented it out for now. (George)
-        /*public DatabaseConnection(string connectionStr)
-        {
-            this.connectionStr = connectionStr;
-        }*/
         #endregion
     }
 }
