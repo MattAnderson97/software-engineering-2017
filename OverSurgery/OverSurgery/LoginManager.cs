@@ -9,7 +9,7 @@ namespace OverSurgery
     class LoginManager
     {
         /// <summary>
-        /// 
+        /// George
         /// </summary>
         /// <param name="userName"></param>
         /// <param name="password"></param>
@@ -19,13 +19,13 @@ namespace OverSurgery
         }
 
         /// <summary>
-        /// 
+        /// Sam
         /// </summary>
         /// <param name="userName"></param>
         /// <param name="password"></param>
         public void Login(string userName, string password)
         {
-            if (CheckLoginDetails(userName, EncryptPassword(password)))
+            if (ValidateCredentials(userName, EncryptPassword(password)))
             {
                 // ...
             }
@@ -41,12 +41,12 @@ namespace OverSurgery
         }
 
         /// <summary>
-        /// 
+        /// Tanaka
         /// </summary>
         /// <param name="userName"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public bool CheckLoginDetails(string userName, string encryptedPassword)
+        public bool ValidateCredentials(string userName, string encryptedPassword)
         {
             // check parameters with stored data in DB
             return true;
