@@ -35,8 +35,8 @@
             this.patientSelectionBox = new System.Windows.Forms.ComboBox();
             this.availableTimesSelectionBox = new System.Windows.Forms.ComboBox();
             this.createAppointmentGroup = new System.Windows.Forms.GroupBox();
-            this.reasonLbl = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.reasonLbl = new System.Windows.Forms.Label();
             this.createAppointmentGroup.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,6 +109,14 @@
             this.createAppointmentGroup.Text = "Create Appointment";
             this.createAppointmentGroup.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // textBox1
+            // 
+            this.textBox1.AcceptsReturn = true;
+            this.textBox1.Location = new System.Drawing.Point(138, 188);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(183, 26);
+            this.textBox1.TabIndex = 8;
+            // 
             // reasonLbl
             // 
             this.reasonLbl.AutoSize = true;
@@ -117,14 +125,6 @@
             this.reasonLbl.Size = new System.Drawing.Size(65, 20);
             this.reasonLbl.TabIndex = 7;
             this.reasonLbl.Text = "Reason";
-            // 
-            // textBox1
-            // 
-            this.textBox1.AcceptsReturn = true;
-            this.textBox1.Location = new System.Drawing.Point(138, 188);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(183, 26);
-            this.textBox1.TabIndex = 8;
             // 
             // CreateAppointment
             // 
