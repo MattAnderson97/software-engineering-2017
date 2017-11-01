@@ -33,11 +33,13 @@ namespace OverSurgery
         /// </summary>
         /// <param name="userName">User's chosen username.</param>
         /// <param name="password">User's chosen password.</param>
-        public bool CreateUser(string userName, string password)
+        /// <returns>Number corresponding to error message type.</returns>
+        public int CreateUser(string userName, string password)
         {
             // If the details are not blank they will be added to the database.
             if (userName != "" && password != "")
             {
+                // If the username is unique the details will be added to the database.
                 if(CheckExistingUsername(userName) == true)
                 {
                     // SQL statement to be given to the database.
@@ -46,30 +48,41 @@ namespace OverSurgery
                     // Method call to DatabaseConnection class.
                     DatabaseConnection.getDatabaseConnectionInstance().getDataSet(insert);
 
-                    // Returns true if details were successfully added.
-                    return true;
+                    // Returns 1 (User account created successfully).
+                    return 1;
                 }
                 else
                 {
-                    return false;
+                    // Returns 3 (Chosen username already taken).
+                    return 3;
                 }
                 
             }
             else
             {
-                // Returns false if details were not successfully added.
-                return false;
+                // Returns 2 (Username and Password fields left empty).
+                return 2;
             }          
         }
 
+        /// <summary>
+        /// Checks if a username already exists in the system.
+        /// </summary>
+        /// <param name="userName">User's chosen username.</param>
+        /// <returns>True or false depending if the username was unique.</returns>
         public bool CheckExistingUsername(string userName)
         {
+            // SQL statement to find all records in the Logins table with a particular username.
             string checkUsername = "SELECT * FROM Logins WHERE Username='" + userName + "'";
 
+            // Gets a DataSet from the DatabaseConnection class.
             DataSet dsLogins = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(checkUsername);
-            int i = dsLogins.Tables[0].Rows.Count;
 
-            if (i > 0)
+            // Counts the number of rows in the DataSet.
+            int sameUsernames = dsLogins.Tables[0].Rows.Count;
+
+            // If the number of rows is more than 0 the method returns false.
+            if (sameUsernames > 0)
             {
                 return false;
             }

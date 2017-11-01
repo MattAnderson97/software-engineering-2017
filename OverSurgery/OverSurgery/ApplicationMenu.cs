@@ -38,20 +38,31 @@ namespace OverSurgery
             // Gets the user's chosen details from a text box.
             string userName = tbxUsername.Text;
             string password = tbxPassword.Text;
-
-            // If the details were succesfully added to the database, message displayed and panel closes, else 
-            // error message displayed.
-            if(LoginManager.GetLoginManagerInstance().CreateUser(userName, password) == true)
+            
+            // Switch runs the CreateUser method and displays different messages,
+            // depending on the outcome. 
+            switch(LoginManager.GetLoginManagerInstance().CreateUser(userName, password))
             {
-                MessageBox.Show("Account Created!", "Done!");
-                pnlCreateUser.Visible = false;
-                tbxUsername.Text = "";
-                tbxPassword.Text = "";
+                // User account created.
+                case 1:
+                    MessageBox.Show("Account Created!", "Done!");
+                    pnlCreateUser.Visible = false;
+                    tbxUsername.Text = "";
+                    tbxPassword.Text = "";
+                    break;
+                
+                // Username and password fields left blank.
+                case 2:
+                    MessageBox.Show("Please enter a username and password.", "Error!");
+                    break;
+                
+                // Entered username already exists.
+                case 3:
+                    MessageBox.Show("Please enter a different username.", "Username already exists!");
+                    tbxUsername.Text = "";
+                    tbxPassword.Text = "";
+                    break;
             }
-            else
-            {
-                MessageBox.Show("Please enter a username and password.", "Error!");
-            }           
         }
         #endregion
 

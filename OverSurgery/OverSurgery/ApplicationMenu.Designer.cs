@@ -131,6 +131,7 @@
             this.tbxPassword.Location = new System.Drawing.Point(129, 180);
             this.tbxPassword.MaxLength = 10;
             this.tbxPassword.Name = "tbxPassword";
+            this.tbxPassword.PasswordChar = '*';
             this.tbxPassword.Size = new System.Drawing.Size(200, 20);
             this.tbxPassword.TabIndex = 9;
             // 
