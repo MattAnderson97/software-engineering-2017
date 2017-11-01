@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Project
+namespace OverSurgery
 {
-    public partial class Menu : Form
+    public partial class ApplicationMenu : Form
     {
-        public Menu()
+        public ApplicationMenu()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

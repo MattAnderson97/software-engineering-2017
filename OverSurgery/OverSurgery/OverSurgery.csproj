@@ -62,6 +62,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationMenu.Designer.cs">
+      <DependentUpon>ApplicationMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Constants.cs" />
     <Compile Include="CreateAppointment.cs">
       <SubType>Form</SubType>
@@ -88,12 +94,6 @@
     </Compile>
     <Compile Include="ManageAppointments.Designer.cs">
       <DependentUpon>ManageAppointments.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Menu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Menu.Designer.cs">
-      <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Patient.cs" />
     <Compile Include="Program.cs" />
@@ -139,6 +139,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ApplicationMenu.resx">
+      <DependentUpon>ApplicationMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateAppointment.resx">
       <DependentUpon>CreateAppointment.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,9 +153,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManageAppointments.resx">
       <DependentUpon>ManageAppointments.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Menu.resx">
-      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StaffList.resx">
       <DependentUpon>StaffList.cs</DependentUpon>
