@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Data.SqlClient;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -36,20 +38,45 @@ namespace OverSurgery
             // If the details are not blank they will be added to the database.
             if (userName != "" && password != "")
             {
-                // SQL statement to be given to the database.
-                string insert = "INSERT INTO Logins (Username, Password) VALUES ('" + userName + "'" + ", '" + password /*EncryptPassword(password)*/ + "')";
+                if(CheckExistingUsername(userName) == true)
+                {
+                    // SQL statement to be given to the database.
+                    string insert = "INSERT INTO Logins (Username, Password) VALUES ('" + userName + "'" + ", '" + password /*EncryptPassword(password)*/ + "')";
 
-                // Method call to DatabaseConnection class.
-                DatabaseConnection.getDatabaseConnectionInstance().getDataSet(insert);
+                    // Method call to DatabaseConnection class.
+                    DatabaseConnection.getDatabaseConnectionInstance().getDataSet(insert);
 
-                // Returns true if details were successfully added.
-                return true;
+                    // Returns true if details were successfully added.
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                
             }
             else
             {
                 // Returns false if details were not successfully added.
                 return false;
             }          
+        }
+
+        public bool CheckExistingUsername(string userName)
+        {
+            string checkUsername = "SELECT * FROM Logins WHERE Username='" + userName + "'";
+
+            DataSet dsLogins = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(checkUsername);
+            int i = dsLogins.Tables[0].Rows.Count;
+
+            if (i > 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         /// <summary>
