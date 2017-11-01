@@ -8,6 +8,24 @@ namespace OverSurgery
 {
     class LoginManager
     {
+        #region PROPERTIES
+        // Declares instance of the LoginManager class.
+        public static LoginManager _instance;
+        #endregion
+
+        #region METHODS
+
+        /// <summary>
+        /// Creates an instance of the LoginManager class.
+        /// </summary>
+        /// <returns>Instance of the LoginManager class.</returns>
+        public static LoginManager GetLoginManagerInstance()
+        {
+            if (_instance == null)
+                _instance = new LoginManager();
+            return _instance;
+        }
+
         /// <summary>
         /// George
         /// </summary>
@@ -15,7 +33,8 @@ namespace OverSurgery
         /// <param name="password"></param>
         public void CreateUser(string userName, string password)
         {
-
+            string insert = "INSERT INTO Logins (Username, Password) VALUES ('" + userName + "'" + ", '" + password /*EncryptPassword(password)*/ + "')";
+            DatabaseConnection.getDatabaseConnectionInstance().getDataSet(insert);
         }
 
         /// <summary>
@@ -51,5 +70,6 @@ namespace OverSurgery
             // check parameters with stored data in DB
             return true;
         }
+        #endregion
     }
 }
