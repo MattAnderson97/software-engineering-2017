@@ -35,18 +35,21 @@ namespace OverSurgery
         // Create user panel create button.
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            if (tbxUsername.Text != "" && tbxPassword.Text != "")
+            // Gets the user's chosen details from a text box.
+            string userName = tbxUsername.Text;
+            string password = tbxPassword.Text;
+
+            // If the details were succesfully added to the database, message displayed and panel closes, else 
+            // error message displayed.
+            if(LoginManager.GetLoginManagerInstance().CreateUser(userName, password) == true)
             {
-                string userName = tbxUsername.Text;
-                string password = tbxPassword.Text;
-                LoginManager.GetLoginManagerInstance().CreateUser(userName, password);
                 MessageBox.Show("Account Created!", "Done!");
                 pnlCreateUser.Visible = false;
             }
             else
             {
                 MessageBox.Show("Please enter a username and password.", "Error!");
-            }
+            }           
         }
         #endregion
 
