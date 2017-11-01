@@ -45,6 +45,8 @@ namespace OverSurgery
             {
                 MessageBox.Show("Account Created!", "Done!");
                 pnlCreateUser.Visible = false;
+                tbxUsername.Text = "";
+                tbxPassword.Text = "";
             }
             else
             {
