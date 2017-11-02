@@ -20,7 +20,7 @@ namespace OverSurgery
 
             // Set the connection string.
             DatabaseConnection.ConnectionStr = Properties.Settings.Default.DBConnection;
-            // Application.Run(new Form1());
+            //Application.Run(new Form1());
             Application.Run(new ApplicationMenu());
         }
     }

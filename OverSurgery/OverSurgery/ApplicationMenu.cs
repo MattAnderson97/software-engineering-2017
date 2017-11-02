@@ -17,6 +17,12 @@ namespace OverSurgery
             InitializeComponent();
         }
 
+        // Main Menu Register Patient button click event.
+        private void btnRegisterPatientMainMenu_Click(object sender, EventArgs e)
+        {
+            pnlRegisterPatient.Visible = true;
+        }
+
         // Main Menu settings button click event.
         private void btnSettings_Click(object sender, EventArgs e)
         {
@@ -64,6 +70,48 @@ namespace OverSurgery
                     break;
             }
         }
+
+        #endregion
+
+        
+        #region pnlRegisterPatient
+
+        // Register Patient panel back button click event.
+        private void btnBackRegisterPatient_Click(object sender, EventArgs e)
+        {
+            pnlRegisterPatient.Visible = false;
+            tbxFirstName.ResetText();
+            tbxLastName.ResetText();
+            mtbTelephoneNumber.ResetText();
+            dtpDateOfBirth.ResetText();
+            cbxGender.ResetText();          
+            tbxAddress.ResetText();
+        }
+
+        // Register Patient panel register patient button click event.
+        private void btnRegisterPatient_Click(object sender, EventArgs e)
+        {
+            // Assigns patient details to patient info struct.
+            Patient.patientInfo patientDetails;
+            patientDetails.firstName = tbxFirstName.Text;
+            patientDetails.lastName = tbxLastName.Text;
+            patientDetails.telephoneNumber = mtbTelephoneNumber.Text;
+            patientDetails.dateOfBirth = dtpDateOfBirth.Value.ToShortDateString();
+            patientDetails.gender = cbxGender.Text;           
+            patientDetails.address = tbxAddress.Text;
+
+            // Calls the register method in the patient class and gives it the struct,
+            // if none of the data entry fields are empty.
+            if(Patient.GetPatientInstance().Register(patientDetails) == false)
+            {
+                MessageBox.Show("Please enter details into all fields.", "Empty fields!");
+            }
+            else
+            {
+                MessageBox.Show("Patient has been registered.", "Registered!");
+            }
+        }
+
         #endregion
 
         

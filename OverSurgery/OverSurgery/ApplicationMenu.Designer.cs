@@ -30,19 +30,36 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnRegisterPatientMainMenu = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.pnlCreateUser = new System.Windows.Forms.Panel();
-            this.btnBack = new System.Windows.Forms.Button();
+            this.btnBackCreateUser = new System.Windows.Forms.Button();
             this.tbxPassword = new System.Windows.Forms.TextBox();
             this.tbxUsername = new System.Windows.Forms.TextBox();
             this.btnCreate = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblCreateUser = new System.Windows.Forms.Label();
+            this.pnlRegisterPatient = new System.Windows.Forms.Panel();
+            this.btnBackRegisterPatient = new System.Windows.Forms.Button();
+            this.btnRegisterPatient = new System.Windows.Forms.Button();
+            this.tbxAddress = new System.Windows.Forms.TextBox();
+            this.mtbTelephoneNumber = new System.Windows.Forms.MaskedTextBox();
+            this.cbxGender = new System.Windows.Forms.ComboBox();
+            this.dtpDateOfBirth = new System.Windows.Forms.DateTimePicker();
+            this.tbxLastName = new System.Windows.Forms.TextBox();
+            this.tbxFirstName = new System.Windows.Forms.TextBox();
+            this.lblAddress = new System.Windows.Forms.Label();
+            this.lblTelephoneNumber = new System.Windows.Forms.Label();
+            this.lblGender = new System.Windows.Forms.Label();
+            this.lblDateOfBirth = new System.Windows.Forms.Label();
+            this.lblLastName = new System.Windows.Forms.Label();
+            this.lblFirstName = new System.Windows.Forms.Label();
+            this.lblRegisterPatient = new System.Windows.Forms.Label();
             this.pnlCreateUser.SuspendLayout();
+            this.pnlRegisterPatient.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -64,14 +81,15 @@
             this.button4.Text = "APPOINTMENTS";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnRegisterPatientMainMenu
             // 
-            this.button3.Location = new System.Drawing.Point(144, 245);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(194, 44);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "REGISTER PATIENTS";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnRegisterPatientMainMenu.Location = new System.Drawing.Point(144, 245);
+            this.btnRegisterPatientMainMenu.Name = "btnRegisterPatientMainMenu";
+            this.btnRegisterPatientMainMenu.Size = new System.Drawing.Size(194, 44);
+            this.btnRegisterPatientMainMenu.TabIndex = 7;
+            this.btnRegisterPatientMainMenu.Text = "REGISTER PATIENT";
+            this.btnRegisterPatientMainMenu.UseVisualStyleBackColor = true;
+            this.btnRegisterPatientMainMenu.Click += new System.EventHandler(this.btnRegisterPatientMainMenu_Click);
             // 
             // button2
             // 
@@ -103,7 +121,7 @@
             // 
             // pnlCreateUser
             // 
-            this.pnlCreateUser.Controls.Add(this.btnBack);
+            this.pnlCreateUser.Controls.Add(this.btnBackCreateUser);
             this.pnlCreateUser.Controls.Add(this.tbxPassword);
             this.pnlCreateUser.Controls.Add(this.tbxUsername);
             this.pnlCreateUser.Controls.Add(this.btnCreate);
@@ -116,15 +134,15 @@
             this.pnlCreateUser.TabIndex = 15;
             this.pnlCreateUser.Visible = false;
             // 
-            // btnBack
+            // btnBackCreateUser
             // 
-            this.btnBack.Location = new System.Drawing.Point(14, 11);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 23);
-            this.btnBack.TabIndex = 11;
-            this.btnBack.Text = "BACK";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.btnBackCreateUser.Location = new System.Drawing.Point(14, 11);
+            this.btnBackCreateUser.Name = "btnBackCreateUser";
+            this.btnBackCreateUser.Size = new System.Drawing.Size(75, 23);
+            this.btnBackCreateUser.TabIndex = 11;
+            this.btnBackCreateUser.Text = "BACK";
+            this.btnBackCreateUser.UseVisualStyleBackColor = true;
+            this.btnBackCreateUser.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // tbxPassword
             // 
@@ -182,22 +200,191 @@
             this.lblCreateUser.TabIndex = 5;
             this.lblCreateUser.Text = "CREATE USER";
             // 
+            // pnlRegisterPatient
+            // 
+            this.pnlRegisterPatient.Controls.Add(this.btnBackRegisterPatient);
+            this.pnlRegisterPatient.Controls.Add(this.btnRegisterPatient);
+            this.pnlRegisterPatient.Controls.Add(this.tbxAddress);
+            this.pnlRegisterPatient.Controls.Add(this.mtbTelephoneNumber);
+            this.pnlRegisterPatient.Controls.Add(this.cbxGender);
+            this.pnlRegisterPatient.Controls.Add(this.dtpDateOfBirth);
+            this.pnlRegisterPatient.Controls.Add(this.tbxLastName);
+            this.pnlRegisterPatient.Controls.Add(this.tbxFirstName);
+            this.pnlRegisterPatient.Controls.Add(this.lblAddress);
+            this.pnlRegisterPatient.Controls.Add(this.lblTelephoneNumber);
+            this.pnlRegisterPatient.Controls.Add(this.lblGender);
+            this.pnlRegisterPatient.Controls.Add(this.lblDateOfBirth);
+            this.pnlRegisterPatient.Controls.Add(this.lblLastName);
+            this.pnlRegisterPatient.Controls.Add(this.lblFirstName);
+            this.pnlRegisterPatient.Controls.Add(this.lblRegisterPatient);
+            this.pnlRegisterPatient.Location = new System.Drawing.Point(951, 38);
+            this.pnlRegisterPatient.Name = "pnlRegisterPatient";
+            this.pnlRegisterPatient.Size = new System.Drawing.Size(450, 357);
+            this.pnlRegisterPatient.TabIndex = 16;
+            this.pnlRegisterPatient.Visible = false;
+            // 
+            // btnBackRegisterPatient
+            // 
+            this.btnBackRegisterPatient.Location = new System.Drawing.Point(14, 11);
+            this.btnBackRegisterPatient.Name = "btnBackRegisterPatient";
+            this.btnBackRegisterPatient.Size = new System.Drawing.Size(75, 23);
+            this.btnBackRegisterPatient.TabIndex = 12;
+            this.btnBackRegisterPatient.Text = "BACK";
+            this.btnBackRegisterPatient.UseVisualStyleBackColor = true;
+            this.btnBackRegisterPatient.Click += new System.EventHandler(this.btnBackRegisterPatient_Click);
+            // 
+            // btnRegisterPatient
+            // 
+            this.btnRegisterPatient.Location = new System.Drawing.Point(148, 316);
+            this.btnRegisterPatient.Name = "btnRegisterPatient";
+            this.btnRegisterPatient.Size = new System.Drawing.Size(166, 30);
+            this.btnRegisterPatient.TabIndex = 12;
+            this.btnRegisterPatient.Text = "REGISTER PATIENT";
+            this.btnRegisterPatient.UseVisualStyleBackColor = true;
+            this.btnRegisterPatient.Click += new System.EventHandler(this.btnRegisterPatient_Click);
+            // 
+            // tbxAddress
+            // 
+            this.tbxAddress.BackColor = System.Drawing.Color.White;
+            this.tbxAddress.Location = new System.Drawing.Point(147, 244);
+            this.tbxAddress.MaxLength = 100;
+            this.tbxAddress.Multiline = true;
+            this.tbxAddress.Name = "tbxAddress";
+            this.tbxAddress.Size = new System.Drawing.Size(200, 66);
+            this.tbxAddress.TabIndex = 24;
+            // 
+            // mtbTelephoneNumber
+            // 
+            this.mtbTelephoneNumber.Location = new System.Drawing.Point(147, 210);
+            this.mtbTelephoneNumber.Mask = "000000000000000";
+            this.mtbTelephoneNumber.Name = "mtbTelephoneNumber";
+            this.mtbTelephoneNumber.Size = new System.Drawing.Size(97, 20);
+            this.mtbTelephoneNumber.TabIndex = 23;
+            this.mtbTelephoneNumber.ValidatingType = typeof(int);
+            // 
+            // cbxGender
+            // 
+            this.cbxGender.BackColor = System.Drawing.Color.White;
+            this.cbxGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxGender.FormattingEnabled = true;
+            this.cbxGender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.cbxGender.Location = new System.Drawing.Point(147, 178);
+            this.cbxGender.Name = "cbxGender";
+            this.cbxGender.Size = new System.Drawing.Size(200, 21);
+            this.cbxGender.TabIndex = 21;
+            // 
+            // dtpDateOfBirth
+            // 
+            this.dtpDateOfBirth.Location = new System.Drawing.Point(148, 146);
+            this.dtpDateOfBirth.MinDate = new System.DateTime(1890, 1, 1, 0, 0, 0, 0);
+            this.dtpDateOfBirth.Name = "dtpDateOfBirth";
+            this.dtpDateOfBirth.Size = new System.Drawing.Size(200, 20);
+            this.dtpDateOfBirth.TabIndex = 19;
+            this.dtpDateOfBirth.Value = new System.DateTime(2017, 11, 2, 0, 0, 0, 0);
+            // 
+            // tbxLastName
+            // 
+            this.tbxLastName.BackColor = System.Drawing.Color.White;
+            this.tbxLastName.Location = new System.Drawing.Point(147, 113);
+            this.tbxLastName.MaxLength = 10;
+            this.tbxLastName.Name = "tbxLastName";
+            this.tbxLastName.Size = new System.Drawing.Size(200, 20);
+            this.tbxLastName.TabIndex = 18;
+            // 
+            // tbxFirstName
+            // 
+            this.tbxFirstName.BackColor = System.Drawing.Color.White;
+            this.tbxFirstName.Location = new System.Drawing.Point(147, 73);
+            this.tbxFirstName.MaxLength = 10;
+            this.tbxFirstName.Name = "tbxFirstName";
+            this.tbxFirstName.Size = new System.Drawing.Size(200, 20);
+            this.tbxFirstName.TabIndex = 12;
+            // 
+            // lblAddress
+            // 
+            this.lblAddress.AutoSize = true;
+            this.lblAddress.Location = new System.Drawing.Point(93, 244);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Size = new System.Drawing.Size(48, 13);
+            this.lblAddress.TabIndex = 17;
+            this.lblAddress.Text = "Address:";
+            // 
+            // lblTelephoneNumber
+            // 
+            this.lblTelephoneNumber.AutoSize = true;
+            this.lblTelephoneNumber.Location = new System.Drawing.Point(41, 213);
+            this.lblTelephoneNumber.Name = "lblTelephoneNumber";
+            this.lblTelephoneNumber.Size = new System.Drawing.Size(101, 13);
+            this.lblTelephoneNumber.TabIndex = 16;
+            this.lblTelephoneNumber.Text = "Telephone Number:";
+            // 
+            // lblGender
+            // 
+            this.lblGender.AutoSize = true;
+            this.lblGender.Location = new System.Drawing.Point(96, 181);
+            this.lblGender.Name = "lblGender";
+            this.lblGender.Size = new System.Drawing.Size(45, 13);
+            this.lblGender.TabIndex = 15;
+            this.lblGender.Text = "Gender:";
+            // 
+            // lblDateOfBirth
+            // 
+            this.lblDateOfBirth.AutoSize = true;
+            this.lblDateOfBirth.Location = new System.Drawing.Point(73, 152);
+            this.lblDateOfBirth.Name = "lblDateOfBirth";
+            this.lblDateOfBirth.Size = new System.Drawing.Size(69, 13);
+            this.lblDateOfBirth.TabIndex = 14;
+            this.lblDateOfBirth.Text = "Date of Birth:";
+            // 
+            // lblLastName
+            // 
+            this.lblLastName.AutoSize = true;
+            this.lblLastName.Location = new System.Drawing.Point(80, 116);
+            this.lblLastName.Name = "lblLastName";
+            this.lblLastName.Size = new System.Drawing.Size(61, 13);
+            this.lblLastName.TabIndex = 13;
+            this.lblLastName.Text = "Last Name:";
+            // 
+            // lblFirstName
+            // 
+            this.lblFirstName.AutoSize = true;
+            this.lblFirstName.Location = new System.Drawing.Point(81, 76);
+            this.lblFirstName.Name = "lblFirstName";
+            this.lblFirstName.Size = new System.Drawing.Size(60, 13);
+            this.lblFirstName.TabIndex = 12;
+            this.lblFirstName.Text = "First Name:";
+            // 
+            // lblRegisterPatient
+            // 
+            this.lblRegisterPatient.AutoSize = true;
+            this.lblRegisterPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegisterPatient.Location = new System.Drawing.Point(114, 11);
+            this.lblRegisterPatient.Name = "lblRegisterPatient";
+            this.lblRegisterPatient.Size = new System.Drawing.Size(228, 25);
+            this.lblRegisterPatient.TabIndex = 12;
+            this.lblRegisterPatient.Text = "REGISTER PATIENT";
+            // 
             // ApplicationMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(932, 424);
+            this.ClientSize = new System.Drawing.Size(1541, 427);
+            this.Controls.Add(this.pnlRegisterPatient);
             this.Controls.Add(this.pnlCreateUser);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnRegisterPatientMainMenu);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "ApplicationMenu";
-            this.Text = "ApplicationMenu";
+            this.Text = "Over Surgery";
             this.pnlCreateUser.ResumeLayout(false);
             this.pnlCreateUser.PerformLayout();
+            this.pnlRegisterPatient.ResumeLayout(false);
+            this.pnlRegisterPatient.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,7 +394,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnRegisterPatientMainMenu;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnSettings;
@@ -218,6 +405,22 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Label lblCreateUser;
-        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnBackCreateUser;
+        private System.Windows.Forms.Panel pnlRegisterPatient;
+        private System.Windows.Forms.Label lblRegisterPatient;
+        private System.Windows.Forms.DateTimePicker dtpDateOfBirth;
+        private System.Windows.Forms.TextBox tbxLastName;
+        private System.Windows.Forms.TextBox tbxFirstName;
+        private System.Windows.Forms.Label lblAddress;
+        private System.Windows.Forms.Label lblTelephoneNumber;
+        private System.Windows.Forms.Label lblGender;
+        private System.Windows.Forms.Label lblDateOfBirth;
+        private System.Windows.Forms.Label lblLastName;
+        private System.Windows.Forms.Label lblFirstName;
+        private System.Windows.Forms.ComboBox cbxGender;
+        private System.Windows.Forms.MaskedTextBox mtbTelephoneNumber;
+        private System.Windows.Forms.TextBox tbxAddress;
+        private System.Windows.Forms.Button btnRegisterPatient;
+        private System.Windows.Forms.Button btnBackRegisterPatient;
     }
 }
