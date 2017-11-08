@@ -36,6 +36,8 @@ namespace OverSurgery
         {
             // If the back button is clicked the Create User panel will be hidden.
             pnlCreateUser.Visible = false;
+            tbxUsername.Text = "";
+            tbxPassword.Text = "";
         }
 
         // Create user panel create button.
@@ -109,6 +111,13 @@ namespace OverSurgery
             else
             {
                 MessageBox.Show("Patient has been registered.", "Registered!");
+                tbxFirstName.ResetText();
+                tbxLastName.ResetText();
+                mtbTelephoneNumber.ResetText();
+                dtpDateOfBirth.ResetText();
+                cbxGender.ResetText();
+                tbxAddress.ResetText();
+                pnlRegisterPatient.Hide();
             }
         }
 
