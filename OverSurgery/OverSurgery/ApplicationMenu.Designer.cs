@@ -288,7 +288,7 @@
             // 
             this.tbxLastName.BackColor = System.Drawing.Color.White;
             this.tbxLastName.Location = new System.Drawing.Point(147, 113);
-            this.tbxLastName.MaxLength = 10;
+            this.tbxLastName.MaxLength = 15;
             this.tbxLastName.Name = "tbxLastName";
             this.tbxLastName.Size = new System.Drawing.Size(200, 20);
             this.tbxLastName.TabIndex = 18;
@@ -297,7 +297,7 @@
             // 
             this.tbxFirstName.BackColor = System.Drawing.Color.White;
             this.tbxFirstName.Location = new System.Drawing.Point(147, 73);
-            this.tbxFirstName.MaxLength = 10;
+            this.tbxFirstName.MaxLength = 15;
             this.tbxFirstName.Name = "tbxFirstName";
             this.tbxFirstName.Size = new System.Drawing.Size(200, 20);
             this.tbxFirstName.TabIndex = 12;
