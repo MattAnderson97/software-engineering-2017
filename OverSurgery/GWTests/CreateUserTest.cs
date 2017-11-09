@@ -5,8 +5,11 @@ using OverSurgery;
 namespace GWTests
 {
     [TestClass]
-    public class UnitTest1
+    public class CreateUserTest
     {
+        /// <summary>
+        /// Tests if the "CreateUser" method returns the right error code values to the form.
+        /// </summary>
         [TestMethod]
         public void ReturnsError_IfNo_DataEntered()
         {
