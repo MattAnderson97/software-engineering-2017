@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OverSurgery
 {
-    class LoginManager
+    public class LoginManager
     {
         #region PROPERTIES
         // Declares instance of the LoginManager class.
