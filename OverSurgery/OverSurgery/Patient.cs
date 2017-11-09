@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OverSurgery
 {
-    class Patient
+    public class Patient
     {
         #region PROPERTIES
         // Declares an instance of the patient class.

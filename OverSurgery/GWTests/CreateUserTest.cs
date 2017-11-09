@@ -11,7 +11,7 @@ namespace GWTests
         /// Tests if the "CreateUser" method returns the right error code values to the form.
         /// </summary>
         [TestMethod]
-        public void ReturnsError_IfNo_DataEntered()
+        public void ReturnsErrorIfNoDataEntered()
         {
             // Initializes empty username and password variables.
             string username = "";
