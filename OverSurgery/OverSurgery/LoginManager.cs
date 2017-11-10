@@ -161,8 +161,18 @@ namespace OverSurgery
         /// <returns></returns>
         public bool ValidateCredentials(string userName, string encryptedPassword)
         {
-            // check parameters with stored data in DB
-            return true;
+            string checkCredentials = String.Format("SELECT * FROM Logins WHERE Username = '{0}' AND Password = '{1}'", userName, encryptedPassword);
+            DataSet dsLogins = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(checkCredentials);
+            int matchingLogins = dsLogins.Tables[0].Rows.Count;
+
+            if (matchingLogins == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         #endregion
     }
