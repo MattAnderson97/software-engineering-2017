@@ -127,11 +127,9 @@ namespace OverSurgery
         public static string EncryptPassword(string password)
         {
             var sha512 = new SHA512CryptoServiceProvider();  // use var for readability with obvious type
-            int saltLength = 64; // 64 bits to match length of sha512
-
-            byte[] salt = GenSalt(saltLength); // Generate a 64 bit salt
-            byte[] saltedPassword = Encoding.UTF8.GetBytes(password).Concat(salt).ToArray(); // apply salt to password and store as byte array
-            byte[] hash = sha512.ComputeHash(saltedPassword); // Get a 64 bit hash of the salted password
+            // int saltLength = 64; // 64 bits to match length of sha512
+            byte[] passwordBytes = Encoding.UTF8.GetBytes(password).ToArray(); // convert password to byte array
+            byte[] hash = sha512.ComputeHash(passwordBytes); // Get a 64 bit hash of the password
 
             //convert hash to string
             var stringBuilder = new StringBuilder();
