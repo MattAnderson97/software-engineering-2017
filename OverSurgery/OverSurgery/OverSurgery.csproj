@@ -62,6 +62,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationLogin.Designer.cs">
+      <DependentUpon>ApplicationLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="ApplicationMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,12 +87,6 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginManager.cs" />
     <Compile Include="ManageAppointments.cs">
@@ -139,6 +139,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ApplicationLogin.resx">
+      <DependentUpon>ApplicationLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ApplicationMenu.resx">
       <DependentUpon>ApplicationMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,9 +150,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageAppointments.resx">
       <DependentUpon>ManageAppointments.cs</DependentUpon>

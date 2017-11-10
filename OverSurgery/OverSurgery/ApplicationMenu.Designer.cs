@@ -58,15 +58,26 @@
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblRegisterPatient = new System.Windows.Forms.Label();
+            this.pnlLogin = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.pnlMainMenu = new System.Windows.Forms.Panel();
             this.pnlCreateUser.SuspendLayout();
             this.pnlRegisterPatient.SuspendLayout();
+            this.pnlLogin.SuspendLayout();
+            this.pnlMainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(165, 43);
+            this.label1.Location = new System.Drawing.Point(138, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(141, 25);
             this.label1.TabIndex = 9;
@@ -74,7 +85,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(144, 315);
+            this.button4.Location = new System.Drawing.Point(114, 277);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(194, 40);
             this.button4.TabIndex = 8;
@@ -83,7 +94,7 @@
             // 
             // btnRegisterPatientMainMenu
             // 
-            this.btnRegisterPatientMainMenu.Location = new System.Drawing.Point(144, 245);
+            this.btnRegisterPatientMainMenu.Location = new System.Drawing.Point(114, 207);
             this.btnRegisterPatientMainMenu.Name = "btnRegisterPatientMainMenu";
             this.btnRegisterPatientMainMenu.Size = new System.Drawing.Size(194, 44);
             this.btnRegisterPatientMainMenu.TabIndex = 7;
@@ -93,7 +104,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(144, 180);
+            this.button2.Location = new System.Drawing.Point(114, 142);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(194, 44);
             this.button2.TabIndex = 6;
@@ -102,7 +113,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(144, 114);
+            this.button1.Location = new System.Drawing.Point(114, 76);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(194, 39);
             this.button1.TabIndex = 5;
@@ -111,7 +122,7 @@
             // 
             // btnSettings
             // 
-            this.btnSettings.Location = new System.Drawing.Point(351, 372);
+            this.btnSettings.Location = new System.Drawing.Point(336, 322);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(75, 23);
             this.btnSettings.TabIndex = 10;
@@ -366,27 +377,120 @@
             this.lblRegisterPatient.TabIndex = 12;
             this.lblRegisterPatient.Text = "REGISTER PATIENT";
             // 
+            // pnlLogin
+            // 
+            this.pnlLogin.Controls.Add(this.checkBox1);
+            this.pnlLogin.Controls.Add(this.label3);
+            this.pnlLogin.Controls.Add(this.txtPassword);
+            this.pnlLogin.Controls.Add(this.txtUserName);
+            this.pnlLogin.Controls.Add(this.label4);
+            this.pnlLogin.Controls.Add(this.label5);
+            this.pnlLogin.Controls.Add(this.btnLogin);
+            this.pnlLogin.Location = new System.Drawing.Point(12, 417);
+            this.pnlLogin.Name = "pnlLogin";
+            this.pnlLogin.Size = new System.Drawing.Size(437, 357);
+            this.pnlLogin.TabIndex = 17;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(172, 208);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(128, 17);
+            this.checkBox1.TabIndex = 23;
+            this.checkBox1.Text = "Remember Username";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(78, 57);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(144, 25);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "OverSurgery";
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(185, 161);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(100, 20);
+            this.txtPassword.TabIndex = 21;
+            // 
+            // txtUserName
+            // 
+            this.txtUserName.Location = new System.Drawing.Point(185, 122);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(100, 20);
+            this.txtUserName.TabIndex = 20;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(100, 164);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 16);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Password";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(100, 125);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(74, 16);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "UserName";
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Location = new System.Drawing.Point(147, 263);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(75, 32);
+            this.btnLogin.TabIndex = 16;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // pnlMainMenu
+            // 
+            this.pnlMainMenu.Controls.Add(this.label1);
+            this.pnlMainMenu.Controls.Add(this.button1);
+            this.pnlMainMenu.Controls.Add(this.button2);
+            this.pnlMainMenu.Controls.Add(this.btnRegisterPatientMainMenu);
+            this.pnlMainMenu.Controls.Add(this.btnSettings);
+            this.pnlMainMenu.Controls.Add(this.button4);
+            this.pnlMainMenu.Location = new System.Drawing.Point(12, 38);
+            this.pnlMainMenu.Name = "pnlMainMenu";
+            this.pnlMainMenu.Size = new System.Drawing.Size(437, 357);
+            this.pnlMainMenu.TabIndex = 24;
+            this.pnlMainMenu.Visible = false;
+            // 
             // ApplicationMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1541, 427);
+            this.ClientSize = new System.Drawing.Size(1541, 823);
+            this.Controls.Add(this.pnlMainMenu);
+            this.Controls.Add(this.pnlLogin);
             this.Controls.Add(this.pnlRegisterPatient);
             this.Controls.Add(this.pnlCreateUser);
-            this.Controls.Add(this.btnSettings);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.btnRegisterPatientMainMenu);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Name = "ApplicationMenu";
             this.Text = "Over Surgery";
             this.pnlCreateUser.ResumeLayout(false);
             this.pnlCreateUser.PerformLayout();
             this.pnlRegisterPatient.ResumeLayout(false);
             this.pnlRegisterPatient.PerformLayout();
+            this.pnlLogin.ResumeLayout(false);
+            this.pnlLogin.PerformLayout();
+            this.pnlMainMenu.ResumeLayout(false);
+            this.pnlMainMenu.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -422,5 +526,14 @@
         private System.Windows.Forms.TextBox tbxAddress;
         private System.Windows.Forms.Button btnRegisterPatient;
         private System.Windows.Forms.Button btnBackRegisterPatient;
+        private System.Windows.Forms.Panel pnlLogin;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.TextBox txtUserName;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Panel pnlMainMenu;
     }
 }

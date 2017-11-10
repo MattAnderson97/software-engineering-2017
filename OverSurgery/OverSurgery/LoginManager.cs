@@ -44,8 +44,8 @@ namespace OverSurgery
                 if(CheckExistingUsername(userName) == true)
                 {
                     // SQL statement to be given to the database.
-                    string encryptedPassword = EncryptPassword(password);
-                    string insert = "INSERT INTO Logins (Username, Password) VALUES ('" + userName + "'" + ", '" + encryptedPassword /*EncryptPassword(password)*/ + "')";
+                    //string encryptedPassword = EncryptPassword(password);
+                    string insert = "INSERT INTO Logins (Username, Password) VALUES ('" + userName + "'" + ", '" + password /*EncryptPassword(password)*/ + "')";
 
                     // Method call to DatabaseConnection class.
                     DatabaseConnection.getDatabaseConnectionInstance().getDataSet(insert);
@@ -99,11 +99,24 @@ namespace OverSurgery
         /// </summary>
         /// <param name="userName"></param>
         /// <param name="password"></param>
-        public void Login(string userName, string password)
+        public bool Login(string userName, string password)
         {
-            if (ValidateCredentials(userName, EncryptPassword(password)))
+            if (ValidateCredentials(userName, password) == true)
             {
-                // ...
+                /*DataTable dttable = new DataTable();
+                string SQL = "SELECT FROM Login where userName ='" + userName + "' AND Password ='" + password + "'";
+                SqlDataAdapter Consultantdataadapter = new SqlDataAdapter();
+                Consultantdataadapter.Fill(dttable);
+                foreach (DataRow myrow in consultanttable.Rows)
+                    if (DataTable.Rows.Count > 0)
+                    {
+
+                    }*/
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
@@ -160,7 +173,7 @@ namespace OverSurgery
         /// <param name="password"></param>
         /// <returns></returns>
         public bool ValidateCredentials(string userName, string encryptedPassword)
-        {
+       {
             string checkCredentials = String.Format("SELECT * FROM Logins WHERE Username = '{0}' AND Password = '{1}'", userName, encryptedPassword);
             DataSet dsLogins = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(checkCredentials);
             int matchingLogins = dsLogins.Tables[0].Rows.Count;

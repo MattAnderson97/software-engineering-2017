@@ -17,6 +17,7 @@ namespace OverSurgery
             InitializeComponent();
         }
 
+        #region pnlMainMenu
         // Main Menu Register Patient button click event.
         private void btnRegisterPatientMainMenu_Click(object sender, EventArgs e)
         {
@@ -29,6 +30,59 @@ namespace OverSurgery
             // If the settings button is clicked the Create User panel will be displayed.
             pnlCreateUser.Visible = true;
         }
+        #endregion
+
+        #region pnlLogin
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (txtUserName.Text == "")
+            {
+                MessageBox.Show("Please enter a valid user name");
+                txtUserName.Focus();
+            }
+            else if (txtPassword.Text == "")
+            {
+                MessageBox.Show("Please enter a valid password");
+                txtPassword.Focus();
+            }
+
+            string userName, password;
+            userName = txtUserName.Text;
+            password = txtPassword.Text;
+
+            if(LoginManager.GetLoginManagerInstance().Login(userName, password) == true)
+            {
+                pnlLogin.Visible = false;
+                pnlMainMenu.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid username and password.", "Incorrect Login Details!");
+                txtUserName.Clear();
+                txtPassword.Clear();
+            }
+
+
+            // Not sure what this is doing?
+            /*DataSet ds = new DataSet("Logins");
+         
+            foreach (DataRow dr in ds.Tables["Logins"].Rows)
+            {
+                if (dr["Username"].ToString() == "Username")
+                {
+                    if (dr["Password"].ToString() == "Password")
+                    {
+                        ApplicationLogin myForm1 = new ApplicationLogin();
+                        myForm1.Hide();
+                        break;
+                    }
+                }
+                else
+                    MessageBox.Show("Invalid username or password");
+            }*/
+        }
+
+        #endregion
 
         #region pnlCreateUser
         // Create User panel back button click event.
@@ -74,8 +128,7 @@ namespace OverSurgery
         }
 
         #endregion
-
-        
+     
         #region pnlRegisterPatient
 
         // Register Patient panel back button click event.
@@ -121,8 +174,8 @@ namespace OverSurgery
             }
         }
 
+
         #endregion
 
-        
     }
 }
