@@ -122,6 +122,7 @@ namespace OverSurgery
 
         /// <summary>
         /// Matt
+        /// comment
         /// </summary>
         /// <param name="password"></param>
         public static string EncryptPassword(string password)
