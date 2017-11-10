@@ -44,8 +44,8 @@ namespace OverSurgery
                 if(CheckExistingUsername(userName) == true)
                 {
                     // SQL statement to be given to the database.
-                    //string encryptedPassword = EncryptPassword(password);
-                    string insert = "INSERT INTO Logins (Username, Password) VALUES ('" + userName + "'" + ", '" + password /*EncryptPassword(password)*/ + "')";
+                    string encryptedPassword = EncryptPassword(password);
+                    string insert = "INSERT INTO Logins (Username, Password) VALUES ('" + userName + "'" + ", '" + encryptedPassword + "')";
 
                     // Method call to DatabaseConnection class.
                     DatabaseConnection.getDatabaseConnectionInstance().getDataSet(insert);
