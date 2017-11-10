@@ -101,7 +101,7 @@ namespace OverSurgery
         /// <param name="password"></param>
         public bool Login(string userName, string password)
         {//
-            if (ValidateCredentials(userName, password) == true)
+            if (ValidateCredentials(userName, EncryptPassword(password)) == true)
             {
                 /*DataTable dttable = new DataTable();
                 string SQL = "SELECT FROM Login where userName ='" + userName + "' AND Password ='" + password + "'";
@@ -129,9 +129,9 @@ namespace OverSurgery
             var sha512 = new SHA512CryptoServiceProvider();  // use var for readability with obvious type
             int saltLength = 64; // 64 bits to match length of sha512
 
-            byte[] salt = GenSalt(saltLength); // Generate a 64 bit salt
-            byte[] saltedPassword = Encoding.UTF8.GetBytes(password).Concat(salt).ToArray(); // apply salt to password and store as byte array
-            byte[] hash = sha512.ComputeHash(saltedPassword); // Get a 64 bit hash of the salted password
+            // byte[] salt = GenSalt(saltLength); // Generate a 64 bit salt
+            byte[] passwordBytes = Encoding.UTF8.GetBytes(password).ToArray(); // apply salt to password and store as byte array
+            byte[] hash = sha512.ComputeHash(passwordBytes); // Get a 64 bit hash of the salted password
 
             //convert hash to string
             var stringBuilder = new StringBuilder();
