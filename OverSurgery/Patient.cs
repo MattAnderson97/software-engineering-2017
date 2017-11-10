@@ -112,10 +112,5 @@ namespace OverSurgery
         {
 
         }
-
-        public void FindSearchType()
-        {
-
-        }
     }
 }
