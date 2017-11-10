@@ -44,8 +44,8 @@ namespace OverSurgery
                 if(CheckExistingUsername(userName) == true)
                 {
                     // SQL statement to be given to the database.
-                    //string encryptedPassword = EncryptPassword(password);
-                    string insert = "INSERT INTO Logins (Username, Password) VALUES ('" + userName + "'" + ", '" + password /*EncryptPassword(password)*/ + "')";
+                    string encryptedPassword = EncryptPassword(password);
+                    string insert = "INSERT INTO Logins (Username, Password) VALUES ('" + userName + "'" + ", '" + encryptedPassword + "')";
 
                     // Method call to DatabaseConnection class.
                     DatabaseConnection.getDatabaseConnectionInstance().getDataSet(insert);
@@ -101,7 +101,7 @@ namespace OverSurgery
         /// <param name="password"></param>
         public bool Login(string userName, string password)
         {
-            if (ValidateCredentials(userName, password) == true)
+            if (ValidateCredentials(userName, EncryptPassword(password)) == true)
             {
                 /*DataTable dttable = new DataTable();
                 string SQL = "SELECT FROM Login where userName ='" + userName + "' AND Password ='" + password + "'";
@@ -127,7 +127,7 @@ namespace OverSurgery
         public static string EncryptPassword(string password)
         {
             var sha512 = new SHA512CryptoServiceProvider();  // use var for readability with obvious type
-            // int saltLength = 64; // 64 bits to match length of sha512
+            int saltLength = 64; // 64 bits to match length of sha512
             byte[] passwordBytes = Encoding.UTF8.GetBytes(password).ToArray(); // convert password to byte array
             byte[] hash = sha512.ComputeHash(passwordBytes); // Get a 64 bit hash of the password
 
@@ -171,7 +171,7 @@ namespace OverSurgery
         /// <param name="password"></param>
         /// <returns></returns>
         public bool ValidateCredentials(string userName, string encryptedPassword)
-       {
+        {            
             string checkCredentials = String.Format("SELECT * FROM Logins WHERE Username = '{0}' AND Password = '{1}'", userName, encryptedPassword);
             DataSet dsLogins = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(checkCredentials);
             int matchingLogins = dsLogins.Tables[0].Rows.Count;
