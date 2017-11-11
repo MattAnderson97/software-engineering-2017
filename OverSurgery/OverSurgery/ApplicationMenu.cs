@@ -15,6 +15,11 @@ namespace OverSurgery
         public ApplicationMenu()
         {
             InitializeComponent();
+
+            #region pnlAddAppointment
+            dtpDateAddApptPanel.MinDate = DateTime.Today;
+            dtpDateAddApptPanel.Value = DateTime.Today;
+            #endregion
         }
 
         #region pnlMainMenu
@@ -61,7 +66,6 @@ namespace OverSurgery
                 txtUserName.Clear();
                 txtPassword.Clear();
             }
-
 
             // Not sure what this is doing?
             /*DataSet ds = new DataSet("Logins");
@@ -177,9 +181,21 @@ namespace OverSurgery
 
         #endregion
 
+        #region pnlAddAppointment
+        private void cbxMinutesAddApptPanel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string apptDate = dtpDateAddApptPanel.Value.ToShortDateString();
+            string apptTime = cbxHoursAddApptPanel.Text + ":" + cbxMinutesAddApptPanel.Text;
+            tbxTest.Text = AddAppointment.GetAddAppointmentInstance().CheckAvailableStaff(apptDate, apptTime);
+        }
+        #endregion
+
+
         private void button4_Click(object sender, EventArgs e)
         {
 
         }
+
+
     }
 }
