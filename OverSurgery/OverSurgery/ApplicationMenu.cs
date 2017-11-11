@@ -15,11 +15,6 @@ namespace OverSurgery
         public ApplicationMenu()
         {
             InitializeComponent();
-
-            #region pnlAddAppointment
-            dtpDateAddApptPanel.MinDate = DateTime.Today;
-            dtpDateAddApptPanel.Value = DateTime.Today;
-            #endregion
         }
 
         #region pnlMainMenu
@@ -34,6 +29,17 @@ namespace OverSurgery
         {
             // If the settings button is clicked the Create User panel will be displayed.
             pnlCreateUser.Visible = true;
+        }
+
+        // Main Menu Add Appointment button click event
+        private void btnAddApptMainMenuPanel_Click(object sender, EventArgs e)
+        {
+            // If the add appointment button is clicked the panel will be displayed.
+            pnlAddAppointment.Visible = true;
+
+            // Sets the displayed date and minDate to todays date.
+            dtpDateAddApptPanel.MinDate = DateTime.Today;
+            dtpDateAddApptPanel.Value = DateTime.Today;
         }
         #endregion
 
@@ -179,22 +185,23 @@ namespace OverSurgery
         }
 
 
+
         #endregion
 
-        #region pnlAddAppointment
-        private void cbxMinutesAddApptPanel_SelectedIndexChanged(object sender, EventArgs e)
+        #region pnlAddAppointment        
+        private void dtpDateAddApptPanel_ValueChanged(object sender, EventArgs e)
         {
-            string apptDate = dtpDateAddApptPanel.Value.ToShortDateString();
-            string apptTime = cbxHoursAddApptPanel.Text + ":" + cbxMinutesAddApptPanel.Text;
-            tbxTest.Text = AddAppointment.GetAddAppointmentInstance().CheckAvailableStaff(apptDate, apptTime);
+            string chosenDate = dtpDateAddApptPanel.Value.ToShortDateString();
+
+            List<string> textList = new List<string>();
+            textList = AddAppointment.GetAddAppointmentInstance().FindChosenDate(chosenDate);
+            
+            for(int i = 0; i < textList.Count; i++)
+            {
+                tbxTest.AppendText(textList[i] + Environment.NewLine);
+            }
         }
         #endregion
-
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
 
 
     }

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnAddApptMainMenuPanel = new System.Windows.Forms.Button();
             this.btnRegisterPatientMainMenu = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -100,15 +100,15 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "MAIN MENU";
             // 
-            // button4
+            // btnAddApptMainMenuPanel
             // 
-            this.button4.Location = new System.Drawing.Point(106, 229);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(194, 40);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "ADD APPOINTMENT";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnAddApptMainMenuPanel.Location = new System.Drawing.Point(106, 229);
+            this.btnAddApptMainMenuPanel.Name = "btnAddApptMainMenuPanel";
+            this.btnAddApptMainMenuPanel.Size = new System.Drawing.Size(194, 40);
+            this.btnAddApptMainMenuPanel.TabIndex = 8;
+            this.btnAddApptMainMenuPanel.Text = "ADD APPOINTMENT";
+            this.btnAddApptMainMenuPanel.UseVisualStyleBackColor = true;
+            this.btnAddApptMainMenuPanel.Click += new System.EventHandler(this.btnAddApptMainMenuPanel_Click);
             // 
             // btnRegisterPatientMainMenu
             // 
@@ -161,7 +161,6 @@
             this.pnlCreateUser.Name = "pnlCreateUser";
             this.pnlCreateUser.Size = new System.Drawing.Size(437, 357);
             this.pnlCreateUser.TabIndex = 15;
-            this.pnlCreateUser.Visible = false;
             // 
             // btnBackCreateUser
             // 
@@ -483,7 +482,7 @@
             this.pnlMainMenu.Controls.Add(this.button2);
             this.pnlMainMenu.Controls.Add(this.btnRegisterPatientMainMenu);
             this.pnlMainMenu.Controls.Add(this.btnSettings);
-            this.pnlMainMenu.Controls.Add(this.button4);
+            this.pnlMainMenu.Controls.Add(this.btnAddApptMainMenuPanel);
             this.pnlMainMenu.Location = new System.Drawing.Point(12, 38);
             this.pnlMainMenu.Name = "pnlMainMenu";
             this.pnlMainMenu.Size = new System.Drawing.Size(437, 357);
@@ -522,10 +521,11 @@
             // 
             // tbxTest
             // 
-            this.tbxTest.Location = new System.Drawing.Point(128, 220);
+            this.tbxTest.Location = new System.Drawing.Point(128, 208);
             this.tbxTest.MaxLength = 10;
+            this.tbxTest.Multiline = true;
             this.tbxTest.Name = "tbxTest";
-            this.tbxTest.Size = new System.Drawing.Size(200, 20);
+            this.tbxTest.Size = new System.Drawing.Size(200, 75);
             this.tbxTest.TabIndex = 12;
             // 
             // cbxStaffAddApptPanel
@@ -593,7 +593,6 @@
             this.cbxMinutesAddApptPanel.Name = "cbxMinutesAddApptPanel";
             this.cbxMinutesAddApptPanel.Size = new System.Drawing.Size(37, 21);
             this.cbxMinutesAddApptPanel.TabIndex = 31;
-            this.cbxMinutesAddApptPanel.SelectedIndexChanged += new System.EventHandler(this.cbxMinutesAddApptPanel_SelectedIndexChanged);
             // 
             // cbxHoursAddApptPanel
             // 
@@ -626,6 +625,7 @@
             this.dtpDateAddApptPanel.Size = new System.Drawing.Size(200, 20);
             this.dtpDateAddApptPanel.TabIndex = 25;
             this.dtpDateAddApptPanel.Value = new System.DateTime(2017, 11, 10, 0, 0, 0, 0);
+            this.dtpDateAddApptPanel.ValueChanged += new System.EventHandler(this.dtpDateAddApptPanel_ValueChanged);
             // 
             // lblStaff
             // 
@@ -702,7 +702,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnAddApptMainMenuPanel;
         private System.Windows.Forms.Button btnRegisterPatientMainMenu;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;

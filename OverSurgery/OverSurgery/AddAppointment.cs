@@ -11,6 +11,10 @@ namespace OverSurgery
     {
         #region PROPERTIES
         private static AddAppointment _instance;
+
+        private List<string> dateList = new List<string>();
+
+        private List<string> allDatesList = new List<string>();
         #endregion
 
         #region METHODS
@@ -22,26 +26,59 @@ namespace OverSurgery
             return _instance;
         }
 
-        public string CheckAvailableStaff(string apptDate, string apptTime)
+        public List<string> FindChosenDate(string chosenDate)
         {
-            string select = String.Format("SELECT * FROM Appointment WHERE Date = '{0}' AND Time = '{1}'",apptDate, apptTime);
-            DataSet dsAppointment = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(select);
+            string selectAllDate = String.Format("SELECT * FROM Appointment WHERE Date = '{0}'", chosenDate);
+            DataSet dsAppointment = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(selectAllDate);
+            return GetDateList(dsAppointment);           
+        }
 
+        public List<string> GetDateList(DataSet dsAppointment)
+        {
             if(dsAppointment.Tables[0].Rows.Count > 0)
             {
-                string first = dsAppointment.Tables[0].Rows[0]["StaffId_Fk"].ToString();
-                return first;
-            }
-            else
-            {
-                return "nothing";
+                for (int i = 0; i < dsAppointment.Tables[0].Rows.Count; i++)
+                {
+                    dateList.Add(dsAppointment.Tables[0].Rows[i]["Date"].ToString());
+                }
             }
             
-            
+            return allDatesList;
         }
+
+        public void CompareDateList()
+        {
+
+        }
+
         #endregion
 
         #region CONSTRUCTORS
+        public AddAppointment()
+        {
+            int hour = 7;
+
+            for (int i = 0; i <= 8; i++)
+            {
+                hour++;
+                string stringHour = hour.ToString();
+                int minute = 0;
+
+                for (int j = 0; j <= 5; j++)
+                {
+                    string stringMinute = minute.ToString();
+
+                    if (stringMinute == "0")
+                    {
+                        stringMinute = stringMinute + "0";
+                    }
+
+                    allDatesList.Add(stringHour + ":" + stringMinute);
+
+                    minute = minute + 10;
+                }
+            }
+        }
         #endregion
     }
 }
