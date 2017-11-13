@@ -157,10 +157,11 @@
             this.pnlCreateUser.Controls.Add(this.label2);
             this.pnlCreateUser.Controls.Add(this.lblUserName);
             this.pnlCreateUser.Controls.Add(this.lblCreateUser);
-            this.pnlCreateUser.Location = new System.Drawing.Point(462, 38);
+            this.pnlCreateUser.Location = new System.Drawing.Point(0, 0);
             this.pnlCreateUser.Name = "pnlCreateUser";
             this.pnlCreateUser.Size = new System.Drawing.Size(437, 357);
             this.pnlCreateUser.TabIndex = 15;
+            this.pnlCreateUser.Visible = false;
             // 
             // btnBackCreateUser
             // 
@@ -245,7 +246,7 @@
             this.pnlRegisterPatient.Controls.Add(this.lblLastName);
             this.pnlRegisterPatient.Controls.Add(this.lblFirstName);
             this.pnlRegisterPatient.Controls.Add(this.lblRegisterPatient);
-            this.pnlRegisterPatient.Location = new System.Drawing.Point(951, 38);
+            this.pnlRegisterPatient.Location = new System.Drawing.Point(12, 38);
             this.pnlRegisterPatient.Name = "pnlRegisterPatient";
             this.pnlRegisterPatient.Size = new System.Drawing.Size(450, 357);
             this.pnlRegisterPatient.TabIndex = 16;
@@ -480,6 +481,7 @@
             this.pnlMainMenu.Controls.Add(this.label1);
             this.pnlMainMenu.Controls.Add(this.button1);
             this.pnlMainMenu.Controls.Add(this.button2);
+            this.pnlMainMenu.Controls.Add(this.pnlCreateUser);
             this.pnlMainMenu.Controls.Add(this.btnRegisterPatientMainMenu);
             this.pnlMainMenu.Controls.Add(this.btnSettings);
             this.pnlMainMenu.Controls.Add(this.btnAddApptMainMenuPanel);
@@ -514,7 +516,7 @@
             this.pnlAddAppointment.Controls.Add(this.lblDateAddApptPanel);
             this.pnlAddAppointment.Controls.Add(this.lblPatient);
             this.pnlAddAppointment.Controls.Add(this.lblAddAppointment);
-            this.pnlAddAppointment.Location = new System.Drawing.Point(462, 417);
+            this.pnlAddAppointment.Location = new System.Drawing.Point(485, 38);
             this.pnlAddAppointment.Name = "pnlAddAppointment";
             this.pnlAddAppointment.Size = new System.Drawing.Size(437, 357);
             this.pnlAddAppointment.TabIndex = 25;
@@ -677,12 +679,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1275, 794);
+            this.ClientSize = new System.Drawing.Size(1344, 741);
             this.Controls.Add(this.pnlAddAppointment);
             this.Controls.Add(this.pnlMainMenu);
             this.Controls.Add(this.pnlLogin);
             this.Controls.Add(this.pnlRegisterPatient);
-            this.Controls.Add(this.pnlCreateUser);
             this.Name = "ApplicationMenu";
             this.Text = "Over Surgery";
             this.pnlCreateUser.ResumeLayout(false);

@@ -8,7 +8,7 @@ namespace OverSurgery
 {
     class Constants
     {
-        public static string selectAll = "SELECT * FROM Appointment";
+        public static string selectAll = "SELECT * FROM StaffMember";
         public static string selectAllOver20 = "SELECT * FROM Patient WHERE Age>20";
     }
 }

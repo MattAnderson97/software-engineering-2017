@@ -195,6 +195,8 @@ namespace OverSurgery
 
             List<string> textList = new List<string>();
             textList = AddAppointment.GetAddAppointmentInstance().FindChosenDate(chosenDate);
+
+            tbxTest.Clear();
             
             for(int i = 0; i < textList.Count; i++)
             {
