@@ -193,7 +193,7 @@ namespace OverSurgery
         {
             string chosenDate = dtpDateAddApptPanel.Value.ToShortDateString();
 
-            List<string> textList = new List<string>();
+            /*List<string> textList = new List<string>();
             textList = AddAppointment.GetAddAppointmentInstance().FindChosenDate(chosenDate);
 
             tbxTest.Clear();
@@ -201,6 +201,17 @@ namespace OverSurgery
             for(int i = 0; i < textList.Count; i++)
             {
                 tbxTest.AppendText(textList[i] + Environment.NewLine);
+            }*/
+
+            List<string> appointmentTimes = new List<string>();
+
+            appointmentTimes = AddAppointment.GetAddAppointmentInstance().FindChosenDate(chosenDate);
+
+            lbxApptTimeAddApptPanel.Items.Clear();
+
+            for(int i = 0; i < appointmentTimes.Count; i++)
+            {
+                lbxApptTimeAddApptPanel.Items.Add(appointmentTimes[i]);
             }
         }
         #endregion

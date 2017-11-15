@@ -37,11 +37,6 @@
             this.pnlCreateUser = new System.Windows.Forms.Panel();
             this.btnBackCreateUser = new System.Windows.Forms.Button();
             this.tbxPassword = new System.Windows.Forms.TextBox();
-            this.tbxUsername = new System.Windows.Forms.TextBox();
-            this.btnCreate = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblUserName = new System.Windows.Forms.Label();
-            this.lblCreateUser = new System.Windows.Forms.Label();
             this.pnlRegisterPatient = new System.Windows.Forms.Panel();
             this.btnBackRegisterPatient = new System.Windows.Forms.Button();
             this.btnRegisterPatient = new System.Windows.Forms.Button();
@@ -58,6 +53,11 @@
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblRegisterPatient = new System.Windows.Forms.Label();
+            this.tbxUsername = new System.Windows.Forms.TextBox();
+            this.btnCreate = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblUserName = new System.Windows.Forms.Label();
+            this.lblCreateUser = new System.Windows.Forms.Label();
             this.pnlLogin = new System.Windows.Forms.Panel();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -69,20 +69,15 @@
             this.pnlMainMenu = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.pnlAddAppointment = new System.Windows.Forms.Panel();
-            this.tbxTest = new System.Windows.Forms.TextBox();
-            this.cbxStaffAddApptPanel = new System.Windows.Forms.ComboBox();
             this.btnAddPatientAddApptPanel = new System.Windows.Forms.Button();
             this.btnCancelAddApptPanel = new System.Windows.Forms.Button();
             this.btnAddAddApptPanel = new System.Windows.Forms.Button();
-            this.lblColonAddApptPanel = new System.Windows.Forms.Label();
-            this.cbxMinutesAddApptPanel = new System.Windows.Forms.ComboBox();
-            this.cbxHoursAddApptPanel = new System.Windows.Forms.ComboBox();
             this.dtpDateAddApptPanel = new System.Windows.Forms.DateTimePicker();
-            this.lblStaff = new System.Windows.Forms.Label();
-            this.lblTimeAddApptPanel = new System.Windows.Forms.Label();
             this.lblDateAddApptPanel = new System.Windows.Forms.Label();
             this.lblPatient = new System.Windows.Forms.Label();
             this.lblAddAppointment = new System.Windows.Forms.Label();
+            this.lbxApptTimeAddApptPanel = new System.Windows.Forms.ListBox();
+            this.lblTimeAddApptPanel = new System.Windows.Forms.Label();
             this.pnlCreateUser.SuspendLayout();
             this.pnlRegisterPatient.SuspendLayout();
             this.pnlLogin.SuspendLayout();
@@ -152,7 +147,6 @@
             // 
             this.pnlCreateUser.Controls.Add(this.btnBackCreateUser);
             this.pnlCreateUser.Controls.Add(this.tbxPassword);
-            this.pnlCreateUser.Controls.Add(this.pnlRegisterPatient);
             this.pnlCreateUser.Controls.Add(this.tbxUsername);
             this.pnlCreateUser.Controls.Add(this.btnCreate);
             this.pnlCreateUser.Controls.Add(this.label2);
@@ -182,53 +176,6 @@
             this.tbxPassword.Size = new System.Drawing.Size(200, 20);
             this.tbxPassword.TabIndex = 9;
             // 
-            // tbxUsername
-            // 
-            this.tbxUsername.BackColor = System.Drawing.Color.White;
-            this.tbxUsername.Location = new System.Drawing.Point(129, 127);
-            this.tbxUsername.MaxLength = 10;
-            this.tbxUsername.Name = "tbxUsername";
-            this.tbxUsername.Size = new System.Drawing.Size(200, 20);
-            this.tbxUsername.TabIndex = 8;
-            // 
-            // btnCreate
-            // 
-            this.btnCreate.Location = new System.Drawing.Point(144, 307);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(166, 30);
-            this.btnCreate.TabIndex = 7;
-            this.btnCreate.Text = "CREATE";
-            this.btnCreate.UseVisualStyleBackColor = true;
-            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(67, 183);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Password:";
-            // 
-            // lblUserName
-            // 
-            this.lblUserName.AutoSize = true;
-            this.lblUserName.Location = new System.Drawing.Point(67, 130);
-            this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(58, 13);
-            this.lblUserName.TabIndex = 6;
-            this.lblUserName.Text = "Username:";
-            // 
-            // lblCreateUser
-            // 
-            this.lblCreateUser.AutoSize = true;
-            this.lblCreateUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreateUser.Location = new System.Drawing.Point(138, 11);
-            this.lblCreateUser.Name = "lblCreateUser";
-            this.lblCreateUser.Size = new System.Drawing.Size(172, 25);
-            this.lblCreateUser.TabIndex = 5;
-            this.lblCreateUser.Text = "CREATE USER";
-            // 
             // pnlRegisterPatient
             // 
             this.pnlRegisterPatient.Controls.Add(this.btnBackRegisterPatient);
@@ -246,7 +193,7 @@
             this.pnlRegisterPatient.Controls.Add(this.lblLastName);
             this.pnlRegisterPatient.Controls.Add(this.lblFirstName);
             this.pnlRegisterPatient.Controls.Add(this.lblRegisterPatient);
-            this.pnlRegisterPatient.Location = new System.Drawing.Point(3, 7);
+            this.pnlRegisterPatient.Location = new System.Drawing.Point(568, 426);
             this.pnlRegisterPatient.Name = "pnlRegisterPatient";
             this.pnlRegisterPatient.Size = new System.Drawing.Size(450, 357);
             this.pnlRegisterPatient.TabIndex = 16;
@@ -395,6 +342,53 @@
             this.lblRegisterPatient.TabIndex = 12;
             this.lblRegisterPatient.Text = "REGISTER PATIENT";
             // 
+            // tbxUsername
+            // 
+            this.tbxUsername.BackColor = System.Drawing.Color.White;
+            this.tbxUsername.Location = new System.Drawing.Point(129, 127);
+            this.tbxUsername.MaxLength = 10;
+            this.tbxUsername.Name = "tbxUsername";
+            this.tbxUsername.Size = new System.Drawing.Size(200, 20);
+            this.tbxUsername.TabIndex = 8;
+            // 
+            // btnCreate
+            // 
+            this.btnCreate.Location = new System.Drawing.Point(144, 307);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(166, 30);
+            this.btnCreate.TabIndex = 7;
+            this.btnCreate.Text = "CREATE";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(67, 183);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Password:";
+            // 
+            // lblUserName
+            // 
+            this.lblUserName.AutoSize = true;
+            this.lblUserName.Location = new System.Drawing.Point(67, 130);
+            this.lblUserName.Name = "lblUserName";
+            this.lblUserName.Size = new System.Drawing.Size(58, 13);
+            this.lblUserName.TabIndex = 6;
+            this.lblUserName.Text = "Username:";
+            // 
+            // lblCreateUser
+            // 
+            this.lblCreateUser.AutoSize = true;
+            this.lblCreateUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCreateUser.Location = new System.Drawing.Point(138, 11);
+            this.lblCreateUser.Name = "lblCreateUser";
+            this.lblCreateUser.Size = new System.Drawing.Size(172, 25);
+            this.lblCreateUser.TabIndex = 5;
+            this.lblCreateUser.Text = "CREATE USER";
+            // 
             // pnlLogin
             // 
             this.pnlLogin.Controls.Add(this.checkBox1);
@@ -502,17 +496,12 @@
             // 
             // pnlAddAppointment
             // 
-            this.pnlAddAppointment.Controls.Add(this.tbxTest);
-            this.pnlAddAppointment.Controls.Add(this.cbxStaffAddApptPanel);
+            this.pnlAddAppointment.Controls.Add(this.lblTimeAddApptPanel);
+            this.pnlAddAppointment.Controls.Add(this.lbxApptTimeAddApptPanel);
             this.pnlAddAppointment.Controls.Add(this.btnAddPatientAddApptPanel);
             this.pnlAddAppointment.Controls.Add(this.btnCancelAddApptPanel);
             this.pnlAddAppointment.Controls.Add(this.btnAddAddApptPanel);
-            this.pnlAddAppointment.Controls.Add(this.lblColonAddApptPanel);
-            this.pnlAddAppointment.Controls.Add(this.cbxMinutesAddApptPanel);
-            this.pnlAddAppointment.Controls.Add(this.cbxHoursAddApptPanel);
             this.pnlAddAppointment.Controls.Add(this.dtpDateAddApptPanel);
-            this.pnlAddAppointment.Controls.Add(this.lblStaff);
-            this.pnlAddAppointment.Controls.Add(this.lblTimeAddApptPanel);
             this.pnlAddAppointment.Controls.Add(this.lblDateAddApptPanel);
             this.pnlAddAppointment.Controls.Add(this.lblPatient);
             this.pnlAddAppointment.Controls.Add(this.lblAddAppointment);
@@ -520,27 +509,6 @@
             this.pnlAddAppointment.Name = "pnlAddAppointment";
             this.pnlAddAppointment.Size = new System.Drawing.Size(437, 357);
             this.pnlAddAppointment.TabIndex = 25;
-            // 
-            // tbxTest
-            // 
-            this.tbxTest.Location = new System.Drawing.Point(128, 208);
-            this.tbxTest.MaxLength = 10;
-            this.tbxTest.Multiline = true;
-            this.tbxTest.Name = "tbxTest";
-            this.tbxTest.Size = new System.Drawing.Size(200, 75);
-            this.tbxTest.TabIndex = 12;
-            // 
-            // cbxStaffAddApptPanel
-            // 
-            this.cbxStaffAddApptPanel.BackColor = System.Drawing.Color.White;
-            this.cbxStaffAddApptPanel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxStaffAddApptPanel.FormattingEnabled = true;
-            this.cbxStaffAddApptPanel.Items.AddRange(new object[] {
-            "GP Appointment"});
-            this.cbxStaffAddApptPanel.Location = new System.Drawing.Point(128, 177);
-            this.cbxStaffAddApptPanel.Name = "cbxStaffAddApptPanel";
-            this.cbxStaffAddApptPanel.Size = new System.Drawing.Size(200, 21);
-            this.cbxStaffAddApptPanel.TabIndex = 36;
             // 
             // btnAddPatientAddApptPanel
             // 
@@ -569,56 +537,6 @@
             this.btnAddAddApptPanel.Text = "ADD";
             this.btnAddAddApptPanel.UseVisualStyleBackColor = true;
             // 
-            // lblColonAddApptPanel
-            // 
-            this.lblColonAddApptPanel.AutoSize = true;
-            this.lblColonAddApptPanel.Location = new System.Drawing.Point(167, 146);
-            this.lblColonAddApptPanel.Name = "lblColonAddApptPanel";
-            this.lblColonAddApptPanel.Size = new System.Drawing.Size(10, 13);
-            this.lblColonAddApptPanel.TabIndex = 32;
-            this.lblColonAddApptPanel.Text = ":";
-            // 
-            // cbxMinutesAddApptPanel
-            // 
-            this.cbxMinutesAddApptPanel.BackColor = System.Drawing.Color.White;
-            this.cbxMinutesAddApptPanel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxMinutesAddApptPanel.FormattingEnabled = true;
-            this.cbxMinutesAddApptPanel.Items.AddRange(new object[] {
-            "00",
-            "10",
-            "20",
-            "30",
-            "40",
-            "50"});
-            this.cbxMinutesAddApptPanel.Location = new System.Drawing.Point(177, 142);
-            this.cbxMinutesAddApptPanel.MaxDropDownItems = 6;
-            this.cbxMinutesAddApptPanel.Name = "cbxMinutesAddApptPanel";
-            this.cbxMinutesAddApptPanel.Size = new System.Drawing.Size(37, 21);
-            this.cbxMinutesAddApptPanel.TabIndex = 31;
-            // 
-            // cbxHoursAddApptPanel
-            // 
-            this.cbxHoursAddApptPanel.BackColor = System.Drawing.Color.White;
-            this.cbxHoursAddApptPanel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxHoursAddApptPanel.FormattingEnabled = true;
-            this.cbxHoursAddApptPanel.Items.AddRange(new object[] {
-            "08",
-            "09",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18"});
-            this.cbxHoursAddApptPanel.Location = new System.Drawing.Point(129, 142);
-            this.cbxHoursAddApptPanel.MaxDropDownItems = 11;
-            this.cbxHoursAddApptPanel.Name = "cbxHoursAddApptPanel";
-            this.cbxHoursAddApptPanel.Size = new System.Drawing.Size(37, 21);
-            this.cbxHoursAddApptPanel.TabIndex = 30;
-            // 
             // dtpDateAddApptPanel
             // 
             this.dtpDateAddApptPanel.Location = new System.Drawing.Point(129, 110);
@@ -628,24 +546,6 @@
             this.dtpDateAddApptPanel.TabIndex = 25;
             this.dtpDateAddApptPanel.Value = new System.DateTime(2017, 11, 10, 0, 0, 0, 0);
             this.dtpDateAddApptPanel.ValueChanged += new System.EventHandler(this.dtpDateAddApptPanel_ValueChanged);
-            // 
-            // lblStaff
-            // 
-            this.lblStaff.AutoSize = true;
-            this.lblStaff.Location = new System.Drawing.Point(90, 180);
-            this.lblStaff.Name = "lblStaff";
-            this.lblStaff.Size = new System.Drawing.Size(32, 13);
-            this.lblStaff.TabIndex = 29;
-            this.lblStaff.Text = "Staff:";
-            // 
-            // lblTimeAddApptPanel
-            // 
-            this.lblTimeAddApptPanel.AutoSize = true;
-            this.lblTimeAddApptPanel.Location = new System.Drawing.Point(90, 145);
-            this.lblTimeAddApptPanel.Name = "lblTimeAddApptPanel";
-            this.lblTimeAddApptPanel.Size = new System.Drawing.Size(33, 13);
-            this.lblTimeAddApptPanel.TabIndex = 28;
-            this.lblTimeAddApptPanel.Text = "Time:";
             // 
             // lblDateAddApptPanel
             // 
@@ -675,6 +575,23 @@
             this.lblAddAppointment.TabIndex = 6;
             this.lblAddAppointment.Text = "ADD APPOINTMENT";
             // 
+            // lbxApptTimeAddApptPanel
+            // 
+            this.lbxApptTimeAddApptPanel.FormattingEnabled = true;
+            this.lbxApptTimeAddApptPanel.Location = new System.Drawing.Point(127, 144);
+            this.lbxApptTimeAddApptPanel.Name = "lbxApptTimeAddApptPanel";
+            this.lbxApptTimeAddApptPanel.Size = new System.Drawing.Size(202, 56);
+            this.lbxApptTimeAddApptPanel.TabIndex = 26;
+            // 
+            // lblTimeAddApptPanel
+            // 
+            this.lblTimeAddApptPanel.AutoSize = true;
+            this.lblTimeAddApptPanel.Location = new System.Drawing.Point(90, 144);
+            this.lblTimeAddApptPanel.Name = "lblTimeAddApptPanel";
+            this.lblTimeAddApptPanel.Size = new System.Drawing.Size(33, 13);
+            this.lblTimeAddApptPanel.TabIndex = 35;
+            this.lblTimeAddApptPanel.Text = "Time:";
+            // 
             // ApplicationMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -682,6 +599,7 @@
             this.ClientSize = new System.Drawing.Size(1344, 741);
             this.Controls.Add(this.pnlAddAppointment);
             this.Controls.Add(this.pnlMainMenu);
+            this.Controls.Add(this.pnlRegisterPatient);
             this.Controls.Add(this.pnlLogin);
             this.Name = "ApplicationMenu";
             this.Text = "Over Surgery";
@@ -742,19 +660,14 @@
         private System.Windows.Forms.Panel pnlMainMenu;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel pnlAddAppointment;
-        private System.Windows.Forms.Label lblStaff;
-        private System.Windows.Forms.Label lblTimeAddApptPanel;
         private System.Windows.Forms.Label lblDateAddApptPanel;
         private System.Windows.Forms.Label lblPatient;
         private System.Windows.Forms.Label lblAddAppointment;
         private System.Windows.Forms.DateTimePicker dtpDateAddApptPanel;
-        private System.Windows.Forms.ComboBox cbxHoursAddApptPanel;
-        private System.Windows.Forms.Label lblColonAddApptPanel;
-        private System.Windows.Forms.ComboBox cbxMinutesAddApptPanel;
         private System.Windows.Forms.Button btnCancelAddApptPanel;
         private System.Windows.Forms.Button btnAddAddApptPanel;
         private System.Windows.Forms.Button btnAddPatientAddApptPanel;
-        private System.Windows.Forms.ComboBox cbxStaffAddApptPanel;
-        private System.Windows.Forms.TextBox tbxTest;
+        private System.Windows.Forms.ListBox lbxApptTimeAddApptPanel;
+        private System.Windows.Forms.Label lblTimeAddApptPanel;
     }
 }

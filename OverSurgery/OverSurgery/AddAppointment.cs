@@ -13,13 +13,17 @@ namespace OverSurgery
         // Declares an instance of the AddAppointment class.
         private static AddAppointment _instance;
 
-        // List containing all times where appointments are available to book.
-        private List<string> bookedTimeList = new List<string>();
-
         // List containing all times appointments can be held.
         private List<string> allTimeList = new List<string>();
 
+        // List containing all times that have bookings.
         private List<string> appointmentTimeList = new List<string>();
+        
+        // List containing all times that are fully booked.
+        private List<string> bookedTimeList = new List<string>();
+
+        // List containing all times that can be booked.
+        private List<string> possibleTimeList = new List<string>();
         #endregion
 
         #region METHODS
@@ -46,7 +50,9 @@ namespace OverSurgery
             DataSet dsAppointment = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.SelectAllDates(chosenDate));
 
             // Calls GetBookedTimeList method.
-            return GetBookedTimesList(dsAppointment, chosenDate);           
+            GetBookedTimesList(dsAppointment, chosenDate);
+
+            return possibleTimeList;
         }
 
         /// <summary>
@@ -54,7 +60,7 @@ namespace OverSurgery
         /// </summary>
         /// <param name="dsAppointment"></param>
         /// <returns></returns>
-        public List<string> GetBookedTimesList(DataSet dsAppointment, string chosenDate)
+        public void GetBookedTimesList(DataSet dsAppointment, string chosenDate)
         {
             // Checks to see if there are no bookings for the given date.
             if(dsAppointment.Tables[0].Rows.Count > 0)
@@ -63,8 +69,10 @@ namespace OverSurgery
 
                 AddToBookedTimeList(dsAppointment, chosenDate);
             }
-            
-            return bookedTimeList;
+            else
+            {
+                possibleTimeList = allTimeList;
+            }       
         }
 
         /// <summary>
@@ -115,9 +123,19 @@ namespace OverSurgery
                 {
                     bookedTimeList.Add(appointmentTimeList[j]);
                 }
-
-                PrintTotals();
             }
+
+            CompareTimeList();
+        }
+
+        /// <summary>
+        // Creates a list with only times that are not fully booked.
+        /// </summary>
+        public void CompareTimeList()
+        {
+            // Creates a list with all the times except ones which are fully booked.
+            possibleTimeList = allTimeList.Except(bookedTimeList).ToList();
+            PrintTotals();         
         }
 
         /// <summary>
@@ -180,11 +198,13 @@ namespace OverSurgery
                 
                 Console.WriteLine(s);
             }
-        }
 
-        public void CompareDateList()
-        {
+            Console.WriteLine("POSSIBLE TIMES LIST");
 
+            foreach(string s in possibleTimeList)
+            {
+                Console.WriteLine(s);
+            }
         }
 
         #endregion
