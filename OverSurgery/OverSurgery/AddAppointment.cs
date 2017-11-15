@@ -42,11 +42,8 @@ namespace OverSurgery
         /// <returns></returns>
         public List<string> FindChosenDate(string chosenDate)
         {
-            // SQL statement to search for all appointments on a given date.
-            string selectAllDate = String.Format("SELECT DISTINCT Time FROM Appointment WHERE Date = '{0}'", chosenDate);
-
-            // Creates a data set for the data retrieved from the database.
-            DataSet dsAppointment = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(selectAllDate);
+            // Gets data set of all distinct appointments for a chosen date.
+            DataSet dsAppointment = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.SelectAllDates(chosenDate));
 
             // Calls GetBookedTimeList method.
             return GetBookedTimesList(dsAppointment, chosenDate);           
@@ -100,15 +97,14 @@ namespace OverSurgery
             // Loops through all the times in the list.
             for (int j = 0; j < appointmentTimeList.Count; j++)
             {
-                string countTimes = String.Format("SELECT * FROM Appointment WHERE Date = '{0}' AND Time = '{1}'", chosenDate, appointmentTimeList[j]);
-
-                string countStaff = String.Format("SELECT * FROM StaffMember");
+                // Stores the current value in the list.
+                string listValue = appointmentTimeList[j].ToString();
 
                 // Gets all the appointments at a given time.
-                DataSet dsTimesCount = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(countTimes);
+                DataSet dsTimesCount = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.GetAppointmentsAtGivenTime(chosenDate, listValue));
 
                 // Gets all the staff members.
-                DataSet dsStaffCount = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(countStaff);
+                DataSet dsStaffCount = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.GetStaffMembers());
 
                 Console.WriteLine(dsTimesCount.Tables[0].Rows.Count);
                 Console.WriteLine(dsStaffCount.Tables[0].Rows.Count);

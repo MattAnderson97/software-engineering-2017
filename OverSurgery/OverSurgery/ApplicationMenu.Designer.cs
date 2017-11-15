@@ -152,16 +152,16 @@
             // 
             this.pnlCreateUser.Controls.Add(this.btnBackCreateUser);
             this.pnlCreateUser.Controls.Add(this.tbxPassword);
+            this.pnlCreateUser.Controls.Add(this.pnlRegisterPatient);
             this.pnlCreateUser.Controls.Add(this.tbxUsername);
             this.pnlCreateUser.Controls.Add(this.btnCreate);
             this.pnlCreateUser.Controls.Add(this.label2);
             this.pnlCreateUser.Controls.Add(this.lblUserName);
             this.pnlCreateUser.Controls.Add(this.lblCreateUser);
-            this.pnlCreateUser.Location = new System.Drawing.Point(0, 0);
+            this.pnlCreateUser.Location = new System.Drawing.Point(3, 3);
             this.pnlCreateUser.Name = "pnlCreateUser";
             this.pnlCreateUser.Size = new System.Drawing.Size(437, 357);
             this.pnlCreateUser.TabIndex = 15;
-            this.pnlCreateUser.Visible = false;
             // 
             // btnBackCreateUser
             // 
@@ -246,7 +246,7 @@
             this.pnlRegisterPatient.Controls.Add(this.lblLastName);
             this.pnlRegisterPatient.Controls.Add(this.lblFirstName);
             this.pnlRegisterPatient.Controls.Add(this.lblRegisterPatient);
-            this.pnlRegisterPatient.Location = new System.Drawing.Point(12, 38);
+            this.pnlRegisterPatient.Location = new System.Drawing.Point(3, 7);
             this.pnlRegisterPatient.Name = "pnlRegisterPatient";
             this.pnlRegisterPatient.Size = new System.Drawing.Size(450, 357);
             this.pnlRegisterPatient.TabIndex = 16;
@@ -485,7 +485,7 @@
             this.pnlMainMenu.Controls.Add(this.btnRegisterPatientMainMenu);
             this.pnlMainMenu.Controls.Add(this.btnSettings);
             this.pnlMainMenu.Controls.Add(this.btnAddApptMainMenuPanel);
-            this.pnlMainMenu.Location = new System.Drawing.Point(12, 38);
+            this.pnlMainMenu.Location = new System.Drawing.Point(12, 28);
             this.pnlMainMenu.Name = "pnlMainMenu";
             this.pnlMainMenu.Size = new System.Drawing.Size(437, 357);
             this.pnlMainMenu.TabIndex = 24;
@@ -683,7 +683,6 @@
             this.Controls.Add(this.pnlAddAppointment);
             this.Controls.Add(this.pnlMainMenu);
             this.Controls.Add(this.pnlLogin);
-            this.Controls.Add(this.pnlRegisterPatient);
             this.Name = "ApplicationMenu";
             this.Text = "Over Surgery";
             this.pnlCreateUser.ResumeLayout(false);
