@@ -42,11 +42,13 @@ namespace OverSurgery
         /// <returns></returns>
         public List<string> FindChosenDate(string chosenDate)
         {
-            // SQL statement to give to database.
+            // SQL statement to search for all appointments on a given date.
             string selectAllDate = String.Format("SELECT DISTINCT Time FROM Appointment WHERE Date = '{0}'", chosenDate);
 
             // Creates a data set for the data retrieved from the database.
             DataSet dsAppointment = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(selectAllDate);
+
+            // Calls GetBookedTimeList method.
             return GetBookedTimesList(dsAppointment, chosenDate);           
         }
 
@@ -57,6 +59,7 @@ namespace OverSurgery
         /// <returns></returns>
         public List<string> GetBookedTimesList(DataSet dsAppointment, string chosenDate)
         {
+            // Checks to see if there are no bookings for the given date.
             if(dsAppointment.Tables[0].Rows.Count > 0)
             {
                 GetAppointmentTimeList(dsAppointment, chosenDate);
@@ -67,10 +70,17 @@ namespace OverSurgery
             return bookedTimeList;
         }
 
+        /// <summary>
+        /// Creates a list of all times that have appointments booked.
+        /// </summary>
+        /// <param name="dsAppointment"></param>
+        /// <param name="chosenDate"></param>
         public void GetAppointmentTimeList(DataSet dsAppointment, string chosenDate)
         {
+            // Loops through all the data set rows.
             for (int i = 0; i < dsAppointment.Tables[0].Rows.Count; i++)
             {
+                // Adds each distinct time to the list.
                 appointmentTimeList.Add(dsAppointment.Tables[0].Rows[i]["Time"].ToString());
 
                 Console.WriteLine(dsAppointment.Tables[0].Rows[i]["Time"].ToString());
@@ -79,31 +89,44 @@ namespace OverSurgery
             Console.WriteLine("appointmnet list length" + appointmentTimeList.Count.ToString());
         }
 
+        /// <summary>
+        /// Compares the amount of staff with appointments for a particular time and the amount of overall staff
+        /// to determine whether there are appointments available at that particular time.
+        /// </summary>
+        /// <param name="dsAppointment"></param>
+        /// <param name="chosenDate"></param>
         public void AddToBookedTimeList(DataSet dsAppointment, string chosenDate)
         {
+            // Loops through all the times in the list.
             for (int j = 0; j < appointmentTimeList.Count; j++)
             {
-                string countTimes = String.Format(@"SELECT COUNT(CASE WHEN Date = '{0}' and Time = '{1}' 
-                                                        then 1 else null end) as TimeCount FROM Appointment"
-                                                , chosenDate, appointmentTimeList[j]);
-                string countStaff = String.Format("SELECT COUNT(StaffID) as NumberOfStaff FROM StaffMember");
+                string countTimes = String.Format("SELECT * FROM Appointment WHERE Date = '{0}' AND Time = '{1}'", chosenDate, appointmentTimeList[j]);
 
+                string countStaff = String.Format("SELECT * FROM StaffMember");
+
+                // Gets all the appointments at a given time.
                 DataSet dsTimesCount = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(countTimes);
+
+                // Gets all the staff members.
                 DataSet dsStaffCount = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(countStaff);
 
-                Console.WriteLine(dsTimesCount.Tables[0].Rows[0]["TimeCount"].ToString());
-                Console.WriteLine(dsStaffCount.Tables[0].Rows[0]["NumberOfStaff"].ToString());
+                Console.WriteLine(dsTimesCount.Tables[0].Rows.Count);
+                Console.WriteLine(dsStaffCount.Tables[0].Rows.Count);
 
-                if (dsTimesCount.Tables[0].Rows[0]["TimeCount"].Equals(dsStaffCount.Tables[0].Rows[0]["NumberOfStaff"]))
+                // If the number of appointments ata given time is equal to the number of staff
+                // available for appointments, the time is fully booked and added to the list.
+                if(dsTimesCount.Tables[0].Rows.Count >= dsStaffCount.Tables[0].Rows.Count)
                 {
                     bookedTimeList.Add(appointmentTimeList[j]);
-                    Console.WriteLine(dsAppointment.Tables[0].Rows[j]["Time"].ToString());
                 }
 
                 PrintTotals();
             }
         }
 
+        /// <summary>
+        /// Creates a list containg all possible appointment times.
+        /// </summary>
         public void GetAllTimesList()
         {
             // Sets the hour to 7.
