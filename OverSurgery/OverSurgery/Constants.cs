@@ -126,5 +126,21 @@ namespace OverSurgery
             return String.Format("SELECT * FROM StaffMember WHERE StaffID = '{0}'", StaffID);
         }
         #endregion
+
+        #region AddAppointment
+
+        public static string GetStaffMemberName(string StaffID)
+        {
+            return String.Format("SELECT FirstName, LastName FROM StaffMember WHERE StaffID = '{0}'", StaffID);
+        }
+
+        public static string InsertAppointment(AppointmentInfo appointmentInfo)
+        {
+            return String.Format(@"INSERT INTO Appointment (Type, Date, Time, StaffID_Fk, PatientID_Fk) 
+                                VALUES ('GP Appointment', '{0}', '{1}', '{2}', '{3}')", appointmentInfo.Date, appointmentInfo.Time, 
+                                appointmentInfo.StaffID, appointmentInfo.PatientID);
+        }
+        #endregion
+
     }
 }

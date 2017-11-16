@@ -52,6 +52,18 @@ namespace OverSurgery
             return staffList.GetAvailableStaffNameList(chosenDate, chosenTime);
         }
 
+        public DataSet GetStaffMemberName(string StaffID)
+        {
+            DataSet dsStaffMember = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.GetStaffMemberName(StaffID));
+            return dsStaffMember;
+        }
+
+        public void AddToDatabase(AppointmentInfo appointmentInfo)
+        {
+            Console.WriteLine(appointmentInfo.StaffID.ToString());
+
+            DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.InsertAppointment(appointmentInfo));
+        }       
         #endregion
 
         #region CONSTRUCTORS

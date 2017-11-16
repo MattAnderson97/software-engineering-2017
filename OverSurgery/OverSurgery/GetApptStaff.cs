@@ -42,9 +42,9 @@ namespace OverSurgery
             CompareStaff();
 
             // Gets the names of available staff members.
-            GetAvailableStaffNames();
+           // GetAvailableStaffNames();
 
-            return availableStaffNameList;
+            return availableStaffList;
         }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace OverSurgery
         /// <summary>
         /// Gets the corresponding staff names for a list of staff id's.
         /// </summary>
-        public void GetAvailableStaffNames()
+        /*public void GetAvailableStaffNames()
         {
             // Iterates through the list and finds the name associated with each staff id.
             for(int i = 0; i < availableStaffList.Count; i++)
@@ -102,7 +102,7 @@ namespace OverSurgery
                 // Adds a staff members name to the list.
                 availableStaffNameList.Add(dsStaffMember.Tables[0].Rows[0]["FirstName"].ToString() + dsStaffMember.Tables[0].Rows[0]["LastName"].ToString());
             }
-        }
+        }*/
         #endregion
 
         #region CONSTRUCTORS

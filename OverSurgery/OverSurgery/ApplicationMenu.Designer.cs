@@ -69,6 +69,7 @@
             this.pnlMainMenu = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.pnlAddAppointment = new System.Windows.Forms.Panel();
+            this.lblPatientNameAddApptPanel = new System.Windows.Forms.Label();
             this.lbxApptStaffAddApptPanel = new System.Windows.Forms.ListBox();
             this.lblDoctorAddApptPanel = new System.Windows.Forms.Label();
             this.lblTimeAddApptPanel = new System.Windows.Forms.Label();
@@ -503,6 +504,7 @@
             // 
             // pnlAddAppointment
             // 
+            this.pnlAddAppointment.Controls.Add(this.lblPatientNameAddApptPanel);
             this.pnlAddAppointment.Controls.Add(this.lbxApptStaffAddApptPanel);
             this.pnlAddAppointment.Controls.Add(this.lblDoctorAddApptPanel);
             this.pnlAddAppointment.Controls.Add(this.lblTimeAddApptPanel);
@@ -518,6 +520,16 @@
             this.pnlAddAppointment.Name = "pnlAddAppointment";
             this.pnlAddAppointment.Size = new System.Drawing.Size(437, 357);
             this.pnlAddAppointment.TabIndex = 25;
+            // 
+            // lblPatientNameAddApptPanel
+            // 
+            this.lblPatientNameAddApptPanel.AutoSize = true;
+            this.lblPatientNameAddApptPanel.Location = new System.Drawing.Point(129, 80);
+            this.lblPatientNameAddApptPanel.Name = "lblPatientNameAddApptPanel";
+            this.lblPatientNameAddApptPanel.Size = new System.Drawing.Size(30, 13);
+            this.lblPatientNameAddApptPanel.TabIndex = 39;
+            this.lblPatientNameAddApptPanel.Text = "John";
+            this.lblPatientNameAddApptPanel.Visible = false;
             // 
             // lbxApptStaffAddApptPanel
             // 
@@ -562,6 +574,7 @@
             this.btnAddPatientAddApptPanel.TabIndex = 34;
             this.btnAddPatientAddApptPanel.Text = "Add Patient";
             this.btnAddPatientAddApptPanel.UseVisualStyleBackColor = true;
+            this.btnAddPatientAddApptPanel.Click += new System.EventHandler(this.btnAddPatientAddApptPanel_Click);
             // 
             // btnCancelAddApptPanel
             // 
@@ -580,6 +593,7 @@
             this.btnAddAddApptPanel.TabIndex = 12;
             this.btnAddAddApptPanel.Text = "ADD";
             this.btnAddAddApptPanel.UseVisualStyleBackColor = true;
+            this.btnAddAddApptPanel.Click += new System.EventHandler(this.btnAddAddApptPanel_Click);
             // 
             // dtpDateAddApptPanel
             // 
@@ -722,5 +736,6 @@
         private System.Windows.Forms.ListBox lbxApptStaffAddApptPanel;
         private System.Windows.Forms.Label lblDoctorAddApptPanel;
         private System.Windows.Forms.DataGridView dgvDebug2;
+        private System.Windows.Forms.Label lblPatientNameAddApptPanel;
     }
 }

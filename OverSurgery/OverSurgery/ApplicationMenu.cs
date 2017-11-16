@@ -192,7 +192,27 @@ namespace OverSurgery
         #endregion
 
         #region pnlAddAppointment       
-        
+
+        private string patientID;
+        private string patientName;
+        private string staffID;
+
+        private List<string> staffIDList = new List<string>();
+
+        private void btnAddPatientAddApptPanel_Click(object sender, EventArgs e)
+        {
+            lblPatientNameAddApptPanel.Text = "";
+
+            // Runs search patient feature...gets a patientID and name back
+            patientID = "2";
+            patientName = "John Smith";
+
+            lblPatientNameAddApptPanel.Text = patientName;
+
+            btnAddPatientAddApptPanel.Visible = false;
+            lblPatientNameAddApptPanel.Visible = true;
+        }
+
         // Runs when the selected date changes.
         private void dtpDateAddApptPanel_ValueChanged(object sender, EventArgs e)
         {
@@ -220,6 +240,8 @@ namespace OverSurgery
         // Runs when a list box item is selected.
         private void lbxApptTimeAddApptPanel_SelectedValueChanged(object sender, EventArgs e)
         {
+            staffIDList.Clear();
+
             // Clears the list box.
             lbxApptStaffAddApptPanel.Items.Clear();
         
@@ -230,16 +252,60 @@ namespace OverSurgery
             string chosenTime = lbxApptTimeAddApptPanel.GetItemText(lbxApptTimeAddApptPanel.SelectedItem);
 
             // Creates a list to store the available staff members.
-            List<string> availableStaff = new List<string>();
+            //List<string> availableStaff = new List<string>();
 
             // Gets a list of available staff members.
-            availableStaff = AddAppointment.GetAddAppointmentInstance().GetAppointmentStaff(chosenDate, chosenTime);
+            /*availableStaff*/ staffIDList = AddAppointment.GetAddAppointmentInstance().GetAppointmentStaff(chosenDate, chosenTime);
 
             // Iterates through the list adding the items to the list box.
-            for(int i =0; i < availableStaff.Count; i++)
+            for(int i =0; i < staffIDList.Count/*availableStaff.Count*/; i++)
             {
-                lbxApptStaffAddApptPanel.Items.Add(availableStaff[i]);
+                DataSet dsStaffMember = AddAppointment.GetAddAppointmentInstance().GetStaffMemberName(staffIDList[i]);
+
+                lbxApptStaffAddApptPanel.Items.Add(dsStaffMember.Tables[0].Rows[0]["FirstName"].ToString() + dsStaffMember.Tables[0].Rows[0]["LastName"].ToString() /*availableStaff[i]*/);
             }         
+        }
+
+        private void btnAddAddApptPanel_Click(object sender, EventArgs e)
+        {
+            AppointmentInfo appointmentInfo = new AppointmentInfo();
+
+            bool noEmptyFields = false;
+
+            if(patientID == null)
+            {
+                MessageBox.Show("No patient selected.", "Error!");
+            }
+            else if(lbxApptTimeAddApptPanel.SelectedItem == null)
+            {
+                MessageBox.Show("No time selected", "Error!");
+            }
+            else if(lbxApptStaffAddApptPanel.SelectedItem == null)
+            {
+                MessageBox.Show("No staff member selected", "Error!");
+            }
+            else
+            {
+                noEmptyFields = true;
+            }
+
+            if(noEmptyFields == true)
+            {
+                appointmentInfo.PatientID = Int32.Parse(patientID);
+
+                appointmentInfo.Date = dtpDateAddApptPanel.Value.ToShortDateString();
+
+                appointmentInfo.Time = lbxApptTimeAddApptPanel.SelectedItem.ToString();
+
+                int indexNumber = lbxApptStaffAddApptPanel.SelectedIndex;
+                staffID = staffIDList[indexNumber];
+                appointmentInfo.StaffID = Int32.Parse(staffID);
+
+                AddAppointment.GetAddAppointmentInstance().AddToDatabase(appointmentInfo);
+            }
+
+            dtpDateAddApptPanel.Value = DateTime.Today;
+            
         }
 
         #endregion
@@ -259,6 +325,10 @@ namespace OverSurgery
 
             dgvDebug2.DataSource = dtDebug2;
         }
+
+
+
+
         #endregion
 
 

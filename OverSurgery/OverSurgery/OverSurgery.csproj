@@ -75,6 +75,7 @@
     <Compile Include="ApplicationMenu.Designer.cs">
       <DependentUpon>ApplicationMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppointmentInfo.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="CreateAppointment.cs">
       <SubType>Form</SubType>
