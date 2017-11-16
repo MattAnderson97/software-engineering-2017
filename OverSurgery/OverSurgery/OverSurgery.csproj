@@ -89,6 +89,8 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GetApptStaff.cs" />
+    <Compile Include="GetApptTime.cs" />
     <Compile Include="LoginManager.cs" />
     <Compile Include="ManageAppointments.cs">
       <SubType>Form</SubType>

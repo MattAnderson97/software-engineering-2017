@@ -10,6 +10,8 @@ namespace OverSurgery
     {
         #region DEBUG
         public static string selectAll = "SELECT * FROM StaffMember";
+
+        public static string selectAll2 = "SELECT * FROM Appointment";
         #endregion
 
         #region LoginManager
@@ -61,7 +63,7 @@ namespace OverSurgery
         }
         #endregion
 
-        #region AddAppointment
+        #region GetApptTime
         /// <summary>
         /// Gets SQL statement to search for all appointments on a given date.
         /// </summary>
@@ -93,5 +95,36 @@ namespace OverSurgery
         }
         #endregion
 
+        #region GetApptStaff
+        /// <summary>
+        /// SQL statement to search for all staff members.
+        /// </summary>
+        /// <returns>SQL statement.</returns>
+        public static string GetAllStaff()
+        {
+            return String.Format("SELECT * FROM StaffMember");
+        }
+
+        /// <summary>
+        /// SQL statement to get all appointments at a given date and time.
+        /// </summary>
+        /// <param name="chosenDate">Chosen appointment date.</param>
+        /// <param name="chosenTime">Chosen appointment time.</param>
+        /// <returns>SQL statement.</returns>
+        public static string GetBookedStaff(string chosenDate, string chosenTime)
+        {
+            return String.Format("SELECT * FROM Appointment WHERE Date = '{0}' AND Time = '{1}'", chosenDate, chosenTime);
+        }
+
+        /// <summary>
+        /// SQL statement to find a staff member using a staff id.
+        /// </summary>
+        /// <param name="StaffID">ID number of the staff member.</param>
+        /// <returns>SQL statement.</returns>
+        public static string GetApptStaffMember(string StaffID)
+        {
+            return String.Format("SELECT * FROM StaffMember WHERE StaffID = '{0}'", StaffID);
+        }
+        #endregion
     }
 }

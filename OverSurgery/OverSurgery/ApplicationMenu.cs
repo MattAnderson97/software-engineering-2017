@@ -15,6 +15,9 @@ namespace OverSurgery
         public ApplicationMenu()
         {
             InitializeComponent();
+
+            // Sets the minimum date to the current date.
+            dtpDateAddApptPanel.MinDate = DateTime.Today;
         }
 
         #region pnlMainMenu
@@ -188,31 +191,73 @@ namespace OverSurgery
 
         #endregion
 
-        #region pnlAddAppointment        
+        #region pnlAddAppointment       
+        
+        // Runs when the selected date changes.
         private void dtpDateAddApptPanel_ValueChanged(object sender, EventArgs e)
         {
+            // Clears the list boxes.
+            lbxApptTimeAddApptPanel.Items.Clear();
+            lbxApptStaffAddApptPanel.Items.Clear();
+
+            // Saves the date chosen by the user.
             string chosenDate = dtpDateAddApptPanel.Value.ToShortDateString();
 
-            /*List<string> textList = new List<string>();
-            textList = AddAppointment.GetAddAppointmentInstance().FindChosenDate(chosenDate);
-
-            tbxTest.Clear();
-            
-            for(int i = 0; i < textList.Count; i++)
-            {
-                tbxTest.AppendText(textList[i] + Environment.NewLine);
-            }*/
-
+            // Creates a list to store all bookable appointment times 
+            // ready for display.
             List<string> appointmentTimes = new List<string>();
 
-            appointmentTimes = AddAppointment.GetAddAppointmentInstance().FindChosenDate(chosenDate);
+            // Gets the list items from the database.
+            appointmentTimes = AddAppointment.GetAddAppointmentInstance().GetAppointmentTimes(chosenDate);
 
-            lbxApptTimeAddApptPanel.Items.Clear();
-
+            // Iterates through the list items, adding them to the list box.
             for(int i = 0; i < appointmentTimes.Count; i++)
             {
                 lbxApptTimeAddApptPanel.Items.Add(appointmentTimes[i]);
             }
+        }
+
+        // Runs when a list box item is selected.
+        private void lbxApptTimeAddApptPanel_SelectedValueChanged(object sender, EventArgs e)
+        {
+            // Clears the list box.
+            lbxApptStaffAddApptPanel.Items.Clear();
+        
+            // Saves the date chosen by the user.
+            string chosenDate = dtpDateAddApptPanel.Value.ToShortDateString();
+
+            // Saves the time chosen by the user.
+            string chosenTime = lbxApptTimeAddApptPanel.GetItemText(lbxApptTimeAddApptPanel.SelectedItem);
+
+            // Creates a list to store the available staff members.
+            List<string> availableStaff = new List<string>();
+
+            // Gets a list of available staff members.
+            availableStaff = AddAppointment.GetAddAppointmentInstance().GetAppointmentStaff(chosenDate, chosenTime);
+
+            // Iterates through the list adding the items to the list box.
+            for(int i =0; i < availableStaff.Count; i++)
+            {
+                lbxApptStaffAddApptPanel.Items.Add(availableStaff[i]);
+            }         
+        }
+
+        #endregion
+
+        #region ApplicationMenuForm
+        private void ApplicationMenu_Load(object sender, EventArgs e)
+        {
+            DataSet dsDebug = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.selectAll);
+
+            DataTable dtDebug = dsDebug.Tables[0];
+
+            dgvDebug.DataSource = dtDebug;
+
+            DataSet dsDebug2 = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.selectAll2);
+
+            DataTable dtDebug2 = dsDebug2.Tables[0];
+
+            dgvDebug2.DataSource = dtDebug2;
         }
         #endregion
 
