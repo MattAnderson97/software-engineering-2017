@@ -79,6 +79,7 @@ namespace OverSurgery
             this.listView2.Size = new System.Drawing.Size(583, 97);
             this.listView2.TabIndex = 4;
             this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
             // 
             // lblDate
             // 
@@ -329,6 +330,11 @@ namespace OverSurgery
             string date = dateTimePicker2.Text;
             DataSet dsStaffMember = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.CheckStaffAvailability(date));
             DataTable dtStaffMember = dsStaffMember.Tables[0];
+        }
+
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

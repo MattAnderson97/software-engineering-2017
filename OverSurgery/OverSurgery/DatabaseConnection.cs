@@ -123,12 +123,12 @@ namespace OverSurgery
         {
             int i = 0;
             string StaffString = Convert.ToString(StaffID);
-            DataSet dsUser = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.SpecificStaffMember(StaffString, Date, Time));
+            DataSet dsStaff = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.SpecificStaffMember(StaffString, Date, Time));
 
             //get the table to be displayed from the data set
-            DataTable dtUser = dsUser.Tables[0];
+            DataTable dtShift = dsStaff.Tables[0];
 
-            i = Convert.ToInt32(dtUser.Rows.Count.ToString());
+            i = Convert.ToInt32(dtShift.Rows.Count.ToString());
             return i;
         }
 
