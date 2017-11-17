@@ -67,26 +67,26 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.pnlMainMenu = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.manageAppointmentsBtn = new System.Windows.Forms.Button();
+            this.pnlManageAppointments = new System.Windows.Forms.Panel();
+            this.manageAppointmentTime = new System.Windows.Forms.ComboBox();
+            this.manageAppointmentDate = new System.Windows.Forms.DateTimePicker();
+            this.manageAppointmentDoctor = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.btnSaveManageAppointments = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.manageAppointmentID = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.manageAppointmentPatient = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnBackManageAppointments = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.pnlCreateUser.SuspendLayout();
             this.pnlRegisterPatient.SuspendLayout();
             this.pnlLogin.SuspendLayout();
             this.pnlMainMenu.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlManageAppointments.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -109,7 +109,6 @@
             this.button4.TabIndex = 8;
             this.button4.Text = "ADD APPOINTMENT";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // btnRegisterPatientMainMenu
             // 
@@ -514,7 +513,7 @@
             // 
             // pnlMainMenu
             // 
-            this.pnlMainMenu.Controls.Add(this.button3);
+            this.pnlMainMenu.Controls.Add(this.manageAppointmentsBtn);
             this.pnlMainMenu.Controls.Add(this.label1);
             this.pnlMainMenu.Controls.Add(this.button1);
             this.pnlMainMenu.Controls.Add(this.button2);
@@ -526,45 +525,63 @@
             this.pnlMainMenu.Name = "pnlMainMenu";
             this.pnlMainMenu.Size = new System.Drawing.Size(656, 549);
             this.pnlMainMenu.TabIndex = 24;
-            this.pnlMainMenu.Visible = false;
             // 
-            // button3
+            // manageAppointmentsBtn
             // 
-            this.button3.Location = new System.Drawing.Point(159, 424);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(291, 62);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "MANAGE APPOINTMENT";
-            this.button3.UseVisualStyleBackColor = true;
+            this.manageAppointmentsBtn.Location = new System.Drawing.Point(159, 424);
+            this.manageAppointmentsBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.manageAppointmentsBtn.Name = "manageAppointmentsBtn";
+            this.manageAppointmentsBtn.Size = new System.Drawing.Size(291, 62);
+            this.manageAppointmentsBtn.TabIndex = 11;
+            this.manageAppointmentsBtn.Text = "MANAGE APPOINTMENTS";
+            this.manageAppointmentsBtn.UseVisualStyleBackColor = true;
+            this.manageAppointmentsBtn.Click += new System.EventHandler(this.manageAppointmentsBtn_Click);
             // 
-            // panel1
+            // pnlManageAppointments
             // 
-            this.panel1.Controls.Add(this.comboBox4);
-            this.panel1.Controls.Add(this.dateTimePicker1);
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.comboBox3);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Location = new System.Drawing.Point(693, 642);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(656, 549);
-            this.panel1.TabIndex = 25;
+            this.pnlManageAppointments.Controls.Add(this.manageAppointmentTime);
+            this.pnlManageAppointments.Controls.Add(this.manageAppointmentDate);
+            this.pnlManageAppointments.Controls.Add(this.manageAppointmentDoctor);
+            this.pnlManageAppointments.Controls.Add(this.label11);
+            this.pnlManageAppointments.Controls.Add(this.btnSaveManageAppointments);
+            this.pnlManageAppointments.Controls.Add(this.label10);
+            this.pnlManageAppointments.Controls.Add(this.label9);
+            this.pnlManageAppointments.Controls.Add(this.manageAppointmentID);
+            this.pnlManageAppointments.Controls.Add(this.label8);
+            this.pnlManageAppointments.Controls.Add(this.manageAppointmentPatient);
+            this.pnlManageAppointments.Controls.Add(this.label7);
+            this.pnlManageAppointments.Controls.Add(this.btnBackManageAppointments);
+            this.pnlManageAppointments.Controls.Add(this.label6);
+            this.pnlManageAppointments.Location = new System.Drawing.Point(693, 642);
+            this.pnlManageAppointments.Name = "pnlManageAppointments";
+            this.pnlManageAppointments.Size = new System.Drawing.Size(656, 549);
+            this.pnlManageAppointments.TabIndex = 25;
+            this.pnlManageAppointments.Visible = false;
+            this.pnlManageAppointments.VisibleChanged += new System.EventHandler(this.pnlManageAppointments_VisibleChanged);
             // 
-            // comboBox3
+            // manageAppointmentTime
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(271, 390);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(298, 28);
-            this.comboBox3.TabIndex = 20;
+            this.manageAppointmentTime.FormattingEnabled = true;
+            this.manageAppointmentTime.Location = new System.Drawing.Point(270, 328);
+            this.manageAppointmentTime.Name = "manageAppointmentTime";
+            this.manageAppointmentTime.Size = new System.Drawing.Size(298, 28);
+            this.manageAppointmentTime.TabIndex = 23;
+            // 
+            // manageAppointmentDate
+            // 
+            this.manageAppointmentDate.Location = new System.Drawing.Point(271, 264);
+            this.manageAppointmentDate.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            this.manageAppointmentDate.Name = "manageAppointmentDate";
+            this.manageAppointmentDate.Size = new System.Drawing.Size(298, 26);
+            this.manageAppointmentDate.TabIndex = 22;
+            // 
+            // manageAppointmentDoctor
+            // 
+            this.manageAppointmentDoctor.FormattingEnabled = true;
+            this.manageAppointmentDoctor.Location = new System.Drawing.Point(271, 390);
+            this.manageAppointmentDoctor.Name = "manageAppointmentDoctor";
+            this.manageAppointmentDoctor.Size = new System.Drawing.Size(298, 28);
+            this.manageAppointmentDoctor.TabIndex = 20;
             // 
             // label11
             // 
@@ -575,6 +592,17 @@
             this.label11.Size = new System.Drawing.Size(69, 25);
             this.label11.TabIndex = 19;
             this.label11.Text = "Doctor";
+            // 
+            // btnSaveManageAppointments
+            // 
+            this.btnSaveManageAppointments.Location = new System.Drawing.Point(216, 477);
+            this.btnSaveManageAppointments.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSaveManageAppointments.Name = "btnSaveManageAppointments";
+            this.btnSaveManageAppointments.Size = new System.Drawing.Size(249, 46);
+            this.btnSaveManageAppointments.TabIndex = 7;
+            this.btnSaveManageAppointments.Text = "SAVE";
+            this.btnSaveManageAppointments.UseVisualStyleBackColor = true;
+            this.btnSaveManageAppointments.Click += new System.EventHandler(this.btnSaveManageAppointments_Click);
             // 
             // label10
             // 
@@ -596,13 +624,13 @@
             this.label9.TabIndex = 17;
             this.label9.Text = "Date";
             // 
-            // comboBox2
+            // manageAppointmentID
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(270, 193);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(298, 28);
-            this.comboBox2.TabIndex = 16;
+            this.manageAppointmentID.FormattingEnabled = true;
+            this.manageAppointmentID.Location = new System.Drawing.Point(270, 193);
+            this.manageAppointmentID.Name = "manageAppointmentID";
+            this.manageAppointmentID.Size = new System.Drawing.Size(298, 28);
+            this.manageAppointmentID.TabIndex = 16;
             // 
             // label8
             // 
@@ -614,13 +642,14 @@
             this.label8.TabIndex = 15;
             this.label8.Text = "Appointment";
             // 
-            // comboBox1
+            // manageAppointmentPatient
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(271, 131);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(298, 28);
-            this.comboBox1.TabIndex = 14;
+            this.manageAppointmentPatient.FormattingEnabled = true;
+            this.manageAppointmentPatient.Location = new System.Drawing.Point(271, 131);
+            this.manageAppointmentPatient.Name = "manageAppointmentPatient";
+            this.manageAppointmentPatient.Size = new System.Drawing.Size(298, 28);
+            this.manageAppointmentPatient.TabIndex = 14;
+            this.manageAppointmentPatient.SelectedIndexChanged += new System.EventHandler(this.manageAppointmentPatient_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -632,16 +661,16 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "Patient";
             // 
-            // button5
+            // btnBackManageAppointments
             // 
-            this.button5.Location = new System.Drawing.Point(21, 19);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(112, 35);
-            this.button5.TabIndex = 12;
-            this.button5.Text = "BACK";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btnBackManageAppointments.Location = new System.Drawing.Point(21, 19);
+            this.btnBackManageAppointments.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBackManageAppointments.Name = "btnBackManageAppointments";
+            this.btnBackManageAppointments.Size = new System.Drawing.Size(112, 35);
+            this.btnBackManageAppointments.TabIndex = 12;
+            this.btnBackManageAppointments.Text = "BACK";
+            this.btnBackManageAppointments.UseVisualStyleBackColor = true;
+            this.btnBackManageAppointments.Click += new System.EventHandler(this.btnBackManageAppointments_Click);
             // 
             // label6
             // 
@@ -654,39 +683,12 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "MANAGE APPOINTMENTS";
             // 
-            // button6
-            // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button6.Location = new System.Drawing.Point(296, 458);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(112, 35);
-            this.button6.TabIndex = 21;
-            this.button6.Text = "Save";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(271, 264);
-            this.dateTimePicker1.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(298, 26);
-            this.dateTimePicker1.TabIndex = 22;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(270, 328);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(298, 28);
-            this.comboBox4.TabIndex = 23;
-            // 
             // ApplicationMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1902, 1228);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlManageAppointments);
             this.Controls.Add(this.pnlMainMenu);
             this.Controls.Add(this.pnlLogin);
             this.Controls.Add(this.pnlRegisterPatient);
@@ -702,8 +704,8 @@
             this.pnlLogin.PerformLayout();
             this.pnlMainMenu.ResumeLayout(false);
             this.pnlMainMenu.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlManageAppointments.ResumeLayout(false);
+            this.pnlManageAppointments.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -749,20 +751,20 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Panel pnlMainMenu;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button manageAppointmentsBtn;
+        private System.Windows.Forms.Panel pnlManageAppointments;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox manageAppointmentPatient;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button btnBackManageAppointments;
+        private System.Windows.Forms.ComboBox manageAppointmentID;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox manageAppointmentDoctor;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox manageAppointmentTime;
+        private System.Windows.Forms.DateTimePicker manageAppointmentDate;
+        private System.Windows.Forms.Button btnSaveManageAppointments;
     }
 }

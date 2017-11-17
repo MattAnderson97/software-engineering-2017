@@ -30,6 +30,11 @@ namespace OverSurgery
             // If the settings button is clicked the Create User panel will be displayed.
             pnlCreateUser.Visible = true;
         }
+
+        private void manageAppointmentsBtn_Click(object sender, EventArgs e)
+        {
+            pnlManageAppointments.Visible = true;
+        }
         #endregion
 
         #region pnlLogin
@@ -177,14 +182,120 @@ namespace OverSurgery
 
         #endregion
 
-        private void button4_Click(object sender, EventArgs e)
+        #region pnlManageAppointments
+
+        class ManageAppointmentsPatientData
+        {
+            int id;
+            string firstName;
+            string lastName;
+
+            public ManageAppointmentsPatientData(int id, string firstName, string lastName)
+            {
+                this.id = id;
+                this.firstName = firstName;
+                this.lastName = lastName;
+            }
+
+            override public String ToString()
+            {
+                return id + " " + firstName + " " + lastName;
+            }
+
+            public int ID
+            {
+                get
+                {
+                    return id;
+                }
+            }
+
+            public string FirstName
+            {
+                get
+                {
+                    return firstName;
+                }
+            }
+
+            public string LastName
+            {
+                get
+                {
+                    return lastName;
+                }
+            }
+        }
+
+        private void btnBackManageAppointments_Click(object sender, EventArgs e)
+        {
+            pnlManageAppointments.Visible = false;
+        }
+
+        private void btnSaveManageAppointments_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void pnlManageAppointments_VisibleChanged(object sender, EventArgs e)
         {
 
+            if (pnlManageAppointments.Visible)
+            {
+                // get list of patients from DB
+                // loop through list
+                // add each patient to combobox
+                // manageAppointmentPatient.Items.add(patient);
+
+                DataSet data = DatabaseConnection.getDatabaseConnectionInstance().getDataSet("SELECT PatientID, FirstName, LastName FROM Patient");
+                DataTable table = data.Tables[0];
+                int[] ids = new int[table.Rows.Count];
+                string[] firstNames = new string[table.Rows.Count];
+                string[] lastNames = new string[table.Rows.Count];
+
+                for (int row = 0; row < table.Rows.Count; row++)
+                {
+                    for (int column = 0; column < table.Columns.Count; column++)
+                    {
+                        switch (column)
+                        {
+                            case 0:
+                                ids[row] = int.Parse(table.Rows[row][column].ToString().Trim());
+                                break;
+                            case 1:
+                                firstNames[row] = table.Rows[row][column].ToString().Trim();
+                                break;
+                            case 2:
+                                lastNames[row] = table.Rows[row][column].ToString().Trim();
+                                break;
+                        }
+                    }
+
+                    // Console.WriteLine(PatientIDs[row] + " " + FirstNames[row] + " " + LastNames[row]);
+                    manageAppointmentPatient.Items.Add(new ManageAppointmentsPatientData(ids[row], firstNames[row], lastNames[row]));
+                }
+            }
+            else
+            {
+                manageAppointmentPatient.Items.Clear();
+            }
         }
+
+        private void manageAppointmentPatient_SelectedIndexChanged(object sender, EventArgs args)
+        {
+            ManageAppointmentsPatientData patientData = (ManageAppointmentsPatientData)manageAppointmentPatient.SelectedItem;
+            int patientID = patientData.ID;
+            DataSet data = DatabaseConnection.getDatabaseConnectionInstance().getDataSet("SELECT * FROM Appointment WHERE PatientID_Fk = " + patientID);
+            DataTable table = data.Tables[0];
+            string[] appointments = new string[table.Rows.Count];
+
+            for (int row = 0; row < table.Rows.Count; row++)
+            {
+                DataRow dataRow = table.Rows[row];
+                appointments[row] = dataRow[0].ToString().Trim() + " " + dataRow[2].ToString().Trim() + " " + dataRow[3].ToString().Trim();
+            }
+        }
+
+        #endregion
     }
 }
