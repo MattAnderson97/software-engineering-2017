@@ -12,6 +12,10 @@ namespace OverSurgery
         public static string selectAll = "SELECT * FROM StaffMember";
 
         public static string selectAll2 = "SELECT * FROM Appointment";
+
+        public static string SelectStaff = "SELECT * FROM StaffMember";
+        public static string SelectStaffName = "SELECT Staff FROM StaffMember";
+        public static String countStaff = "SELECT COUNT(StaffID) FROM StaffMember";
         #endregion
 
         #region LoginManager
@@ -129,21 +133,11 @@ namespace OverSurgery
 
         #region AddAppointment
 
-        /// <summary>
-        /// SQL statement to search for a staff member by ID.
-        /// </summary>
-        /// <param name="StaffID">StaffID number.</param>
-        /// <returns>SQL statement.</returns>
         public static string GetStaffMemberName(string StaffID)
         {
             return String.Format("SELECT FirstName, LastName FROM StaffMember WHERE StaffID = '{0}'", StaffID);
         }
 
-        /// <summary>
-        /// SQL statement to insert an appointment.
-        /// </summary>
-        /// <param name="appointmentInfo">appointmentInfo class.</param>
-        /// <returns>SQL statement.</returns>
         public static string InsertAppointment(AppointmentInfo appointmentInfo)
         {
             return String.Format(@"INSERT INTO Appointment (Type, Date, Time, StaffID_Fk, PatientID_Fk) 
@@ -151,6 +145,64 @@ namespace OverSurgery
                                 appointmentInfo.StaffID, appointmentInfo.PatientID);
         }
         #endregion
+
+        #region Staff
+        public static String GetStaffID(string FirstName, string LastName) //need working 
+        {
+            string StaffID = "SELECT StaffID FROM StaffMember WHERE FirstName='" + FirstName + "'";
+            return StaffID;
+        }
+        public static String SpecificStaffMember(string StaffID, string date, string time)
+        {
+            Console.WriteLine(date + time);
+            string selectStaffMember = "SELECT * FROM Shift WHERE StaffID='" + StaffID + "' AND StartDate='" + date + "' AND StartTime='" + time + "'";
+            return selectStaffMember;
+        }
+        
+        public static String SelectShiftQuery(string userInput)
+        {
+            string SelectShiftDate = "SELECT Shift.StaffID AS [Staff ID], StaffMember.FirstName AS [Name], StartTime AS [From], EndTime AS [To] FROM Shift INNER JOIN StaffMember ON Shift.StaffID = StaffMember.StaffID WHERE StartDate= '" + userInput + "'";
+            return SelectShiftDate;
+        }
+
+        public static String CheckFreeQuery(string userInput)
+        {
+            string SelectShiftDate = "SELECT Shift.StaffID AS [Staff ID] , StaffMember.FirstName AS [Name], StaffMember.role AS [Role] FROM Shift INNER JOIN StaffMember ON Shift.StaffID = StaffMember.StaffID WHERE NOT Shift.StartDate= '" + userInput + "'";
+            return SelectShiftDate;
+        }
+
+        public static String CheckStaffAvailability(string userInput)
+        {
+            string SelectAvailability = "SELECT StaffMember.StaffID AS [Staff ID], StaffMember.FirstName AS [Name], Shift.StartDate AS [Date], Shift.StartTime AS [From], Shift.EndTime AS [To] FROM StaffMember INNER JOIN Shift ON StaffMember.StaffID = StaffMember.StaffID WHERE Shift.StartDate= '" + userInput + "'";
+            return SelectAvailability;
+        }
+        
+        public static String AddShift(string StartDate, string StartTime, string EndTime, int StaffID, string AppointmentID)
+        {
+            string addShift = $"INSERT INTO Shift (startDate, startTime, endTime, staffID, appointmentID) VALUES('{StartDate} ', '{StartTime}', '{EndTime} ', '{StaffID}', '{AppointmentID}')";
+            return addShift;
+        }
+
+        /*public static String DeleteShift(string AppointmentID)
+        {
+            string deleteShift = "DELETE FROM shift WHERE appointmentID = '" + AppointmentID + "'";
+            return deleteShift;
+        }*/
+        
+        public static String UpdateShift(string StartDate, string StartTime, string EndTime, int StaffID, string AppointmentID)
+        {
+            string updateShift = $"UPDATE shift SET startDate = '" + StartDate + "', startTime = '" + StartTime + "', EndTime = '" + EndTime + "', staffID = '" + StaffID + "' WHERE appointmentID ='" + AppointmentID + "'";
+            return updateShift;
+        }
+
+        //count how many shifts a member of staff has in a specific day
+        public static String Countshifts(string Date)
+        {
+            string countShifts = "SELECT COUNT(StaffID) FROM Shift WHERE StartDate= '" + Date + "'";
+            return countShifts;
+        }
+        #endregion
+
 
     }
 }
