@@ -43,12 +43,11 @@ namespace OverSurgery
                 // If the username is unique the details will be added to the database.
                 if(CheckExistingUsername(userName) == true)
                 {
-                    // SQL statement to be given to the database.
+                    // Encrypts the password.
                     string encryptedPassword = EncryptPassword(password);
-                    string insert = "INSERT INTO Logins (Username, Password) VALUES ('" + userName + "'" + ", '" + encryptedPassword + "')";
 
-                    // Method call to DatabaseConnection class.
-                    DatabaseConnection.getDatabaseConnectionInstance().getDataSet(insert);
+                    // Inserts the user details into the database.
+                    DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.CreateUser(userName, encryptedPassword));
 
                     // Returns 1 (User account created successfully).
                     return 1;
@@ -74,11 +73,8 @@ namespace OverSurgery
         /// <returns>True or false depending if the username was unique.</returns>
         public bool CheckExistingUsername(string userName)
         {
-            // SQL statement to find all records in the Logins table with a particular username.
-            string checkUsername = "SELECT * FROM Logins WHERE Username='" + userName + "'";
-
-            // Gets a DataSet from the DatabaseConnection class.
-            DataSet dsLogins = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(checkUsername);
+            // Finds all records in the Logins table with a particular username.
+            DataSet dsLogins = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.CheckExistingUsername(userName));
 
             // Counts the number of rows in the DataSet.
             int sameUsernames = dsLogins.Tables[0].Rows.Count;
@@ -167,17 +163,21 @@ namespace OverSurgery
         }
 
         /// <summary>
-        /// Tanaka
+        /// Checks the database to see if the user details are a match.
         /// </summary>
-        /// <param name="userName"></param>
-        /// <param name="password"></param>
-        /// <returns></returns>
+        /// <param name="userName">Given username.</param>
+        /// <param name="password">Given password.</param>
+        /// <returns>Bool representing whether the user can log in or not.</returns>
         public bool ValidateCredentials(string userName, string encryptedPassword)
        {
-            string checkCredentials = String.Format("SELECT * FROM Logins WHERE Username = '{0}' AND Password = '{1}'", userName, encryptedPassword);
-            DataSet dsLogins = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(checkCredentials);
+            // Checks the database to see whether the username and password supplied by the user 
+            // matches a record in the database.
+            DataSet dsLogins = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.ValidateCredentials(userName, encryptedPassword));
+
+            // Counts the number of matching logins.
             int matchingLogins = dsLogins.Tables[0].Rows.Count;
 
+            // If the number of matching logins is equal to 1 the user can log in.
             if (matchingLogins == 1)
             {
                 return true;

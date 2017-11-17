@@ -89,13 +89,8 @@ namespace OverSurgery
         /// <param name="patientDetails">patientDetails struct</param>
         public void InsertToDatabase(patientInfo patientDetails)
         {
-            // Holds the SQL insert command.
-            string insert = String.Format(@"INSERT INTO Patient (FirstName, LastName, TelephoneNumber, DateOfBirth, Gender, Address)
-                             VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')", patientDetails.firstName, patientDetails.lastName, patientDetails.telephoneNumber,
-                             patientDetails.dateOfBirth, patientDetails.gender, patientDetails.address);
-
-            // Gives the SQL command to the data set.
-            DatabaseConnection.getDatabaseConnectionInstance().getDataSet(insert);            
+            // Inserts patient details into the database.
+            DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.RegisterPatient(patientDetails));            
         }
 
         public void SearchByID()
