@@ -206,6 +206,22 @@ namespace OverSurgery
         // in the order their names are listed.
         private List<string> staffIDList = new List<string>();
 
+        // Runs when the back button is clicked.
+        private void btnBackAddApptPanel_Click(object sender, EventArgs e)
+        {
+            // Hides the panel.
+            pnlAddAppointment.Visible = false;
+
+            // Resets all data entry fields.
+            lblPatientNameAddApptPanel.Visible = false;
+            btnAddPatientAddApptPanel.Visible = true;
+            patientID = null;
+            dtpDateAddApptPanel.Value = DateTime.Today;
+            lbxApptTimeAddApptPanel.Items.Clear();
+            lbxApptStaffAddApptPanel.Items.Clear();
+        }
+
+        // Runs when the add patient button is clicked.
         private void btnAddPatientAddApptPanel_Click(object sender, EventArgs e)
         {
             lblPatientNameAddApptPanel.Text = "";
@@ -328,6 +344,20 @@ namespace OverSurgery
 
                 // Inserts the appointment into the database.
                 AddAppointment.GetAddAppointmentInstance().AddToDatabase(appointmentInfo);
+
+                // Tells the user the appointment is booked.
+                MessageBox.Show("Appointment booked.", "Done!");
+
+                // Hides the panel.
+                pnlAddAppointment.Visible = false;
+
+                // Resets all data entry fields.
+                lblPatientNameAddApptPanel.Visible = false;
+                btnAddPatientAddApptPanel.Visible = true;
+                patientID = null;
+                dtpDateAddApptPanel.Value = DateTime.Today;
+                lbxApptTimeAddApptPanel.Items.Clear();
+                lbxApptStaffAddApptPanel.Items.Clear();
             }
 
             // Resets the date selected.
@@ -356,8 +386,9 @@ namespace OverSurgery
 
 
 
+
         #endregion
 
-
+        
     }
 }
