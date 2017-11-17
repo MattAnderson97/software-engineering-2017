@@ -10,6 +10,7 @@ namespace OverSurgery
     {
         #region PROPERTIES
 
+        // Chosen date of the appointment.
         private string date;
         public string Date
         {
@@ -24,6 +25,7 @@ namespace OverSurgery
             }
         }
 
+        // Chosen time of the appointment.
         private string time;
         public string Time
         {
@@ -38,6 +40,7 @@ namespace OverSurgery
             }
         }
 
+        // ID of patient who the appointment is for.
         private int patientID;
         public int PatientID
         {
@@ -52,6 +55,7 @@ namespace OverSurgery
             }
         }
 
+        // ID of staff member appointment is with.
         private int staffID;
         public int StaffID
         {

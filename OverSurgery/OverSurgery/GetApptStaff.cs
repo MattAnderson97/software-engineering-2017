@@ -41,9 +41,6 @@ namespace OverSurgery
             // putting only available staff in a list.
             CompareStaff();
 
-            // Gets the names of available staff members.
-           // GetAvailableStaffNames();
-
             return availableStaffList;
         }
 
@@ -87,22 +84,6 @@ namespace OverSurgery
         {
             availableStaffList = allStaffList.Except(bookedStaffList).ToList();
         }
-
-        /// <summary>
-        /// Gets the corresponding staff names for a list of staff id's.
-        /// </summary>
-        /*public void GetAvailableStaffNames()
-        {
-            // Iterates through the list and finds the name associated with each staff id.
-            for(int i = 0; i < availableStaffList.Count; i++)
-            {
-                // Gets a data set finding a staff member based on their staff id.
-                DataSet dsStaffMember = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.GetApptStaffMember(availableStaffList[i]));
-
-                // Adds a staff members name to the list.
-                availableStaffNameList.Add(dsStaffMember.Tables[0].Rows[0]["FirstName"].ToString() + dsStaffMember.Tables[0].Rows[0]["LastName"].ToString());
-            }
-        }*/
         #endregion
 
         #region CONSTRUCTORS

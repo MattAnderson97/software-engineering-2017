@@ -193,10 +193,17 @@ namespace OverSurgery
 
         #region pnlAddAppointment       
 
+        // Stores the selected patients ID number.
         private string patientID;
+
+        // Stores the selected patients name.
         private string patientName;
+
+        // Stores the ID number of the selected staff member.
         private string staffID;
 
+        // Creates a list to hold all of the staff members ID's
+        // in the order their names are listed.
         private List<string> staffIDList = new List<string>();
 
         private void btnAddPatientAddApptPanel_Click(object sender, EventArgs e)
@@ -207,9 +214,13 @@ namespace OverSurgery
             patientID = "2";
             patientName = "John Smith";
 
+            // Stores the name of the selected patient.
             lblPatientNameAddApptPanel.Text = patientName;
 
+            // Hides the add patient button.
             btnAddPatientAddApptPanel.Visible = false;
+
+            // Displays the name of the selected patient.
             lblPatientNameAddApptPanel.Visible = true;
         }
 
@@ -240,6 +251,7 @@ namespace OverSurgery
         // Runs when a list box item is selected.
         private void lbxApptTimeAddApptPanel_SelectedValueChanged(object sender, EventArgs e)
         {
+            // Clears the StaffID list.
             staffIDList.Clear();
 
             // Clears the list box.
@@ -251,27 +263,30 @@ namespace OverSurgery
             // Saves the time chosen by the user.
             string chosenTime = lbxApptTimeAddApptPanel.GetItemText(lbxApptTimeAddApptPanel.SelectedItem);
 
-            // Creates a list to store the available staff members.
-            //List<string> availableStaff = new List<string>();
-
             // Gets a list of available staff members.
-            /*availableStaff*/ staffIDList = AddAppointment.GetAddAppointmentInstance().GetAppointmentStaff(chosenDate, chosenTime);
+            staffIDList = AddAppointment.GetAddAppointmentInstance().GetAppointmentStaff(chosenDate, chosenTime);
 
             // Iterates through the list adding the items to the list box.
-            for(int i =0; i < staffIDList.Count/*availableStaff.Count*/; i++)
+            for(int i =0; i < staffIDList.Count; i++)
             {
+                // Gets a data set containing a staff member.
                 DataSet dsStaffMember = AddAppointment.GetAddAppointmentInstance().GetStaffMemberName(staffIDList[i]);
 
+                // Adds their first name and last name based off their ID to the list box.
                 lbxApptStaffAddApptPanel.Items.Add(dsStaffMember.Tables[0].Rows[0]["FirstName"].ToString() + dsStaffMember.Tables[0].Rows[0]["LastName"].ToString() /*availableStaff[i]*/);
             }         
         }
 
+        // Runs when the add button is clicked.
         private void btnAddAddApptPanel_Click(object sender, EventArgs e)
         {
+            // Creates a new instance of the appointment info class.
             AppointmentInfo appointmentInfo = new AppointmentInfo();
 
+            // Says there are empty fields.
             bool noEmptyFields = false;
 
+            // Checks if any of the data entry fields are null.
             if(patientID == null)
             {
                 MessageBox.Show("No patient selected.", "Error!");
@@ -286,24 +301,36 @@ namespace OverSurgery
             }
             else
             {
+                // Says there are no empty data entry fields.
                 noEmptyFields = true;
             }
 
+            // If there are no empty data entry fields, the appointment is added to the database.
             if(noEmptyFields == true)
             {
+                // Assigns the PatientID.
                 appointmentInfo.PatientID = Int32.Parse(patientID);
 
+                // Assigns the chosen date.
                 appointmentInfo.Date = dtpDateAddApptPanel.Value.ToShortDateString();
 
+                // Assigns the chosen time.
                 appointmentInfo.Time = lbxApptTimeAddApptPanel.SelectedItem.ToString();
 
+                // Gets the index number of the staff member selected.
                 int indexNumber = lbxApptStaffAddApptPanel.SelectedIndex;
+
+                // Sets the staffID to the number in the StaffID list at the chosen index.
                 staffID = staffIDList[indexNumber];
+
+                // Assigns the StaffID.
                 appointmentInfo.StaffID = Int32.Parse(staffID);
 
+                // Inserts the appointment into the database.
                 AddAppointment.GetAddAppointmentInstance().AddToDatabase(appointmentInfo);
             }
 
+            // Resets the date selected.
             dtpDateAddApptPanel.Value = DateTime.Today;
             
         }

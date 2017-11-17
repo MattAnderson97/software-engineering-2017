@@ -159,7 +159,7 @@
             this.pnlCreateUser.Controls.Add(this.label2);
             this.pnlCreateUser.Controls.Add(this.lblUserName);
             this.pnlCreateUser.Controls.Add(this.lblCreateUser);
-            this.pnlCreateUser.Location = new System.Drawing.Point(3, 3);
+            this.pnlCreateUser.Location = new System.Drawing.Point(14, 16);
             this.pnlCreateUser.Name = "pnlCreateUser";
             this.pnlCreateUser.Size = new System.Drawing.Size(437, 357);
             this.pnlCreateUser.TabIndex = 15;
@@ -236,6 +236,7 @@
             this.pnlRegisterPatient.Controls.Add(this.btnRegisterPatient);
             this.pnlRegisterPatient.Controls.Add(this.tbxAddress);
             this.pnlRegisterPatient.Controls.Add(this.mtbTelephoneNumber);
+            this.pnlRegisterPatient.Controls.Add(this.pnlCreateUser);
             this.pnlRegisterPatient.Controls.Add(this.cbxGender);
             this.pnlRegisterPatient.Controls.Add(this.dtpDateOfBirth);
             this.pnlRegisterPatient.Controls.Add(this.tbxLastName);
@@ -247,7 +248,7 @@
             this.pnlRegisterPatient.Controls.Add(this.lblLastName);
             this.pnlRegisterPatient.Controls.Add(this.lblFirstName);
             this.pnlRegisterPatient.Controls.Add(this.lblRegisterPatient);
-            this.pnlRegisterPatient.Location = new System.Drawing.Point(6, 3);
+            this.pnlRegisterPatient.Location = new System.Drawing.Point(860, 401);
             this.pnlRegisterPatient.Name = "pnlRegisterPatient";
             this.pnlRegisterPatient.Size = new System.Drawing.Size(450, 357);
             this.pnlRegisterPatient.TabIndex = 16;
@@ -480,10 +481,8 @@
             // 
             this.pnlMainMenu.Controls.Add(this.button3);
             this.pnlMainMenu.Controls.Add(this.label1);
-            this.pnlMainMenu.Controls.Add(this.pnlRegisterPatient);
             this.pnlMainMenu.Controls.Add(this.button1);
             this.pnlMainMenu.Controls.Add(this.button2);
-            this.pnlMainMenu.Controls.Add(this.pnlCreateUser);
             this.pnlMainMenu.Controls.Add(this.btnRegisterPatientMainMenu);
             this.pnlMainMenu.Controls.Add(this.btnSettings);
             this.pnlMainMenu.Controls.Add(this.btnAddApptMainMenuPanel);
@@ -658,6 +657,7 @@
             this.ClientSize = new System.Drawing.Size(1344, 741);
             this.Controls.Add(this.dgvDebug2);
             this.Controls.Add(this.dgvDebug);
+            this.Controls.Add(this.pnlRegisterPatient);
             this.Controls.Add(this.pnlAddAppointment);
             this.Controls.Add(this.pnlMainMenu);
             this.Controls.Add(this.pnlLogin);
