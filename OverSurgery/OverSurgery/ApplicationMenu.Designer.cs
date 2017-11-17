@@ -75,7 +75,6 @@
             this.lblTimeAddApptPanel = new System.Windows.Forms.Label();
             this.lbxApptTimeAddApptPanel = new System.Windows.Forms.ListBox();
             this.btnAddPatientAddApptPanel = new System.Windows.Forms.Button();
-            this.btnCancelAddApptPanel = new System.Windows.Forms.Button();
             this.btnAddAddApptPanel = new System.Windows.Forms.Button();
             this.dtpDateAddApptPanel = new System.Windows.Forms.DateTimePicker();
             this.lblDateAddApptPanel = new System.Windows.Forms.Label();
@@ -83,6 +82,7 @@
             this.lblAddAppointment = new System.Windows.Forms.Label();
             this.dgvDebug = new System.Windows.Forms.DataGridView();
             this.dgvDebug2 = new System.Windows.Forms.DataGridView();
+            this.btnBackAddApptPanel = new System.Windows.Forms.Button();
             this.pnlCreateUser.SuspendLayout();
             this.pnlRegisterPatient.SuspendLayout();
             this.pnlLogin.SuspendLayout();
@@ -159,10 +159,11 @@
             this.pnlCreateUser.Controls.Add(this.label2);
             this.pnlCreateUser.Controls.Add(this.lblUserName);
             this.pnlCreateUser.Controls.Add(this.lblCreateUser);
-            this.pnlCreateUser.Location = new System.Drawing.Point(3, 3);
+            this.pnlCreateUser.Location = new System.Drawing.Point(9, 38);
             this.pnlCreateUser.Name = "pnlCreateUser";
             this.pnlCreateUser.Size = new System.Drawing.Size(437, 357);
             this.pnlCreateUser.TabIndex = 15;
+            this.pnlCreateUser.Visible = false;
             // 
             // btnBackCreateUser
             // 
@@ -247,9 +248,9 @@
             this.pnlRegisterPatient.Controls.Add(this.lblLastName);
             this.pnlRegisterPatient.Controls.Add(this.lblFirstName);
             this.pnlRegisterPatient.Controls.Add(this.lblRegisterPatient);
-            this.pnlRegisterPatient.Location = new System.Drawing.Point(6, 3);
+            this.pnlRegisterPatient.Location = new System.Drawing.Point(6, 35);
             this.pnlRegisterPatient.Name = "pnlRegisterPatient";
-            this.pnlRegisterPatient.Size = new System.Drawing.Size(450, 357);
+            this.pnlRegisterPatient.Size = new System.Drawing.Size(437, 357);
             this.pnlRegisterPatient.TabIndex = 16;
             this.pnlRegisterPatient.Visible = false;
             // 
@@ -480,18 +481,15 @@
             // 
             this.pnlMainMenu.Controls.Add(this.button3);
             this.pnlMainMenu.Controls.Add(this.label1);
-            this.pnlMainMenu.Controls.Add(this.pnlRegisterPatient);
             this.pnlMainMenu.Controls.Add(this.button1);
             this.pnlMainMenu.Controls.Add(this.button2);
-            this.pnlMainMenu.Controls.Add(this.pnlCreateUser);
             this.pnlMainMenu.Controls.Add(this.btnRegisterPatientMainMenu);
             this.pnlMainMenu.Controls.Add(this.btnSettings);
             this.pnlMainMenu.Controls.Add(this.btnAddApptMainMenuPanel);
-            this.pnlMainMenu.Location = new System.Drawing.Point(12, 28);
+            this.pnlMainMenu.Location = new System.Drawing.Point(12, 38);
             this.pnlMainMenu.Name = "pnlMainMenu";
             this.pnlMainMenu.Size = new System.Drawing.Size(437, 357);
             this.pnlMainMenu.TabIndex = 24;
-            this.pnlMainMenu.Visible = false;
             // 
             // button3
             // 
@@ -504,13 +502,13 @@
             // 
             // pnlAddAppointment
             // 
+            this.pnlAddAppointment.Controls.Add(this.btnBackAddApptPanel);
             this.pnlAddAppointment.Controls.Add(this.lblPatientNameAddApptPanel);
             this.pnlAddAppointment.Controls.Add(this.lbxApptStaffAddApptPanel);
             this.pnlAddAppointment.Controls.Add(this.lblDoctorAddApptPanel);
             this.pnlAddAppointment.Controls.Add(this.lblTimeAddApptPanel);
             this.pnlAddAppointment.Controls.Add(this.lbxApptTimeAddApptPanel);
             this.pnlAddAppointment.Controls.Add(this.btnAddPatientAddApptPanel);
-            this.pnlAddAppointment.Controls.Add(this.btnCancelAddApptPanel);
             this.pnlAddAppointment.Controls.Add(this.btnAddAddApptPanel);
             this.pnlAddAppointment.Controls.Add(this.dtpDateAddApptPanel);
             this.pnlAddAppointment.Controls.Add(this.lblDateAddApptPanel);
@@ -520,6 +518,7 @@
             this.pnlAddAppointment.Name = "pnlAddAppointment";
             this.pnlAddAppointment.Size = new System.Drawing.Size(437, 357);
             this.pnlAddAppointment.TabIndex = 25;
+            this.pnlAddAppointment.Visible = false;
             // 
             // lblPatientNameAddApptPanel
             // 
@@ -576,18 +575,9 @@
             this.btnAddPatientAddApptPanel.UseVisualStyleBackColor = true;
             this.btnAddPatientAddApptPanel.Click += new System.EventHandler(this.btnAddPatientAddApptPanel_Click);
             // 
-            // btnCancelAddApptPanel
-            // 
-            this.btnCancelAddApptPanel.Location = new System.Drawing.Point(230, 302);
-            this.btnCancelAddApptPanel.Name = "btnCancelAddApptPanel";
-            this.btnCancelAddApptPanel.Size = new System.Drawing.Size(166, 30);
-            this.btnCancelAddApptPanel.TabIndex = 33;
-            this.btnCancelAddApptPanel.Text = "CANCEL";
-            this.btnCancelAddApptPanel.UseVisualStyleBackColor = true;
-            // 
             // btnAddAddApptPanel
             // 
-            this.btnAddAddApptPanel.Location = new System.Drawing.Point(27, 302);
+            this.btnAddAddApptPanel.Location = new System.Drawing.Point(141, 297);
             this.btnAddAddApptPanel.Name = "btnAddAddApptPanel";
             this.btnAddAddApptPanel.Size = new System.Drawing.Size(166, 30);
             this.btnAddAddApptPanel.TabIndex = 12;
@@ -651,16 +641,28 @@
             this.dgvDebug2.Size = new System.Drawing.Size(240, 150);
             this.dgvDebug2.TabIndex = 27;
             // 
+            // btnBackAddApptPanel
+            // 
+            this.btnBackAddApptPanel.Location = new System.Drawing.Point(13, 13);
+            this.btnBackAddApptPanel.Name = "btnBackAddApptPanel";
+            this.btnBackAddApptPanel.Size = new System.Drawing.Size(75, 23);
+            this.btnBackAddApptPanel.TabIndex = 40;
+            this.btnBackAddApptPanel.Text = "BACK";
+            this.btnBackAddApptPanel.UseVisualStyleBackColor = true;
+            this.btnBackAddApptPanel.Click += new System.EventHandler(this.btnBackAddApptPanel_Click);
+            // 
             // ApplicationMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1344, 741);
+            this.ClientSize = new System.Drawing.Size(1344, 763);
             this.Controls.Add(this.dgvDebug2);
             this.Controls.Add(this.dgvDebug);
-            this.Controls.Add(this.pnlAddAppointment);
-            this.Controls.Add(this.pnlMainMenu);
             this.Controls.Add(this.pnlLogin);
+            this.Controls.Add(this.pnlAddAppointment);
+            this.Controls.Add(this.pnlCreateUser);
+            this.Controls.Add(this.pnlRegisterPatient);
+            this.Controls.Add(this.pnlMainMenu);
             this.Name = "ApplicationMenu";
             this.Text = "Over Surgery";
             this.Load += new System.EventHandler(this.ApplicationMenu_Load);
@@ -727,7 +729,6 @@
         private System.Windows.Forms.Label lblPatient;
         private System.Windows.Forms.Label lblAddAppointment;
         private System.Windows.Forms.DateTimePicker dtpDateAddApptPanel;
-        private System.Windows.Forms.Button btnCancelAddApptPanel;
         private System.Windows.Forms.Button btnAddAddApptPanel;
         private System.Windows.Forms.Button btnAddPatientAddApptPanel;
         private System.Windows.Forms.ListBox lbxApptTimeAddApptPanel;
@@ -737,5 +738,6 @@
         private System.Windows.Forms.Label lblDoctorAddApptPanel;
         private System.Windows.Forms.DataGridView dgvDebug2;
         private System.Windows.Forms.Label lblPatientNameAddApptPanel;
+        private System.Windows.Forms.Button btnBackAddApptPanel;
     }
 }

@@ -133,11 +133,21 @@ namespace OverSurgery
 
         #region AddAppointment
 
+        /// <summary>
+        /// SQL statement to search for a staff member by ID.
+        /// </summary>
+        /// <param name="StaffID">StaffID number.</param>
+        /// <returns>SQL statement.</returns>
         public static string GetStaffMemberName(string StaffID)
         {
             return String.Format("SELECT FirstName, LastName FROM StaffMember WHERE StaffID = '{0}'", StaffID);
         }
 
+        /// <summary>
+        /// SQL statement to insert an appointment.
+        /// </summary>
+        /// <param name="appointmentInfo">appointmentInfo class.</param>
+        /// <returns>SQL statement.</returns>
         public static string InsertAppointment(AppointmentInfo appointmentInfo)
         {
             return String.Format(@"INSERT INTO Appointment (Type, Date, Time, StaffID_Fk, PatientID_Fk) 

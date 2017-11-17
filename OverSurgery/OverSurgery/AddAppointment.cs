@@ -52,16 +52,25 @@ namespace OverSurgery
             return staffList.GetAvailableStaffNameList(chosenDate, chosenTime);
         }
 
+        /// <summary>
+        /// Gets the name of a staff member associated with a staff ID, to display on the form.
+        /// </summary>
+        /// <param name="StaffID">StaffID number.</param>
+        /// <returns>Data set containing a staff member.</returns>
         public DataSet GetStaffMemberName(string StaffID)
         {
+            // Gets a data set containing a staff member.
             DataSet dsStaffMember = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.GetStaffMemberName(StaffID));
             return dsStaffMember;
         }
 
+        /// <summary>
+        /// Adds the appointment info to the database.
+        /// </summary>
+        /// <param name="appointmentInfo"></param>
         public void AddToDatabase(AppointmentInfo appointmentInfo)
         {
-            Console.WriteLine(appointmentInfo.StaffID.ToString());
-
+            // Inserts appointment info into the database.
             DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.InsertAppointment(appointmentInfo));
         }       
         #endregion

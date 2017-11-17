@@ -41,5 +41,25 @@ namespace GWTests
 
             Assert.IsFalse(testPatient.Register(testPatientInfo));
         }
+
+        [TestMethod]
+        public void ReturnsErrorIfDataPartiallyEntered()
+        {
+            // Creates an instance of the patient class.
+            Patient testPatient = new Patient();
+
+            // Creates an instance of the patient info struct.
+            Patient.patientInfo testPatientInfo;
+
+            // Fills in one of the dat fields.
+            testPatientInfo.firstName = "";
+            testPatientInfo.lastName = "Test";
+            testPatientInfo.telephoneNumber = "";
+            testPatientInfo.dateOfBirth = "";
+            testPatientInfo.gender = "";
+            testPatientInfo.address = "";
+
+            Assert.IsFalse(testPatient.Register(testPatientInfo));
+        }
     }
 }
