@@ -69,6 +69,7 @@
             this.pnlMainMenu = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.pnlAddAppointment = new System.Windows.Forms.Panel();
+            this.btnBackAddApptPanel = new System.Windows.Forms.Button();
             this.lblPatientNameAddApptPanel = new System.Windows.Forms.Label();
             this.lbxApptStaffAddApptPanel = new System.Windows.Forms.ListBox();
             this.lblDoctorAddApptPanel = new System.Windows.Forms.Label();
@@ -83,7 +84,6 @@
             this.lblAddAppointment = new System.Windows.Forms.Label();
             this.dgvDebug = new System.Windows.Forms.DataGridView();
             this.dgvDebug2 = new System.Windows.Forms.DataGridView();
-            this.btnBackAddApptPanel = new System.Windows.Forms.Button();
             this.pnlCreateUser.SuspendLayout();
             this.pnlRegisterPatient.SuspendLayout();
             this.pnlLogin.SuspendLayout();
@@ -522,6 +522,16 @@
             this.pnlAddAppointment.TabIndex = 25;
             this.pnlAddAppointment.Visible = false;
             // 
+            // btnBackAddApptPanel
+            // 
+            this.btnBackAddApptPanel.Location = new System.Drawing.Point(13, 16);
+            this.btnBackAddApptPanel.Name = "btnBackAddApptPanel";
+            this.btnBackAddApptPanel.Size = new System.Drawing.Size(75, 23);
+            this.btnBackAddApptPanel.TabIndex = 25;
+            this.btnBackAddApptPanel.Text = "BACK";
+            this.btnBackAddApptPanel.UseVisualStyleBackColor = true;
+            this.btnBackAddApptPanel.Click += new System.EventHandler(this.btnBackAddApptPanel_Click);
+            // 
             // lblPatientNameAddApptPanel
             // 
             this.lblPatientNameAddApptPanel.AutoSize = true;
@@ -652,21 +662,11 @@
             this.dgvDebug2.Size = new System.Drawing.Size(240, 150);
             this.dgvDebug2.TabIndex = 27;
             // 
-            // btnBackAddApptPanel
-            // 
-            this.btnBackAddApptPanel.Location = new System.Drawing.Point(13, 16);
-            this.btnBackAddApptPanel.Name = "btnBackAddApptPanel";
-            this.btnBackAddApptPanel.Size = new System.Drawing.Size(75, 23);
-            this.btnBackAddApptPanel.TabIndex = 25;
-            this.btnBackAddApptPanel.Text = "BACK";
-            this.btnBackAddApptPanel.UseVisualStyleBackColor = true;
-            this.btnBackAddApptPanel.Click += new System.EventHandler(this.btnBackAddApptPanel_Click);
-            // 
             // ApplicationMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1344, 768);
+            this.ClientSize = new System.Drawing.Size(1344, 741);
             this.Controls.Add(this.dgvDebug2);
             this.Controls.Add(this.dgvDebug);
             this.Controls.Add(this.pnlRegisterPatient);

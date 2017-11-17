@@ -30,6 +30,16 @@ namespace GWTests
 
             // Checks if the "Register" method returns false.
             Assert.IsFalse(testPatient.Register(testPatientInfo));
+        }
+
+        [TestMethod]
+        public void ReturnsErrorIfDataPartiallyEntered()
+        {
+            // Creates an instance of the patient class.
+            Patient testPatient = new Patient();
+
+            // Creates an instance of the patient info struct.
+            Patient.patientInfo testPatientInfo;
 
             // Fills in one of the dat fields.
             testPatientInfo.firstName = "";
