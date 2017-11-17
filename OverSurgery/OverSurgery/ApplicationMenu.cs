@@ -184,13 +184,13 @@ namespace OverSurgery
 
         #region pnlManageAppointments
 
-        class ManageAppointmentsPatientData
+        class ManageAppointmentsPatientStaffData
         {
             int id;
             string firstName;
             string lastName;
 
-            public ManageAppointmentsPatientData(int id, string firstName, string lastName)
+            public ManageAppointmentsPatientStaffData(int id, string firstName, string lastName)
             {
                 this.id = id;
                 this.firstName = firstName;
@@ -249,30 +249,15 @@ namespace OverSurgery
 
                 DataSet data = DatabaseConnection.getDatabaseConnectionInstance().getDataSet("SELECT PatientID, FirstName, LastName FROM Patient");
                 DataTable table = data.Tables[0];
-                int[] ids = new int[table.Rows.Count];
-                string[] firstNames = new string[table.Rows.Count];
-                string[] lastNames = new string[table.Rows.Count];
 
                 for (int row = 0; row < table.Rows.Count; row++)
                 {
-                    for (int column = 0; column < table.Columns.Count; column++)
-                    {
-                        switch (column)
-                        {
-                            case 0:
-                                ids[row] = int.Parse(table.Rows[row][column].ToString().Trim());
-                                break;
-                            case 1:
-                                firstNames[row] = table.Rows[row][column].ToString().Trim();
-                                break;
-                            case 2:
-                                lastNames[row] = table.Rows[row][column].ToString().Trim();
-                                break;
-                        }
-                    }
+                    int id = int.Parse(table.Rows[row][0].ToString().Trim());
+                    string firstName = table.Rows[row][1].ToString().Trim();
+                    string lastName = table.Rows[row][2].ToString().Trim();
 
                     // Console.WriteLine(PatientIDs[row] + " " + FirstNames[row] + " " + LastNames[row]);
-                    manageAppointmentPatient.Items.Add(new ManageAppointmentsPatientData(ids[row], firstNames[row], lastNames[row]));
+                    manageAppointmentPatient.Items.Add(new ManageAppointmentsPatientStaffData(id, firstName, lastName));
                 }
             }
             else
@@ -281,18 +266,50 @@ namespace OverSurgery
             }
         }
 
-        private void manageAppointmentPatient_SelectedIndexChanged(object sender, EventArgs args)
+        private DataTable getAppointmentsTable()
         {
-            ManageAppointmentsPatientData patientData = (ManageAppointmentsPatientData)manageAppointmentPatient.SelectedItem;
+            ManageAppointmentsPatientStaffData patientData = (ManageAppointmentsPatientStaffData) manageAppointmentPatient.SelectedItem;
             int patientID = patientData.ID;
+
             DataSet data = DatabaseConnection.getDatabaseConnectionInstance().getDataSet("SELECT * FROM Appointment WHERE PatientID_Fk = " + patientID);
             DataTable table = data.Tables[0];
-            string[] appointments = new string[table.Rows.Count];
+            return table;
+        }
+
+        private void manageAppointmentPatient_SelectedIndexChanged(object sender, EventArgs args)
+        {
+            DataTable table = getAppointmentsTable();
 
             for (int row = 0; row < table.Rows.Count; row++)
             {
                 DataRow dataRow = table.Rows[row];
-                appointments[row] = dataRow[0].ToString().Trim() + " " + dataRow[2].ToString().Trim() + " " + dataRow[3].ToString().Trim();
+                String appointment = dataRow[0].ToString().Trim() + " " + dataRow[2].ToString().Trim() + " " + dataRow[3].ToString().Trim();
+                manageAppointmentID.Items.Add(appointment);
+            }
+        }
+
+        private void manageAppointmentID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataTable table = getAppointmentsTable();
+
+            for (int row = 0; row < table.Rows.Count; row++)
+            {
+                DataRow dataRow = table.Rows[row];
+                manageAppointmentType.Text = dataRow[1].ToString().Trim();
+                manageAppointmentDate.Text = dataRow[2].ToString().Trim();
+                manageAppointmentTime.Text = dataRow[3].ToString().Trim();
+
+                DataSet dataSet = DatabaseConnection.getDatabaseConnectionInstance().getDataSet("SELECT StaffID, FirstName, LastName FROM StaffMember WHERE StaffID = " + dataRow[4].ToString().Trim());
+                DataRowCollection staffRows = dataSet.Tables[0].Rows;
+
+                for (int i = 0; i < staffRows.Count; i++)
+                {
+                    if (staffRows[i][0].ToString().Trim() == dataRow[4].ToString().Trim())
+                    {
+                        manageAppointmentDoctor.Text = staffRows[i][0].ToString().Trim() + " " + staffRows[i][1].ToString().Trim() + " " + staffRows[i][2].ToString().Trim();
+                        break;
+                    }
+                }
             }
         }
 

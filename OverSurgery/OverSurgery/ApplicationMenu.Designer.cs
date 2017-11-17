@@ -82,6 +82,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnBackManageAppointments = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.manageAppointmentType = new System.Windows.Forms.TextBox();
             this.pnlCreateUser.SuspendLayout();
             this.pnlRegisterPatient.SuspendLayout();
             this.pnlLogin.SuspendLayout();
@@ -539,6 +541,8 @@
             // 
             // pnlManageAppointments
             // 
+            this.pnlManageAppointments.Controls.Add(this.manageAppointmentType);
+            this.pnlManageAppointments.Controls.Add(this.label12);
             this.pnlManageAppointments.Controls.Add(this.manageAppointmentTime);
             this.pnlManageAppointments.Controls.Add(this.manageAppointmentDate);
             this.pnlManageAppointments.Controls.Add(this.manageAppointmentDoctor);
@@ -562,14 +566,14 @@
             // manageAppointmentTime
             // 
             this.manageAppointmentTime.FormattingEnabled = true;
-            this.manageAppointmentTime.Location = new System.Drawing.Point(270, 328);
+            this.manageAppointmentTime.Location = new System.Drawing.Point(270, 363);
             this.manageAppointmentTime.Name = "manageAppointmentTime";
             this.manageAppointmentTime.Size = new System.Drawing.Size(298, 28);
             this.manageAppointmentTime.TabIndex = 23;
             // 
             // manageAppointmentDate
             // 
-            this.manageAppointmentDate.Location = new System.Drawing.Point(271, 264);
+            this.manageAppointmentDate.Location = new System.Drawing.Point(271, 299);
             this.manageAppointmentDate.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.manageAppointmentDate.Name = "manageAppointmentDate";
             this.manageAppointmentDate.Size = new System.Drawing.Size(298, 26);
@@ -578,7 +582,7 @@
             // manageAppointmentDoctor
             // 
             this.manageAppointmentDoctor.FormattingEnabled = true;
-            this.manageAppointmentDoctor.Location = new System.Drawing.Point(271, 390);
+            this.manageAppointmentDoctor.Location = new System.Drawing.Point(271, 425);
             this.manageAppointmentDoctor.Name = "manageAppointmentDoctor";
             this.manageAppointmentDoctor.Size = new System.Drawing.Size(298, 28);
             this.manageAppointmentDoctor.TabIndex = 20;
@@ -587,7 +591,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(81, 389);
+            this.label11.Location = new System.Drawing.Point(81, 424);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(69, 25);
             this.label11.TabIndex = 19;
@@ -608,7 +612,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(81, 331);
+            this.label10.Location = new System.Drawing.Point(81, 366);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(56, 25);
             this.label10.TabIndex = 18;
@@ -618,7 +622,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(81, 264);
+            this.label9.Location = new System.Drawing.Point(81, 299);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 25);
             this.label9.TabIndex = 17;
@@ -631,6 +635,7 @@
             this.manageAppointmentID.Name = "manageAppointmentID";
             this.manageAppointmentID.Size = new System.Drawing.Size(298, 28);
             this.manageAppointmentID.TabIndex = 16;
+            this.manageAppointmentID.SelectedIndexChanged += new System.EventHandler(this.manageAppointmentID_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -650,6 +655,7 @@
             this.manageAppointmentPatient.Size = new System.Drawing.Size(298, 28);
             this.manageAppointmentPatient.TabIndex = 14;
             this.manageAppointmentPatient.SelectedIndexChanged += new System.EventHandler(this.manageAppointmentPatient_SelectedIndexChanged);
+            this.manageAppointmentPatient.SelectedValueChanged += new System.EventHandler(this.manageAppointmentPatient_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -682,6 +688,23 @@
             this.label6.Size = new System.Drawing.Size(438, 37);
             this.label6.TabIndex = 12;
             this.label6.Text = "MANAGE APPOINTMENTS";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(81, 247);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(57, 25);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "Type";
+            // 
+            // manageAppointmentType
+            // 
+            this.manageAppointmentType.Location = new System.Drawing.Point(270, 248);
+            this.manageAppointmentType.Name = "manageAppointmentType";
+            this.manageAppointmentType.Size = new System.Drawing.Size(298, 26);
+            this.manageAppointmentType.TabIndex = 25;
             // 
             // ApplicationMenu
             // 
@@ -766,5 +789,7 @@
         private System.Windows.Forms.ComboBox manageAppointmentTime;
         private System.Windows.Forms.DateTimePicker manageAppointmentDate;
         private System.Windows.Forms.Button btnSaveManageAppointments;
+        private System.Windows.Forms.TextBox manageAppointmentType;
+        private System.Windows.Forms.Label label12;
     }
 }
