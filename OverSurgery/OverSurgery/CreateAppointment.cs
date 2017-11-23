@@ -21,5 +21,10 @@ namespace OverSurgery
         {
 
         }
+
+        private void patientSelectionBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
