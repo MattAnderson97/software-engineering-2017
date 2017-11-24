@@ -34,7 +34,7 @@ namespace OverSurgery
         /// </summary>
         /// <param name="patientDetails">patient Details struct</param>
         /// <returns>Bool for whether the details were added or not.</returns>
-        public bool Register(PatientInfo patientInfo)
+        public int Register(PatientInfo patientInfo)
         {
             // Puts each variable from the struct into an array element.
             string[] checkEmptyArray = new string[6];
@@ -58,21 +58,27 @@ namespace OverSurgery
                 }
             }
 
+            // Uses a regular expression to make sure the telephone number string only has 
+            // digits.
             Regex regex = new Regex(@"\d+");
             Match match = regex.Match(patientInfo.TelephoneNumber);
 
             // If more than 0 of the fields are empty the method returns false and,
             // the form will display an error message. Else, the details are addded
             // to the database.
-            if (emptyFields > 0 || !match.Success)
+            if (emptyFields > 0)
             {
-                return false;
+                return 2;
+            }
+            else if(!match.Success) // If the string contains invalid characters an error is returned.
+            {
+                return 3;
             }
             else
             {
                 // Calls the InsertToDatabase method.
                 InsertToDatabase(patientInfo);
-                return true;
+                return 1;
             }
         }
 

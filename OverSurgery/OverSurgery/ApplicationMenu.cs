@@ -174,22 +174,24 @@ namespace OverSurgery
             patientInfo.Gender = cbxGender.Text;           
             patientInfo.Address = tbxAddress.Text;
 
-            // Calls the register method in the patient class and gives it the struct,
-            // if none of the data entry fields are empty.
-            if(PatientManager.GetPatientInstance().Register(patientInfo) == false)
+            // Calls the register method in the patient class and gives it an instance of the 
+            // patientInfo class. 
+            switch (PatientManager.GetPatientInstance().Register(patientInfo))
             {
-                MessageBox.Show("Please enter details into all fields.", "Empty fields!");
-            }
-            else
-            {
-                MessageBox.Show("Patient has been registered.", "Registered!");
-                tbxFirstName.ResetText();
-                tbxLastName.ResetText();
-                tbxTelNum.ResetText();
-                dtpDateOfBirth.ResetText();
-                cbxGender.ResetText();
-                tbxAddress.ResetText();
-                pnlRegisterPatient.Hide();
+                // Runs if the patient is registered.
+                case 1:
+                    MessageBox.Show("Patient has been registered.", "Registered!");
+                    break;
+                
+                // Runs if fields are missing details.
+                case 2:
+                    MessageBox.Show("Please enter details into all fields.", "Empty fields!");
+                    break;
+                
+                // Runs if invalid characters are enetered into the telephone number field.
+                case 3:
+                    MessageBox.Show("Please enter a correct telephone number.", "Invalid telephone number");
+                    break;
             }
         }
 

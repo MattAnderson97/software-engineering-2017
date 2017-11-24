@@ -43,10 +43,10 @@
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblCreateUser = new System.Windows.Forms.Label();
             this.pnlRegisterPatient = new System.Windows.Forms.Panel();
+            this.tbxTelNum = new System.Windows.Forms.TextBox();
             this.btnBackRegisterPatient = new System.Windows.Forms.Button();
             this.btnRegisterPatient = new System.Windows.Forms.Button();
             this.tbxAddress = new System.Windows.Forms.TextBox();
-            this.mtbTelephoneNumber = new System.Windows.Forms.MaskedTextBox();
             this.cbxGender = new System.Windows.Forms.ComboBox();
             this.dtpDateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.tbxLastName = new System.Windows.Forms.TextBox();
@@ -100,7 +100,6 @@
             this.lblAddAppointment = new System.Windows.Forms.Label();
             this.dgvDebug = new System.Windows.Forms.DataGridView();
             this.dgvDebug2 = new System.Windows.Forms.DataGridView();
-            this.tbxTelNum = new System.Windows.Forms.TextBox();
             this.pnlCreateUser.SuspendLayout();
             this.pnlRegisterPatient.SuspendLayout();
             this.pnlLogin.SuspendLayout();
@@ -256,7 +255,6 @@
             this.pnlRegisterPatient.Controls.Add(this.btnBackRegisterPatient);
             this.pnlRegisterPatient.Controls.Add(this.btnRegisterPatient);
             this.pnlRegisterPatient.Controls.Add(this.tbxAddress);
-            this.pnlRegisterPatient.Controls.Add(this.mtbTelephoneNumber);
             this.pnlRegisterPatient.Controls.Add(this.cbxGender);
             this.pnlRegisterPatient.Controls.Add(this.dtpDateOfBirth);
             this.pnlRegisterPatient.Controls.Add(this.tbxLastName);
@@ -273,6 +271,15 @@
             this.pnlRegisterPatient.Size = new System.Drawing.Size(437, 357);
             this.pnlRegisterPatient.TabIndex = 16;
             this.pnlRegisterPatient.Visible = false;
+            // 
+            // tbxTelNum
+            // 
+            this.tbxTelNum.BackColor = System.Drawing.Color.White;
+            this.tbxTelNum.Location = new System.Drawing.Point(147, 210);
+            this.tbxTelNum.MaxLength = 15;
+            this.tbxTelNum.Name = "tbxTelNum";
+            this.tbxTelNum.Size = new System.Drawing.Size(200, 20);
+            this.tbxTelNum.TabIndex = 25;
             // 
             // btnBackRegisterPatient
             // 
@@ -303,15 +310,6 @@
             this.tbxAddress.Name = "tbxAddress";
             this.tbxAddress.Size = new System.Drawing.Size(200, 66);
             this.tbxAddress.TabIndex = 24;
-            // 
-            // mtbTelephoneNumber
-            // 
-            this.mtbTelephoneNumber.Location = new System.Drawing.Point(147, 210);
-            this.mtbTelephoneNumber.Mask = "000000000000000";
-            this.mtbTelephoneNumber.Name = "mtbTelephoneNumber";
-            this.mtbTelephoneNumber.Size = new System.Drawing.Size(97, 20);
-            this.mtbTelephoneNumber.TabIndex = 23;
-            this.mtbTelephoneNumber.ValidatingType = typeof(int);
             // 
             // cbxGender
             // 
@@ -539,7 +537,7 @@
             this.pnlManageAppointments.Controls.Add(this.label7);
             this.pnlManageAppointments.Controls.Add(this.btnBackManageAppointments);
             this.pnlManageAppointments.Controls.Add(this.label6);
-            this.pnlManageAppointments.Location = new System.Drawing.Point(489, 28);
+            this.pnlManageAppointments.Location = new System.Drawing.Point(475, 31);
             this.pnlManageAppointments.Name = "pnlManageAppointments";
             this.pnlManageAppointments.Size = new System.Drawing.Size(435, 357);
             this.pnlManageAppointments.TabIndex = 25;
@@ -902,27 +900,18 @@
             this.dgvDebug2.Size = new System.Drawing.Size(240, 150);
             this.dgvDebug2.TabIndex = 27;
             // 
-            // tbxTelNum
-            // 
-            this.tbxTelNum.BackColor = System.Drawing.Color.White;
-            this.tbxTelNum.Location = new System.Drawing.Point(159, 210);
-            this.tbxTelNum.MaxLength = 15;
-            this.tbxTelNum.Name = "tbxTelNum";
-            this.tbxTelNum.Size = new System.Drawing.Size(200, 20);
-            this.tbxTelNum.TabIndex = 25;
-            // 
             // ApplicationMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1377, 714);
-            this.Controls.Add(this.pnlManageAppointments);
+            this.ClientSize = new System.Drawing.Size(1362, 714);
             this.Controls.Add(this.dgvDebug2);
             this.Controls.Add(this.dgvDebug);
             this.Controls.Add(this.pnlLogin);
             this.Controls.Add(this.pnlAddAppointment);
-            this.Controls.Add(this.pnlCreateUser);
             this.Controls.Add(this.pnlRegisterPatient);
+            this.Controls.Add(this.pnlCreateUser);
+            this.Controls.Add(this.pnlManageAppointments);
             this.Controls.Add(this.pnlMainMenu);
             this.Name = "ApplicationMenu";
             this.Text = "Over Surgery";
@@ -973,7 +962,6 @@
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.ComboBox cbxGender;
-        private System.Windows.Forms.MaskedTextBox mtbTelephoneNumber;
         private System.Windows.Forms.TextBox tbxAddress;
         private System.Windows.Forms.Button btnRegisterPatient;
         private System.Windows.Forms.Button btnBackRegisterPatient;
