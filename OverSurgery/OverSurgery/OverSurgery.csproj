@@ -75,7 +75,8 @@
     <Compile Include="GetApptStaff.cs" />
     <Compile Include="GetApptTime.cs" />
     <Compile Include="LoginManager.cs" />
-    <Compile Include="Patient.cs" />
+    <Compile Include="PatientInfo.cs" />
+    <Compile Include="PatientManager.cs" />
     <Compile Include="Prescriptionc.cs" />
     <Compile Include="PrescriptionInfor.cs" />
     <Compile Include="Program.cs" />

@@ -20,6 +20,9 @@ namespace OverSurgery
 
             // Sets the minimum date to the current date.
             dtpDateAddApptPanel.MinDate = DateTime.Today;
+
+            // Sets the maximum date to the current date.
+            dtpDateOfBirth.MaxDate = DateTime.Today;
         }
 
         #region pnlMainMenu
@@ -162,7 +165,7 @@ namespace OverSurgery
             pnlRegisterPatient.Visible = false;
             tbxFirstName.ResetText();
             tbxLastName.ResetText();
-            mtbTelephoneNumber.ResetText();
+            tbxTelNumRegisterPatientPnl.ResetText();
             dtpDateOfBirth.ResetText();
             cbxGender.ResetText();          
             tbxAddress.ResetText();
@@ -172,31 +175,42 @@ namespace OverSurgery
         private void btnRegisterPatient_Click(object sender, EventArgs e)
         {
             // Assigns patient details to patient info struct.
-            Patient.patientInfo patientDetails;
-            patientDetails.firstName = tbxFirstName.Text;
-            patientDetails.lastName = tbxLastName.Text;
-            patientDetails.telephoneNumber = mtbTelephoneNumber.Text;
-            patientDetails.dateOfBirth = dtpDateOfBirth.Value.ToShortDateString();
-            patientDetails.gender = cbxGender.Text;           
-            patientDetails.address = tbxAddress.Text;
+            PatientInfo patientInfo = new PatientInfo();
+            patientInfo.FirstName = tbxFirstName.Text;
+            patientInfo.LastName = tbxLastName.Text;
+            patientInfo.TelephoneNumber = tbxTelNumRegisterPatientPnl.Text;
+            patientInfo.DateOfBirth = dtpDateOfBirth.Value.ToShortDateString();
+            patientInfo.Gender = cbxGender.Text;
+            patientInfo.Address = tbxAddress.Text;
 
             // Calls the register method in the patient class and gives it the struct,
             // if none of the data entry fields are empty.
-            if(Patient.GetPatientInstance().Register(patientDetails) == false)
+            switch (PatientManager.GetPatientInstance().Register(patientInfo))
             {
-                MessageBox.Show("Please enter details into all fields.", "Empty fields!");
-            }
-            else
-            {
+                // Runs if the patient is registered.
+                case 1:
                 MessageBox.Show("Patient has been registered.", "Registered!");
-                tbxFirstName.ResetText();
-                tbxLastName.ResetText();
-                mtbTelephoneNumber.ResetText();
-                dtpDateOfBirth.ResetText();
-                cbxGender.ResetText();
-                tbxAddress.ResetText();
-                pnlRegisterPatient.Hide();
+                break;
+
+                // Runs if fields are missing details.
+                case 2:
+                MessageBox.Show("Please enter details into all fields.", "Empty fields!");
+                break;
+
+                // Runs if invalid characters are enetered into the telephone number field.
+                case 3:
+                MessageBox.Show("Please enter a correct telephone number.", "Invalid telephone number");
+                break;
             }
+
+            // Resets fields back to empty.
+            pnlRegisterPatient.Visible = false;
+            tbxFirstName.ResetText();
+            tbxLastName.ResetText();
+            tbxTelNumRegisterPatientPnl.ResetText();
+            dtpDateOfBirth.ResetText();
+            cbxGender.ResetText();
+            tbxAddress.ResetText();
         }
 
 
@@ -300,7 +314,7 @@ namespace OverSurgery
                 DataSet dsStaffMember = AddAppointment.GetAddAppointmentInstance().GetStaffMemberName(staffIDList[i]);
 
                 // Adds their first name and last name based off their ID to the list box.
-                lbxApptStaffAddApptPanel.Items.Add(dsStaffMember.Tables[0].Rows[0]["FirstName"].ToString() + dsStaffMember.Tables[0].Rows[0]["LastName"].ToString() /*availableStaff[i]*/);
+                lbxApptStaffAddApptPanel.Items.Add(dsStaffMember.Tables[0].Rows[0]["FirstName"].ToString().Trim() + " " + dsStaffMember.Tables[0].Rows[0]["LastName"].ToString().Trim());
             }         
         }
 

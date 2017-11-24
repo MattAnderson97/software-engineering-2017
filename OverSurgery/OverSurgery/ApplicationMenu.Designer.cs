@@ -46,7 +46,6 @@
             this.btnBackRegisterPatient = new System.Windows.Forms.Button();
             this.btnRegisterPatient = new System.Windows.Forms.Button();
             this.tbxAddress = new System.Windows.Forms.TextBox();
-            this.mtbTelephoneNumber = new System.Windows.Forms.MaskedTextBox();
             this.cbxGender = new System.Windows.Forms.ComboBox();
             this.dtpDateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.tbxLastName = new System.Windows.Forms.TextBox();
@@ -59,7 +58,14 @@
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblRegisterPatient = new System.Windows.Forms.Label();
             this.pnlLogin = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.pnlStaff = new System.Windows.Forms.Panel();
+            this.btnBackViewStaffPnl = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -68,12 +74,6 @@
             this.btnStaffAvailable = new System.Windows.Forms.Button();
             this.btnOnduty = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtUserName = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnLogin = new System.Windows.Forms.Button();
             this.pnlMainMenu = new System.Windows.Forms.Panel();
             this.manageAppointmentsBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -112,7 +112,7 @@
             this.dgvDebug2 = new System.Windows.Forms.DataGridView();
             this.pnlprescription = new System.Windows.Forms.Panel();
             this.prescriptions = new System.Windows.Forms.DataGridView();
-            this.btnBackViewStaffPnl = new System.Windows.Forms.Button();
+            this.tbxTelNumRegisterPatientPnl = new System.Windows.Forms.TextBox();
             this.pnlCreateUser.SuspendLayout();
             this.pnlRegisterPatient.SuspendLayout();
             this.pnlLogin.SuspendLayout();
@@ -270,10 +270,10 @@
             // 
             // pnlRegisterPatient
             // 
+            this.pnlRegisterPatient.Controls.Add(this.tbxTelNumRegisterPatientPnl);
             this.pnlRegisterPatient.Controls.Add(this.btnBackRegisterPatient);
             this.pnlRegisterPatient.Controls.Add(this.btnRegisterPatient);
             this.pnlRegisterPatient.Controls.Add(this.tbxAddress);
-            this.pnlRegisterPatient.Controls.Add(this.mtbTelephoneNumber);
             this.pnlRegisterPatient.Controls.Add(this.cbxGender);
             this.pnlRegisterPatient.Controls.Add(this.dtpDateOfBirth);
             this.pnlRegisterPatient.Controls.Add(this.tbxLastName);
@@ -285,7 +285,7 @@
             this.pnlRegisterPatient.Controls.Add(this.lblLastName);
             this.pnlRegisterPatient.Controls.Add(this.lblFirstName);
             this.pnlRegisterPatient.Controls.Add(this.lblRegisterPatient);
-            this.pnlRegisterPatient.Location = new System.Drawing.Point(496, 28);
+            this.pnlRegisterPatient.Location = new System.Drawing.Point(487, 29);
             this.pnlRegisterPatient.Name = "pnlRegisterPatient";
             this.pnlRegisterPatient.Size = new System.Drawing.Size(437, 357);
             this.pnlRegisterPatient.TabIndex = 16;
@@ -320,15 +320,6 @@
             this.tbxAddress.Name = "tbxAddress";
             this.tbxAddress.Size = new System.Drawing.Size(200, 66);
             this.tbxAddress.TabIndex = 24;
-            // 
-            // mtbTelephoneNumber
-            // 
-            this.mtbTelephoneNumber.Location = new System.Drawing.Point(147, 210);
-            this.mtbTelephoneNumber.Mask = "000000000000000";
-            this.mtbTelephoneNumber.Name = "mtbTelephoneNumber";
-            this.mtbTelephoneNumber.Size = new System.Drawing.Size(97, 20);
-            this.mtbTelephoneNumber.TabIndex = 23;
-            this.mtbTelephoneNumber.ValidatingType = typeof(int);
             // 
             // cbxGender
             // 
@@ -447,6 +438,62 @@
             this.pnlLogin.Size = new System.Drawing.Size(437, 357);
             this.pnlLogin.TabIndex = 17;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(78, 57);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(144, 25);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "OverSurgery";
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(185, 161);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(100, 20);
+            this.txtPassword.TabIndex = 21;
+            // 
+            // txtUserName
+            // 
+            this.txtUserName.Location = new System.Drawing.Point(185, 122);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(100, 20);
+            this.txtUserName.TabIndex = 20;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(100, 164);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 16);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Password";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(100, 125);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(74, 16);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "UserName";
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Location = new System.Drawing.Point(147, 263);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(75, 32);
+            this.btnLogin.TabIndex = 16;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
             // pnlStaff
             // 
             this.pnlStaff.Controls.Add(this.btnBackViewStaffPnl);
@@ -463,6 +510,16 @@
             this.pnlStaff.Size = new System.Drawing.Size(470, 357);
             this.pnlStaff.TabIndex = 29;
             this.pnlStaff.Visible = false;
+            // 
+            // btnBackViewStaffPnl
+            // 
+            this.btnBackViewStaffPnl.Location = new System.Drawing.Point(16, 20);
+            this.btnBackViewStaffPnl.Name = "btnBackViewStaffPnl";
+            this.btnBackViewStaffPnl.Size = new System.Drawing.Size(75, 23);
+            this.btnBackViewStaffPnl.TabIndex = 41;
+            this.btnBackViewStaffPnl.Text = "BACK";
+            this.btnBackViewStaffPnl.UseVisualStyleBackColor = true;
+            this.btnBackViewStaffPnl.Click += new System.EventHandler(this.btnBackViewStaffPnl_Click);
             // 
             // label13
             // 
@@ -533,62 +590,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(418, 79);
             this.dataGridView1.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(78, 57);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(144, 25);
-            this.label3.TabIndex = 22;
-            this.label3.Text = "OverSurgery";
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(185, 161);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(100, 20);
-            this.txtPassword.TabIndex = 21;
-            // 
-            // txtUserName
-            // 
-            this.txtUserName.Location = new System.Drawing.Point(185, 122);
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(100, 20);
-            this.txtUserName.TabIndex = 20;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(100, 164);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 16);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "Password";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(100, 125);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 16);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "UserName";
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(147, 263);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 32);
-            this.btnLogin.TabIndex = 16;
-            this.btnLogin.Text = "Login";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // pnlMainMenu
             // 
@@ -1031,28 +1032,27 @@
             this.prescriptions.Size = new System.Drawing.Size(407, 145);
             this.prescriptions.TabIndex = 0;
             // 
-            // btnBackViewStaffPnl
+            // tbxTelNumRegisterPatientPnl
             // 
-            this.btnBackViewStaffPnl.Location = new System.Drawing.Point(16, 20);
-            this.btnBackViewStaffPnl.Name = "btnBackViewStaffPnl";
-            this.btnBackViewStaffPnl.Size = new System.Drawing.Size(75, 23);
-            this.btnBackViewStaffPnl.TabIndex = 41;
-            this.btnBackViewStaffPnl.Text = "BACK";
-            this.btnBackViewStaffPnl.UseVisualStyleBackColor = true;
-            this.btnBackViewStaffPnl.Click += new System.EventHandler(this.btnBackViewStaffPnl_Click);
+            this.tbxTelNumRegisterPatientPnl.BackColor = System.Drawing.Color.White;
+            this.tbxTelNumRegisterPatientPnl.Location = new System.Drawing.Point(147, 210);
+            this.tbxTelNumRegisterPatientPnl.MaxLength = 15;
+            this.tbxTelNumRegisterPatientPnl.Name = "tbxTelNumRegisterPatientPnl";
+            this.tbxTelNumRegisterPatientPnl.Size = new System.Drawing.Size(200, 20);
+            this.tbxTelNumRegisterPatientPnl.TabIndex = 25;
             // 
             // ApplicationMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 741);
+            this.Controls.Add(this.pnlRegisterPatient);
             this.Controls.Add(this.pnlStaff);
             this.Controls.Add(this.dgvDebug2);
             this.Controls.Add(this.dgvDebug);
             this.Controls.Add(this.pnlLogin);
             this.Controls.Add(this.pnlAddAppointment);
             this.Controls.Add(this.pnlCreateUser);
-            this.Controls.Add(this.pnlRegisterPatient);
             this.Controls.Add(this.pnlManageAppointments);
             this.Controls.Add(this.pnlMainMenu);
             this.Controls.Add(this.pnlprescription);
@@ -1111,7 +1111,6 @@
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.ComboBox cbxGender;
-        private System.Windows.Forms.MaskedTextBox mtbTelephoneNumber;
         private System.Windows.Forms.TextBox tbxAddress;
         private System.Windows.Forms.Button btnRegisterPatient;
         private System.Windows.Forms.Button btnBackRegisterPatient;
@@ -1170,5 +1169,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btnBackViewStaffPnl;
+        private System.Windows.Forms.TextBox tbxTelNumRegisterPatientPnl;
     }
 }

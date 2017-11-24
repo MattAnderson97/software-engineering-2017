@@ -9,3 +9,14 @@ E:\software-engineering-2017-master\software-engineering-2017-master\OverSurgery
 E:\software-engineering-2017-master\software-engineering-2017-master\OverSurgery\OverSurgery\obj\Debug\OverSurgery.csproj.CoreCompileInputs.cache
 E:\software-engineering-2017-master\software-engineering-2017-master\OverSurgery\OverSurgery\obj\Debug\OverSurgery.exe
 E:\software-engineering-2017-master\software-engineering-2017-master\OverSurgery\OverSurgery\obj\Debug\OverSurgery.pdb
+D:\GIT REPOSITORY\software-engineering-2017\OverSurgery\OverSurgery\obj\Debug\OverSurgery.csprojResolveAssemblyReference.cache
+D:\GIT REPOSITORY\software-engineering-2017\OverSurgery\OverSurgery\obj\Debug\OverSurgery.ApplicationMenu.resources
+D:\GIT REPOSITORY\software-engineering-2017\OverSurgery\OverSurgery\obj\Debug\OverSurgery.csproj.GenerateResource.Cache
+D:\GIT REPOSITORY\software-engineering-2017\OverSurgery\OverSurgery\obj\Debug\OverSurgery.csproj.CoreCompileInputs.cache
+D:\GIT REPOSITORY\software-engineering-2017\OverSurgery\OverSurgery\obj\Debug\OverSurgery.exe
+D:\GIT REPOSITORY\software-engineering-2017\OverSurgery\OverSurgery\obj\Debug\OverSurgery.pdb
+D:\GIT REPOSITORY\software-engineering-2017\OverSurgery\OverSurgery\bin\Debug\SurgeryDatabase.mdf
+D:\GIT REPOSITORY\software-engineering-2017\OverSurgery\OverSurgery\bin\Debug\SurgeryDatabase_log.ldf
+D:\GIT REPOSITORY\software-engineering-2017\OverSurgery\OverSurgery\bin\Debug\OverSurgery.exe.config
+D:\GIT REPOSITORY\software-engineering-2017\OverSurgery\OverSurgery\bin\Debug\OverSurgery.exe
+D:\GIT REPOSITORY\software-engineering-2017\OverSurgery\OverSurgery\bin\Debug\OverSurgery.pdb

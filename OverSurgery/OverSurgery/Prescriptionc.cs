@@ -45,14 +45,14 @@ namespace OverSurgery
         #region Attributes
         private ApplicationMenu prescriptionpanel = new ApplicationMenu();
 
-        private Patient activePatient;
+        private PatientManager activePatient;
 
 
 
         #endregion
 
         #region Properties
-        public Patient ActivePatient
+        public PatientManager ActivePatient
         {
             get { return activePatient; }
             set
