@@ -43,6 +43,8 @@ namespace OverSurgery
         #endregion
 
         #region Attributes
+        private ApplicationMenu prescriptionpanel = new ApplicationMenu();
+
         private Patient activePatient;
 
 
@@ -63,6 +65,16 @@ namespace OverSurgery
 
         }
 
+        public ApplicationMenu prescriptionspanel
+        {
+            get { return prescriptionspanel; }
+            set
+            {
+                prescriptionspanel = value;
+
+            }
+
+        }
 
         #endregion
 
@@ -71,11 +83,11 @@ namespace OverSurgery
         {
             if (ActivePatient != null)
             {
-                //prescriptionsform.PrescriptionsGrid.DataSource = LoadPrescriptions().Tables[0];
+                prescriptionspanel.PrescriptionsGrid.DataSource = LoadPrescriptions().Tables[0];
             }
             else
             {
-                //prescriptionsform.PrescriptionsGrid.DataSource = LoadPrescriptions().Tables[0];
+                prescriptionspanel.PrescriptionsGrid.DataSource = LoadPrescriptions().Tables[0];
             }
 
         }

@@ -1,0 +1,11 @@
+E:\software-engineering-2017-master\software-engineering-2017-master\OverSurgery\OverSurgery\bin\Debug\SurgeryDatabase.mdf
+E:\software-engineering-2017-master\software-engineering-2017-master\OverSurgery\OverSurgery\bin\Debug\SurgeryDatabase_log.ldf
+E:\software-engineering-2017-master\software-engineering-2017-master\OverSurgery\OverSurgery\bin\Debug\OverSurgery.exe.config
+E:\software-engineering-2017-master\software-engineering-2017-master\OverSurgery\OverSurgery\bin\Debug\OverSurgery.exe
+E:\software-engineering-2017-master\software-engineering-2017-master\OverSurgery\OverSurgery\bin\Debug\OverSurgery.pdb
+E:\software-engineering-2017-master\software-engineering-2017-master\OverSurgery\OverSurgery\obj\Debug\OverSurgery.csprojResolveAssemblyReference.cache
+E:\software-engineering-2017-master\software-engineering-2017-master\OverSurgery\OverSurgery\obj\Debug\OverSurgery.ApplicationMenu.resources
+E:\software-engineering-2017-master\software-engineering-2017-master\OverSurgery\OverSurgery\obj\Debug\OverSurgery.csproj.GenerateResource.Cache
+E:\software-engineering-2017-master\software-engineering-2017-master\OverSurgery\OverSurgery\obj\Debug\OverSurgery.csproj.CoreCompileInputs.cache
+E:\software-engineering-2017-master\software-engineering-2017-master\OverSurgery\OverSurgery\obj\Debug\OverSurgery.exe
+E:\software-engineering-2017-master\software-engineering-2017-master\OverSurgery\OverSurgery\obj\Debug\OverSurgery.pdb
