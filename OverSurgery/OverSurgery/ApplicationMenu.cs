@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -155,7 +156,7 @@ namespace OverSurgery
             pnlRegisterPatient.Visible = false;
             tbxFirstName.ResetText();
             tbxLastName.ResetText();
-            mtbTelephoneNumber.ResetText();
+            tbxTelNum.ResetText();
             dtpDateOfBirth.ResetText();
             cbxGender.ResetText();          
             tbxAddress.ResetText();
@@ -168,7 +169,7 @@ namespace OverSurgery
             PatientInfo patientInfo = new PatientInfo();
             patientInfo.FirstName = tbxFirstName.Text;
             patientInfo.LastName = tbxLastName.Text;
-            patientInfo.TelephoneNumber = mtbTelephoneNumber.Text;
+            patientInfo.TelephoneNumber = tbxTelNum.Text;
             patientInfo.DateOfBirth = dtpDateOfBirth.Value.ToShortDateString();
             patientInfo.Gender = cbxGender.Text;           
             patientInfo.Address = tbxAddress.Text;
@@ -184,7 +185,7 @@ namespace OverSurgery
                 MessageBox.Show("Patient has been registered.", "Registered!");
                 tbxFirstName.ResetText();
                 tbxLastName.ResetText();
-                mtbTelephoneNumber.ResetText();
+                tbxTelNum.ResetText();
                 dtpDateOfBirth.ResetText();
                 cbxGender.ResetText();
                 tbxAddress.ResetText();

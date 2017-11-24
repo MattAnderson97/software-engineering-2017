@@ -41,6 +41,7 @@
             this.btnCreate = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
+            this.lblCreateUser = new System.Windows.Forms.Label();
             this.pnlRegisterPatient = new System.Windows.Forms.Panel();
             this.btnBackRegisterPatient = new System.Windows.Forms.Button();
             this.btnRegisterPatient = new System.Windows.Forms.Button();
@@ -57,7 +58,6 @@
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblRegisterPatient = new System.Windows.Forms.Label();
-            this.lblCreateUser = new System.Windows.Forms.Label();
             this.pnlLogin = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -100,6 +100,7 @@
             this.lblAddAppointment = new System.Windows.Forms.Label();
             this.dgvDebug = new System.Windows.Forms.DataGridView();
             this.dgvDebug2 = new System.Windows.Forms.DataGridView();
+            this.tbxTelNum = new System.Windows.Forms.TextBox();
             this.pnlCreateUser.SuspendLayout();
             this.pnlRegisterPatient.SuspendLayout();
             this.pnlLogin.SuspendLayout();
@@ -239,8 +240,19 @@
             this.lblUserName.TabIndex = 6;
             this.lblUserName.Text = "Username:";
             // 
+            // lblCreateUser
+            // 
+            this.lblCreateUser.AutoSize = true;
+            this.lblCreateUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCreateUser.Location = new System.Drawing.Point(138, 11);
+            this.lblCreateUser.Name = "lblCreateUser";
+            this.lblCreateUser.Size = new System.Drawing.Size(172, 25);
+            this.lblCreateUser.TabIndex = 5;
+            this.lblCreateUser.Text = "CREATE USER";
+            // 
             // pnlRegisterPatient
             // 
+            this.pnlRegisterPatient.Controls.Add(this.tbxTelNum);
             this.pnlRegisterPatient.Controls.Add(this.btnBackRegisterPatient);
             this.pnlRegisterPatient.Controls.Add(this.btnRegisterPatient);
             this.pnlRegisterPatient.Controls.Add(this.tbxAddress);
@@ -256,7 +268,7 @@
             this.pnlRegisterPatient.Controls.Add(this.lblLastName);
             this.pnlRegisterPatient.Controls.Add(this.lblFirstName);
             this.pnlRegisterPatient.Controls.Add(this.lblRegisterPatient);
-            this.pnlRegisterPatient.Location = new System.Drawing.Point(496, 28);
+            this.pnlRegisterPatient.Location = new System.Drawing.Point(499, 391);
             this.pnlRegisterPatient.Name = "pnlRegisterPatient";
             this.pnlRegisterPatient.Size = new System.Drawing.Size(437, 357);
             this.pnlRegisterPatient.TabIndex = 16;
@@ -404,16 +416,6 @@
             this.lblRegisterPatient.Size = new System.Drawing.Size(228, 25);
             this.lblRegisterPatient.TabIndex = 12;
             this.lblRegisterPatient.Text = "REGISTER PATIENT";
-            // 
-            // lblCreateUser
-            // 
-            this.lblCreateUser.AutoSize = true;
-            this.lblCreateUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreateUser.Location = new System.Drawing.Point(138, 11);
-            this.lblCreateUser.Name = "lblCreateUser";
-            this.lblCreateUser.Size = new System.Drawing.Size(172, 25);
-            this.lblCreateUser.TabIndex = 5;
-            this.lblCreateUser.Text = "CREATE USER";
             // 
             // pnlLogin
             // 
@@ -900,11 +902,20 @@
             this.dgvDebug2.Size = new System.Drawing.Size(240, 150);
             this.dgvDebug2.TabIndex = 27;
             // 
+            // tbxTelNum
+            // 
+            this.tbxTelNum.BackColor = System.Drawing.Color.White;
+            this.tbxTelNum.Location = new System.Drawing.Point(159, 210);
+            this.tbxTelNum.MaxLength = 15;
+            this.tbxTelNum.Name = "tbxTelNum";
+            this.tbxTelNum.Size = new System.Drawing.Size(200, 20);
+            this.tbxTelNum.TabIndex = 25;
+            // 
             // ApplicationMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1377, 417);
+            this.ClientSize = new System.Drawing.Size(1377, 714);
             this.Controls.Add(this.pnlManageAppointments);
             this.Controls.Add(this.dgvDebug2);
             this.Controls.Add(this.dgvDebug);
@@ -1008,5 +1019,6 @@
         private System.Windows.Forms.Label lblPatientNameAddApptPanel;
         private System.Windows.Forms.Button btnBackAddApptPanel;
         private System.Windows.Forms.Button btnManageAppointments;
+        private System.Windows.Forms.TextBox tbxTelNum;
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace OverSurgery
@@ -57,10 +58,13 @@ namespace OverSurgery
                 }
             }
 
+            Regex regex = new Regex(@"\d+");
+            Match match = regex.Match(patientInfo.TelephoneNumber);
+
             // If more than 0 of the fields are empty the method returns false and,
             // the form will display an error message. Else, the details are addded
             // to the database.
-            if (emptyFields > 0)
+            if (emptyFields > 0 || !match.Success)
             {
                 return false;
             }
