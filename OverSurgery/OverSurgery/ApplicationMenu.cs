@@ -501,15 +501,16 @@ namespace OverSurgery
                 manageAppointmentDate.Text = dataRow[2].ToString().Trim();
                 manageAppointmentTime.Text = dataRow[3].ToString().Trim();
 
-                DataSet dataSet = DatabaseConnection.getDatabaseConnectionInstance().getDataSet("SELECT StaffID, FirstName, LastName FROM StaffMember WHERE StaffID = " + dataRow[4].ToString().Trim());
+                DataSet dataSet = DatabaseConnection.getDatabaseConnectionInstance().getDataSet("SELECT StaffID, FirstName, LastName FROM StaffMember");
                 DataRowCollection staffRows = dataSet.Tables[0].Rows;
 
                 for (int i = 0; i < staffRows.Count; i++)
                 {
+                    manageAppointmentDoctor.Items.Add(staffRows[i][0].ToString().Trim() + " " + staffRows[i][1].ToString().Trim() + " " + staffRows[i][2].ToString().Trim());
+
                     if (staffRows[i][0].ToString().Trim() == dataRow[4].ToString().Trim())
                     {
                         manageAppointmentDoctor.Text = staffRows[i][0].ToString().Trim() + " " + staffRows[i][1].ToString().Trim() + " " + staffRows[i][2].ToString().Trim();
-                        break;
                     }
                 }
             }
