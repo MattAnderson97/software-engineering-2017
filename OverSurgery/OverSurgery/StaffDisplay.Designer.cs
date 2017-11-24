@@ -113,6 +113,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "StaffDisplay";
             this.Text = "StaffDisplay";
+            this.Load += new System.EventHandler(this.StaffDisplay_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

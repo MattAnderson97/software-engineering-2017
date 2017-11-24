@@ -188,5 +188,10 @@ namespace OverSurgery
             DataSet dsStaffMember = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.CheckStaffAvailability(date));
             DataTable dtStaffMember = dsStaffMember.Tables[0];
         }
+
+        private void StaffDisplay_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
