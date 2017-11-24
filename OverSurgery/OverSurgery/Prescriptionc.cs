@@ -43,9 +43,6 @@ namespace OverSurgery
         #endregion
 
         #region Attributes
-
-        private prescriptionsform prescriptionform = new prescriptionsform();
-
         private Patient activePatient;
 
 
@@ -66,18 +63,6 @@ namespace OverSurgery
 
         }
 
-        public prescriptionsform prescriptionsform
-        {
-            get { return prescriptionsform; }
-            set
-            {
-                prescriptionsform = value;
-
-            }
-
-        }
-
-
 
         #endregion
 
@@ -86,11 +71,11 @@ namespace OverSurgery
         {
             if (ActivePatient != null)
             {
-                prescriptionsform.PrescriptionsGrid.DataSource = LoadPrescriptions().Tables[0];
+                //prescriptionsform.PrescriptionsGrid.DataSource = LoadPrescriptions().Tables[0];
             }
             else
             {
-                prescriptionsform.PrescriptionsGrid.DataSource = LoadPrescriptions().Tables[0];
+                //prescriptionsform.PrescriptionsGrid.DataSource = LoadPrescriptions().Tables[0];
             }
 
         }

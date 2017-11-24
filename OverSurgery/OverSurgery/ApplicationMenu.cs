@@ -51,6 +51,11 @@ namespace OverSurgery
             dtpDateAddApptPanel.MinDate = DateTime.Today;
             dtpDateAddApptPanel.Value = DateTime.Today;
         }
+
+        private void btnViewStaff_Click(object sender, EventArgs e)
+        {
+            pnlStaff.Visible = true;
+        }
         #endregion
 
         #region pnlLogin
@@ -615,6 +620,11 @@ namespace OverSurgery
         #endregion
 
         #region Staff
+        private void btnBackViewStaffPnl_Click(object sender, EventArgs e)
+        {
+            pnlStaff.Visible = false;
+        }
+
         private void LoadlistView()
         {
 
@@ -787,9 +797,11 @@ namespace OverSurgery
             DataSet dsStaffMember = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.CheckStaffAvailability(date));
             DataTable dtStaffMember = dsStaffMember.Tables[0];
         }
-        #endregion 
 
 
 
+        #endregion
+
+        
     }
 }
