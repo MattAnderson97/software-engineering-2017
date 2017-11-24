@@ -296,7 +296,7 @@ namespace OverSurgery
                 DataSet dsStaffMember = AddAppointment.GetAddAppointmentInstance().GetStaffMemberName(staffIDList[i]);
 
                 // Adds their first name and last name based off their ID to the list box.
-                lbxApptStaffAddApptPanel.Items.Add(dsStaffMember.Tables[0].Rows[0]["FirstName"].ToString() + dsStaffMember.Tables[0].Rows[0]["LastName"].ToString() /*availableStaff[i]*/);
+                lbxApptStaffAddApptPanel.Items.Add(dsStaffMember.Tables[0].Rows[0]["FirstName"].ToString().Trim() + " " + dsStaffMember.Tables[0].Rows[0]["LastName"].ToString().Trim());
             }         
         }
 
