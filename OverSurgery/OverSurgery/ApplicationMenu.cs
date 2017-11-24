@@ -428,12 +428,25 @@ namespace OverSurgery
             pnlManageAppointments.Visible = false;
         }
 
-        
+
         private void btnSaveManageAppointments_Click(object sender, EventArgs e)
         {
-
+            pnlManageAppointments.Visible = false;
+            int appointmentID = Int32.Parse(manageAppointmentID.Text.Split(' ')[0]);
+            string type = manageAppointmentType.Text;
+            string date = manageAppointmentDate.Value.Date.ToString("d");
+            string time = manageAppointmentTime.Text;
+            int doctorID = Int32.Parse(manageAppointmentDoctor.Text.Split(' ')[0]);
+            string sql = "UPDATE Appointment " +
+                "SET Type = '" + type + "', " +
+                "Date = '" + date + "', " +
+                "Time = '" + time + "', " +
+                "StaffID_Fk = " + doctorID + " " +
+                "WHERE AppointmentID = " + appointmentID;
+            // Console.WriteLine(sql);
+            DatabaseConnection.getDatabaseConnectionInstance().getDataSet(sql);
         }
-        
+
         private void pnlManageAppointments_VisibleChanged(object sender, EventArgs e)
         {
             if (pnlManageAppointments.Visible)
@@ -500,10 +513,11 @@ namespace OverSurgery
 
                 for (int i = 0; i < staffRows.Count; i++)
                 {
+                    manageAppointmentDoctor.Items.Add(staffRows[i][0].ToString().Trim() + " " + staffRows[i][1].ToString().Trim() + " " + staffRows[i][2].ToString().Trim());
+
                     if (staffRows[i][0].ToString().Trim() == dataRow[4].ToString().Trim())
                     {
                         manageAppointmentDoctor.Text = staffRows[i][0].ToString().Trim() + " " + staffRows[i][1].ToString().Trim() + " " + staffRows[i][2].ToString().Trim();
-                        break;
                     }
                 }
             }
