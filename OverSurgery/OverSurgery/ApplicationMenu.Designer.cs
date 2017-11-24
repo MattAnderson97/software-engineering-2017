@@ -41,6 +41,7 @@
             this.btnCreate = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
+            this.lblCreateUser = new System.Windows.Forms.Label();
             this.pnlRegisterPatient = new System.Windows.Forms.Panel();
             this.btnBackRegisterPatient = new System.Windows.Forms.Button();
             this.btnRegisterPatient = new System.Windows.Forms.Button();
@@ -57,7 +58,6 @@
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblRegisterPatient = new System.Windows.Forms.Label();
-            this.lblCreateUser = new System.Windows.Forms.Label();
             this.pnlLogin = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -100,6 +100,17 @@
             this.lblAddAppointment = new System.Windows.Forms.Label();
             this.dgvDebug = new System.Windows.Forms.DataGridView();
             this.dgvDebug2 = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlprescription = new System.Windows.Forms.Panel();
+            this.prescriptions = new System.Windows.Forms.DataGridView();
+            this.pnlStaff = new System.Windows.Forms.Panel();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.lblStaff = new System.Windows.Forms.Label();
+            this.btnStaffAvailable = new System.Windows.Forms.Button();
+            this.btnOnduty = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pnlCreateUser.SuspendLayout();
             this.pnlRegisterPatient.SuspendLayout();
             this.pnlLogin.SuspendLayout();
@@ -108,13 +119,18 @@
             this.pnlAddAppointment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDebug)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDebug2)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.pnlprescription.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.prescriptions)).BeginInit();
+            this.pnlStaff.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(138, 28);
+            this.label1.Location = new System.Drawing.Point(132, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(141, 25);
             this.label1.TabIndex = 9;
@@ -122,7 +138,7 @@
             // 
             // btnAddApptMainMenuPanel
             // 
-            this.btnAddApptMainMenuPanel.Location = new System.Drawing.Point(106, 227);
+            this.btnAddApptMainMenuPanel.Location = new System.Drawing.Point(100, 223);
             this.btnAddApptMainMenuPanel.Name = "btnAddApptMainMenuPanel";
             this.btnAddApptMainMenuPanel.Size = new System.Drawing.Size(194, 40);
             this.btnAddApptMainMenuPanel.TabIndex = 8;
@@ -132,7 +148,7 @@
             // 
             // btnRegisterPatientMainMenu
             // 
-            this.btnRegisterPatientMainMenu.Location = new System.Drawing.Point(106, 177);
+            this.btnRegisterPatientMainMenu.Location = new System.Drawing.Point(100, 173);
             this.btnRegisterPatientMainMenu.Name = "btnRegisterPatientMainMenu";
             this.btnRegisterPatientMainMenu.Size = new System.Drawing.Size(194, 44);
             this.btnRegisterPatientMainMenu.TabIndex = 7;
@@ -142,7 +158,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(106, 123);
+            this.button2.Location = new System.Drawing.Point(100, 119);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(194, 44);
             this.button2.TabIndex = 6;
@@ -151,7 +167,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(106, 73);
+            this.button1.Location = new System.Drawing.Point(100, 69);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(194, 39);
             this.button1.TabIndex = 5;
@@ -160,7 +176,7 @@
             // 
             // btnSettings
             // 
-            this.btnSettings.Location = new System.Drawing.Point(336, 322);
+            this.btnSettings.Location = new System.Drawing.Point(330, 318);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(75, 23);
             this.btnSettings.TabIndex = 10;
@@ -238,6 +254,16 @@
             this.lblUserName.Size = new System.Drawing.Size(58, 13);
             this.lblUserName.TabIndex = 6;
             this.lblUserName.Text = "Username:";
+            // 
+            // lblCreateUser
+            // 
+            this.lblCreateUser.AutoSize = true;
+            this.lblCreateUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCreateUser.Location = new System.Drawing.Point(138, 11);
+            this.lblCreateUser.Name = "lblCreateUser";
+            this.lblCreateUser.Size = new System.Drawing.Size(172, 25);
+            this.lblCreateUser.TabIndex = 5;
+            this.lblCreateUser.Text = "CREATE USER";
             // 
             // pnlRegisterPatient
             // 
@@ -405,16 +431,6 @@
             this.lblRegisterPatient.TabIndex = 12;
             this.lblRegisterPatient.Text = "REGISTER PATIENT";
             // 
-            // lblCreateUser
-            // 
-            this.lblCreateUser.AutoSize = true;
-            this.lblCreateUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreateUser.Location = new System.Drawing.Point(138, 11);
-            this.lblCreateUser.Name = "lblCreateUser";
-            this.lblCreateUser.Size = new System.Drawing.Size(172, 25);
-            this.lblCreateUser.TabIndex = 5;
-            this.lblCreateUser.Text = "CREATE USER";
-            // 
             // pnlLogin
             // 
             this.pnlLogin.Controls.Add(this.label3);
@@ -486,14 +502,8 @@
             // 
             // pnlMainMenu
             // 
-            this.pnlMainMenu.Controls.Add(this.btnManageAppointments);
             this.pnlMainMenu.Controls.Add(this.manageAppointmentsBtn);
-            this.pnlMainMenu.Controls.Add(this.label1);
-            this.pnlMainMenu.Controls.Add(this.button1);
-            this.pnlMainMenu.Controls.Add(this.button2);
-            this.pnlMainMenu.Controls.Add(this.btnRegisterPatientMainMenu);
-            this.pnlMainMenu.Controls.Add(this.btnSettings);
-            this.pnlMainMenu.Controls.Add(this.btnAddApptMainMenuPanel);
+            this.pnlMainMenu.Controls.Add(this.panel1);
             this.pnlMainMenu.Location = new System.Drawing.Point(499, 28);
             this.pnlMainMenu.Name = "pnlMainMenu";
             this.pnlMainMenu.Size = new System.Drawing.Size(437, 357);
@@ -501,7 +511,7 @@
             // 
             // btnManageAppointments
             // 
-            this.btnManageAppointments.Location = new System.Drawing.Point(106, 274);
+            this.btnManageAppointments.Location = new System.Drawing.Point(100, 270);
             this.btnManageAppointments.Name = "btnManageAppointments";
             this.btnManageAppointments.Size = new System.Drawing.Size(194, 40);
             this.btnManageAppointments.TabIndex = 12;
@@ -900,19 +910,126 @@
             this.dgvDebug2.Size = new System.Drawing.Size(240, 150);
             this.dgvDebug2.TabIndex = 27;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnManageAppointments);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.btnRegisterPatientMainMenu);
+            this.panel1.Controls.Add(this.btnSettings);
+            this.panel1.Controls.Add(this.btnAddApptMainMenuPanel);
+            this.panel1.Location = new System.Drawing.Point(6, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(445, 373);
+            this.panel1.TabIndex = 13;
+            // 
+            // pnlprescription
+            // 
+            this.pnlprescription.Controls.Add(this.prescriptions);
+            this.pnlprescription.Location = new System.Drawing.Point(22, 411);
+            this.pnlprescription.Name = "pnlprescription";
+            this.pnlprescription.Size = new System.Drawing.Size(477, 310);
+            this.pnlprescription.TabIndex = 28;
+            // 
+            // prescriptions
+            // 
+            this.prescriptions.AllowUserToOrderColumns = true;
+            this.prescriptions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.prescriptions.Location = new System.Drawing.Point(24, 112);
+            this.prescriptions.Name = "prescriptions";
+            this.prescriptions.Size = new System.Drawing.Size(443, 145);
+            this.prescriptions.TabIndex = 0;
+            // 
+            // pnlStaff
+            // 
+            this.pnlStaff.Controls.Add(this.listView1);
+            this.pnlStaff.Controls.Add(this.dateTimePicker1);
+            this.pnlStaff.Controls.Add(this.lblDate);
+            this.pnlStaff.Controls.Add(this.lblStaff);
+            this.pnlStaff.Controls.Add(this.btnStaffAvailable);
+            this.pnlStaff.Controls.Add(this.btnOnduty);
+            this.pnlStaff.Controls.Add(this.dataGridView1);
+            this.pnlStaff.Location = new System.Drawing.Point(553, 421);
+            this.pnlStaff.Name = "pnlStaff";
+            this.pnlStaff.Size = new System.Drawing.Size(479, 299);
+            this.pnlStaff.TabIndex = 29;
+            // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(39, 67);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(409, 75);
+            this.listView1.TabIndex = 13;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(184, 41);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(117, 20);
+            this.dateTimePicker1.TabIndex = 12;
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Location = new System.Drawing.Point(22, 41);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(30, 13);
+            this.lblDate.TabIndex = 11;
+            this.lblDate.Text = "Date";
+            // 
+            // lblStaff
+            // 
+            this.lblStaff.AutoSize = true;
+            this.lblStaff.Location = new System.Drawing.Point(17, 19);
+            this.lblStaff.Name = "lblStaff";
+            this.lblStaff.Size = new System.Drawing.Size(87, 13);
+            this.lblStaff.TabIndex = 10;
+            this.lblStaff.Text = "Oversurgery staff";
+            // 
+            // btnStaffAvailable
+            // 
+            this.btnStaffAvailable.Location = new System.Drawing.Point(317, 258);
+            this.btnStaffAvailable.Name = "btnStaffAvailable";
+            this.btnStaffAvailable.Size = new System.Drawing.Size(119, 21);
+            this.btnStaffAvailable.TabIndex = 9;
+            this.btnStaffAvailable.Text = "Staff Available";
+            this.btnStaffAvailable.UseVisualStyleBackColor = true;
+            // 
+            // btnOnduty
+            // 
+            this.btnOnduty.Location = new System.Drawing.Point(84, 255);
+            this.btnOnduty.Name = "btnOnduty";
+            this.btnOnduty.Size = new System.Drawing.Size(103, 25);
+            this.btnOnduty.TabIndex = 8;
+            this.btnOnduty.Text = "OnDuty Staff";
+            this.btnOnduty.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(39, 148);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(418, 79);
+            this.dataGridView1.TabIndex = 7;
+            // 
             // ApplicationMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1377, 417);
-            this.Controls.Add(this.pnlManageAppointments);
+            this.ClientSize = new System.Drawing.Size(1362, 741);
+            this.Controls.Add(this.pnlStaff);
+            this.Controls.Add(this.pnlprescription);
             this.Controls.Add(this.dgvDebug2);
             this.Controls.Add(this.dgvDebug);
             this.Controls.Add(this.pnlLogin);
+            this.Controls.Add(this.pnlMainMenu);
             this.Controls.Add(this.pnlAddAppointment);
             this.Controls.Add(this.pnlCreateUser);
             this.Controls.Add(this.pnlRegisterPatient);
-            this.Controls.Add(this.pnlMainMenu);
+            this.Controls.Add(this.pnlManageAppointments);
             this.Name = "ApplicationMenu";
             this.Text = "Over Surgery";
             this.Load += new System.EventHandler(this.ApplicationMenu_Load);
@@ -923,13 +1040,19 @@
             this.pnlLogin.ResumeLayout(false);
             this.pnlLogin.PerformLayout();
             this.pnlMainMenu.ResumeLayout(false);
-            this.pnlMainMenu.PerformLayout();
             this.pnlManageAppointments.ResumeLayout(false);
             this.pnlManageAppointments.PerformLayout();
             this.pnlAddAppointment.ResumeLayout(false);
             this.pnlAddAppointment.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDebug)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDebug2)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.pnlprescription.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.prescriptions)).EndInit();
+            this.pnlStaff.ResumeLayout(false);
+            this.pnlStaff.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1008,5 +1131,16 @@
         private System.Windows.Forms.Label lblPatientNameAddApptPanel;
         private System.Windows.Forms.Button btnBackAddApptPanel;
         private System.Windows.Forms.Button btnManageAppointments;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlprescription;
+        private System.Windows.Forms.DataGridView prescriptions;
+        private System.Windows.Forms.Panel pnlStaff;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.Label lblStaff;
+        private System.Windows.Forms.Button btnStaffAvailable;
+        private System.Windows.Forms.Button btnOnduty;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
