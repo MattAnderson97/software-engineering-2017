@@ -165,17 +165,17 @@ namespace OverSurgery
         private void btnRegisterPatient_Click(object sender, EventArgs e)
         {
             // Assigns patient details to patient info struct.
-            Patient.patientInfo patientDetails;
-            patientDetails.firstName = tbxFirstName.Text;
-            patientDetails.lastName = tbxLastName.Text;
-            patientDetails.telephoneNumber = mtbTelephoneNumber.Text;
-            patientDetails.dateOfBirth = dtpDateOfBirth.Value.ToShortDateString();
-            patientDetails.gender = cbxGender.Text;           
-            patientDetails.address = tbxAddress.Text;
+            PatientInfo patientInfo = new PatientInfo();
+            patientInfo.FirstName = tbxFirstName.Text;
+            patientInfo.LastName = tbxLastName.Text;
+            patientInfo.TelephoneNumber = mtbTelephoneNumber.Text;
+            patientInfo.DateOfBirth = dtpDateOfBirth.Value.ToShortDateString();
+            patientInfo.Gender = cbxGender.Text;           
+            patientInfo.Address = tbxAddress.Text;
 
             // Calls the register method in the patient class and gives it the struct,
             // if none of the data entry fields are empty.
-            if(Patient.GetPatientInstance().Register(patientDetails) == false)
+            if(PatientManager.GetPatientInstance().Register(patientInfo) == false)
             {
                 MessageBox.Show("Please enter details into all fields.", "Empty fields!");
             }

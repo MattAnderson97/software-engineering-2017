@@ -15,10 +15,10 @@ namespace GWTests
         public void ReturnsErrorIfNoDataEntered()
         {
             // Creates an instance of the patient class.
-            Patient testPatient = new Patient();
+            PatientManager testPatient = new PatientManager();
 
             // Creates an instance of the patient info struct.
-            Patient.patientInfo testPatientInfo;
+            PatientManager.patientInfo testPatientInfo;
 
             // Assigns empty values to the struct properties.
             testPatientInfo.firstName = "";
@@ -46,10 +46,10 @@ namespace GWTests
         public void ReturnsErrorIfDataPartiallyEntered()
         {
             // Creates an instance of the patient class.
-            Patient testPatient = new Patient();
+            PatientManager testPatient = new PatientManager();
 
             // Creates an instance of the patient info struct.
-            Patient.patientInfo testPatientInfo;
+            PatientManager.patientInfo testPatientInfo;
 
             // Fills in one of the dat fields.
             testPatientInfo.firstName = "";

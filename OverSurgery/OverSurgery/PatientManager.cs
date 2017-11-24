@@ -6,21 +6,11 @@ using System.Threading.Tasks;
 
 namespace OverSurgery
 {
-    public class Patient
+    public class PatientManager
     {
         #region PROPERTIES
         // Declares an instance of the patient class.
-        public static Patient _instance;
-
-        public struct patientInfo
-        {
-            public string firstName;
-            public string lastName;
-            public string telephoneNumber;
-            public string dateOfBirth;
-            public string gender;         
-            public string address;
-        }
+        public static PatientManager _instance;
         #endregion
 
         #region METHODS
@@ -29,10 +19,10 @@ namespace OverSurgery
         /// Creates an instance of the Patient class.
         /// </summary>
         /// <returns>Instance of the Patient class.</returns>
-        public static Patient GetPatientInstance()
+        public static PatientManager GetPatientInstance()
         {
             if (_instance == null)
-                _instance = new Patient();
+                _instance = new PatientManager();
             return _instance;
         }
 
@@ -43,16 +33,16 @@ namespace OverSurgery
         /// </summary>
         /// <param name="patientDetails">patient Details struct</param>
         /// <returns>Bool for whether the details were added or not.</returns>
-        public bool Register(patientInfo patientDetails)
+        public bool Register(PatientInfo patientInfo)
         {
             // Puts each variable from the struct into an array element.
             string[] checkEmptyArray = new string[6];
-            checkEmptyArray[0] = patientDetails.firstName;
-            checkEmptyArray[1] = patientDetails.lastName;
-            checkEmptyArray[2] = patientDetails.telephoneNumber;
-            checkEmptyArray[3] = patientDetails.dateOfBirth;
-            checkEmptyArray[4] = patientDetails.gender;          
-            checkEmptyArray[5] = patientDetails.address;
+            checkEmptyArray[0] = patientInfo.FirstName;
+            checkEmptyArray[1] = patientInfo.LastName;
+            checkEmptyArray[2] = patientInfo.TelephoneNumber;
+            checkEmptyArray[3] = patientInfo.DateOfBirth;
+            checkEmptyArray[4] = patientInfo.Gender;
+            checkEmptyArray[5] = patientInfo.Address;
 
             // Assigns a variable for the number of empty data entry fields.
             int emptyFields = 0;
@@ -77,7 +67,7 @@ namespace OverSurgery
             else
             {
                 // Calls the InsertToDatabase method.
-                InsertToDatabase(patientDetails);
+                InsertToDatabase(patientInfo);
                 return true;
             }
         }
@@ -87,30 +77,10 @@ namespace OverSurgery
         /// SQL command on the database.
         /// </summary>
         /// <param name="patientDetails">patientDetails struct</param>
-        public void InsertToDatabase(patientInfo patientDetails)
+        public void InsertToDatabase(PatientInfo patientInfo)
         {
             // Inserts patient details into the database.
-            DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.RegisterPatient(patientDetails));            
-        }
-
-        public void SearchByID()
-        {
-
-        }
-
-        public void SearchByNameDOB()
-        {
-
-        }
-
-        public void SearchByNameAddress()
-        {
-
-        }
-
-        public void FindSearchType()
-        {
-
+            DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.RegisterPatient(patientInfo));            
         }
     }
 }

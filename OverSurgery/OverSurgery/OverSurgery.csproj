@@ -93,19 +93,20 @@
     <Compile Include="GetApptStaff.cs" />
     <Compile Include="GetApptTime.cs" />
     <Compile Include="LoginManager.cs" />
-    <Compile Include="ManageAppointments.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ManageAppointments.Designer.cs">
-      <DependentUpon>ManageAppointments.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Patient.cs" />
+    <Compile Include="PatientInfo.cs" />
+    <Compile Include="PatientManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="StaffDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StaffDisplay.Designer.cs">
+      <DependentUpon>StaffDisplay.cs</DependentUpon>
     </Compile>
     <Compile Include="StaffList.cs">
       <SubType>Form</SubType>
@@ -155,8 +156,8 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ManageAppointments.resx">
-      <DependentUpon>ManageAppointments.cs</DependentUpon>
+    <EmbeddedResource Include="StaffDisplay.resx">
+      <DependentUpon>StaffDisplay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StaffList.resx">
       <DependentUpon>StaffList.cs</DependentUpon>

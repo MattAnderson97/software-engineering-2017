@@ -9,7 +9,7 @@ namespace OverSurgery
     class Constants
     {
         #region DEBUG
-        public static string selectAll = "SELECT * FROM StaffMember";
+        public static string selectAll = "SELECT * FROM Patient";
 
         public static string selectAll2 = "SELECT * FROM Appointment";
 
@@ -59,11 +59,11 @@ namespace OverSurgery
         /// </summary>
         /// <param name="patientDetails">Struct containg patient details.</param>
         /// <returns>SQL statement.</returns>
-        public static string RegisterPatient(Patient.patientInfo patientDetails)
+        public static string RegisterPatient(PatientInfo patientInfo)
         {
             return String.Format(@"INSERT INTO Patient (FirstName, LastName, TelephoneNumber, DateOfBirth, Gender, Address)
-                             VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')", patientDetails.firstName, patientDetails.lastName, patientDetails.telephoneNumber,
-                             patientDetails.dateOfBirth, patientDetails.gender, patientDetails.address);
+                             VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')", patientInfo.FirstName, patientInfo.LastName, patientInfo.TelephoneNumber,
+                             patientInfo.DateOfBirth, patientInfo.Gender, patientInfo.Address);
         }
         #endregion
 
