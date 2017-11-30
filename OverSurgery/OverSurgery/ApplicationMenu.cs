@@ -308,7 +308,7 @@ namespace OverSurgery
             staffIDList = AddAppointment.GetAddAppointmentInstance().GetAppointmentStaff(chosenDate, chosenTime);
 
             // Iterates through the list adding the items to the list box.
-            for(int i =0; i < staffIDList.Count/*availableStaff.Count*/; i++)
+            for(int i =0; i < staffIDList.Count; i++)
             {
                 // Gets a data set containing a staff member.
                 DataSet dsStaffMember = AddAppointment.GetAddAppointmentInstance().GetStaffMemberName(staffIDList[i]);
