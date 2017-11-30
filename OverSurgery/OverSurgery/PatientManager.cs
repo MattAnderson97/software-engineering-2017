@@ -30,11 +30,11 @@ namespace OverSurgery
         /// <summary>
         /// Adds patient details to the database if none of the data entry fields are empty.
         /// </summary>
-        /// <param name="patientDetails">patient Details struct</param>
+        /// <param name="patientDetails">patientInfo object.</param>
         /// <returns>Bool for whether the details were added or not.</returns>
         public int Register(PatientInfo patientInfo)
         {
-            // Puts each variable from the struct into an array element.
+            // Puts each variable from the object into an array element.
             string[] checkEmptyArray = new string[6];
             checkEmptyArray[0] = patientInfo.FirstName;
             checkEmptyArray[1] = patientInfo.LastName;
@@ -83,7 +83,7 @@ namespace OverSurgery
         /// Connects to the DatabaseConnection class and tells it to use an
         /// SQL command on the database.
         /// </summary>
-        /// <param name="patientDetails">patientDetails struct</param>
+        /// <param name="patientDetails">patientInfo object</param>
         public void InsertToDatabase(PatientInfo patientInfo)
         {
             // Inserts patient details into the database.

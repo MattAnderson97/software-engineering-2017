@@ -174,7 +174,7 @@ namespace OverSurgery
         // Register Patient panel register patient button click event.
         private void btnRegisterPatient_Click(object sender, EventArgs e)
         {
-            // Assigns patient details to patient info struct.
+            // Assigns patient details to patient info object.
             PatientInfo patientInfo = new PatientInfo();
             patientInfo.FirstName = tbxFirstName.Text;
             patientInfo.LastName = tbxLastName.Text;
@@ -183,7 +183,7 @@ namespace OverSurgery
             patientInfo.Gender = cbxGender.Text;
             patientInfo.Address = tbxAddress.Text;
 
-            // Calls the register method in the patient class and gives it the struct,
+            // Calls the register method in the patient class and gives it the patient info object,
             // if none of the data entry fields are empty.
             switch (PatientManager.GetPatientInstance().Register(patientInfo))
             {
