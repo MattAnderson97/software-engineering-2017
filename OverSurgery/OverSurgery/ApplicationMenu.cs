@@ -539,24 +539,7 @@ namespace OverSurgery
 
         #endregion
 
-        #region ApplicationMenuForm
-        private void ApplicationMenu_Load(object sender, EventArgs e)
-        {
-            DataSet dsDebug = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.selectAll);
-
-            DataTable dtDebug = dsDebug.Tables[0];
-
-            dgvDebug.DataSource = dtDebug;
-
-            DataSet dsDebug2 = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.selectAll2);
-
-            DataTable dtDebug2 = dsDebug2.Tables[0];
-
-            dgvDebug2.DataSource = dtDebug2;
-        }
-        #endregion
-
-        #region prescription
+        #region pnlPrescription
         public DataGridView PrescriptionsGrid
         {
             get { return prescriptions; }
@@ -647,7 +630,7 @@ namespace OverSurgery
         }
         #endregion
 
-        #region Staff
+        #region pnlStaff
         private void btnBackViewStaffPnl_Click(object sender, EventArgs e)
         {
             pnlStaff.Visible = false;
@@ -830,6 +813,21 @@ namespace OverSurgery
 
         #endregion
 
-        
+        #region ApplicationMenuForm
+        private void ApplicationMenu_Load(object sender, EventArgs e)
+        {
+            DataSet dsDebug = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.selectAll);
+
+            DataTable dtDebug = dsDebug.Tables[0];
+
+            dgvDebug.DataSource = dtDebug;
+
+            DataSet dsDebug2 = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.selectAll2);
+
+            DataTable dtDebug2 = dsDebug2.Tables[0];
+
+            dgvDebug2.DataSource = dtDebug2;
+        }
+        #endregion
     }
 }
