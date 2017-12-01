@@ -12,20 +12,29 @@ namespace OverSurgery
         #region PROPERTIES
         // Declares an instance of the AddAppointment class.
         private static AddAppointment _instance;
+
+        // Instantiates a read-only object to use as a lock for the singleton.
+        private static readonly object _lock = new object();
+
+        // Ensures only one instance of the class can be instantiated.
+        public static AddAppointment GetAddAppointmentInstance
+        {
+            get
+            {
+                lock (_lock)
+                {
+                    if(_instance == null)
+                    {
+                        _instance = new AddAppointment();
+                    }
+
+                    return _instance;
+                }
+            }
+        }
         #endregion
 
         #region METHODS
-        /// <summary>
-        /// Creates an instance of the AddAppointment class.
-        /// </summary>
-        /// <returns>Instance of the AddAppointment class.</returns>
-        public static AddAppointment GetAddAppointmentInstance()
-        {
-            if (_instance == null)
-                _instance = new AddAppointment();
-
-            return _instance;
-        }
 
         /// <summary>
         /// Returns a list of possible booking times from the GetApptTime class.
@@ -34,7 +43,10 @@ namespace OverSurgery
         /// <returns>List of possible booking times.</returns>
         public List<string> GetAppointmentTimes(string chosenDate)
         {
-            return GetApptTime.GetGetApptTimeInstance().FindChosenDate(chosenDate);
+            // Create an instanec of the GetApptTime class.
+            GetApptTime timeList = new GetApptTime();
+
+            return timeList.FindChosenDate(chosenDate);
         }
 
         /// <summary>
@@ -76,6 +88,11 @@ namespace OverSurgery
         #endregion
 
         #region CONSTRUCTORS
+
+        private AddAppointment()
+        {
+
+        }
         #endregion
     }
 }
