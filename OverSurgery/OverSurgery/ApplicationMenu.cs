@@ -280,7 +280,7 @@ namespace OverSurgery
             List<string> appointmentTimes = new List<string>();
 
             // Gets the list items from the database.
-            appointmentTimes = AddAppointment.GetAddAppointmentInstance().GetAppointmentTimes(chosenDate);
+            appointmentTimes = AddAppointment.GetAddAppointmentInstance.GetAppointmentTimes(chosenDate);
 
             // Iterates through the list items, adding them to the list box.
             for(int i = 0; i < appointmentTimes.Count; i++)
@@ -305,13 +305,13 @@ namespace OverSurgery
             string chosenTime = lbxApptTimeAddApptPanel.GetItemText(lbxApptTimeAddApptPanel.SelectedItem);
 
             // Gets a list of available staff members.
-            staffIDList = AddAppointment.GetAddAppointmentInstance().GetAppointmentStaff(chosenDate, chosenTime);
+            staffIDList = AddAppointment.GetAddAppointmentInstance.GetAppointmentStaff(chosenDate, chosenTime);
 
             // Iterates through the list adding the items to the list box.
             for(int i =0; i < staffIDList.Count; i++)
             {
                 // Gets a data set containing a staff member.
-                DataSet dsStaffMember = AddAppointment.GetAddAppointmentInstance().GetStaffMemberName(staffIDList[i]);
+                DataSet dsStaffMember = AddAppointment.GetAddAppointmentInstance.GetStaffMemberName(staffIDList[i]);
 
                 // Adds their first name and last name based off their ID to the list box.
                 lbxApptStaffAddApptPanel.Items.Add(dsStaffMember.Tables[0].Rows[0]["FirstName"].ToString().Trim() + " " + dsStaffMember.Tables[0].Rows[0]["LastName"].ToString().Trim());
@@ -368,7 +368,7 @@ namespace OverSurgery
                 appointmentInfo.StaffID = Int32.Parse(staffID);
 
                 // Inserts the appointment into the database.
-                AddAppointment.GetAddAppointmentInstance().AddToDatabase(appointmentInfo);
+                AddAppointment.GetAddAppointmentInstance.AddToDatabase(appointmentInfo);
 
                 // Tells the user the appointment is booked.
                 MessageBox.Show("Appointment booked.", "Done!");

@@ -10,9 +10,6 @@ namespace OverSurgery
     class GetApptTime
     {
         #region PROPERTIES
-        // Declares an instance of the GetApptTime class.
-        private static GetApptTime _instance;
-
         // List containing all times appointments can be held.
         private List<string> allTimeList = new List<string>();
 
@@ -27,18 +24,6 @@ namespace OverSurgery
         #endregion
 
         #region METHODS
-
-        /// <summary>
-        /// Creates an instance of the GetApptTime class.
-        /// </summary>
-        /// <returns>Instance of the GetApptTime class.</returns>
-        public static GetApptTime GetGetApptTimeInstance()
-        {
-            if (_instance == null)
-                _instance = new GetApptTime();
-
-            return _instance;
-        }
 
         /// <summary>
         /// Finds all appointment records for a particular date.
