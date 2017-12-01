@@ -12,22 +12,32 @@ namespace OverSurgery
     public class LoginManager
     {
         #region PROPERTIES
+
+        // Instantiates a read-only object to use as a lock for the singleton.
+        private static readonly object _lock = new object();
+
         // Declares instance of the LoginManager class.
         public static LoginManager _instance;
+
+        // Ensures only one instance of the class can be instantiated.
+        public static LoginManager GetLoginManagerInstance
+        {
+            get
+            {
+                lock (_lock)
+                {
+                    if (_instance == null)
+                    {
+                        _instance = new LoginManager();
+                    }
+
+                    return _instance;
+                }
+            }
+        }
         #endregion
 
         #region METHODS
-
-        /// <summary>
-        /// Creates an instance of the LoginManager class.
-        /// </summary>
-        /// <returns>Instance of the LoginManager class.</returns>
-        public static LoginManager GetLoginManagerInstance()
-        {
-            if (_instance == null)
-                _instance = new LoginManager();
-            return _instance;
-        }
 
         /// <summary>
         /// Checks if the supllied user details are valid then adds those details to the database.

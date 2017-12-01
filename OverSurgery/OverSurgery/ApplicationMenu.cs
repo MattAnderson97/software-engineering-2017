@@ -79,7 +79,7 @@ namespace OverSurgery
             userName = txtUserName.Text;
             password = txtPassword.Text;
 
-            if(LoginManager.GetLoginManagerInstance().Login(userName, password) == true)
+            if(LoginManager.GetLoginManagerInstance.Login(userName, password) == true)
             {
                 pnlLogin.Visible = false;
                 pnlMainMenu.Visible = true;
@@ -131,7 +131,7 @@ namespace OverSurgery
             
             // Switch runs the CreateUser method and displays different messages,
             // depending on the outcome. 
-            switch(LoginManager.GetLoginManagerInstance().CreateUser(userName, password))
+            switch(LoginManager.GetLoginManagerInstance.CreateUser(userName, password))
             {
                 // User account created.
                 case 1:
@@ -185,7 +185,7 @@ namespace OverSurgery
 
             // Calls the register method in the patient class and gives it the patient info object,
             // if none of the data entry fields are empty.
-            switch (PatientManager.GetPatientInstance().Register(patientInfo))
+            switch (PatientManager.GetPatientInstance.Register(patientInfo))
             {
                 // Runs if the patient is registered.
                 case 1:

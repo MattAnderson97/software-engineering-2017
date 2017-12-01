@@ -10,22 +10,32 @@ namespace OverSurgery
     public class PatientManager
     {
         #region PROPERTIES
+
+        // Instantiates a read-only object to use as a lock for the singleton.
+        private static readonly object _lock = new object();
+
         // Declares an instance of the patient class.
         public static PatientManager _instance;
+        
+        // Ensures only one instance of the class can be instantiated.
+        public static PatientManager GetPatientInstance
+        {
+            get
+            {
+                lock (_lock)
+                {
+                    if (_instance == null)
+                    {
+                        _instance = new PatientManager();
+                    }
+
+                    return _instance;
+                }
+            }
+        }
         #endregion
 
         #region METHODS
-
-        /// <summary>
-        /// Creates an instance of the Patient class.
-        /// </summary>
-        /// <returns>Instance of the Patient class.</returns>
-        public static PatientManager GetPatientInstance()
-        {
-            if (_instance == null)
-                _instance = new PatientManager();
-            return _instance;
-        }
 
         /// <summary>
         /// Adds patient details to the database if none of the data entry fields are empty.
