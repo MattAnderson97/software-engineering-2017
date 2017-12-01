@@ -57,8 +57,9 @@ namespace OverSurgery
             }
 
             // Uses a regular expression to make sure the telephone number string only has digits.
-            Regex regex = new Regex(@"\d+");
-            Match match = regex.Match(patientInfo.TelephoneNumber);
+            // Code snipped adapted from Dot Net Perls, avaialble at: https://www.dotnetperls.com/regex
+            Regex telNumRegex = new Regex(@"\d+");
+            Match telNumMatch = telNumRegex.Match(patientInfo.TelephoneNumber);
 
             // If more than 0 of the fields are empty the method returns false and,
             // the form will display an error message. Else, the details are addded
@@ -67,7 +68,7 @@ namespace OverSurgery
             {
                 return 2;
             }
-            else if (!match.Success) //If the string contains invalid characters an error is returned.
+            else if (!telNumMatch.Success) //If the string contains invalid characters an error is returned.
             {
                 return 3;
             }
