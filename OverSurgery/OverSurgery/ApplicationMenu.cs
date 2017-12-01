@@ -437,28 +437,57 @@ namespace OverSurgery
             }
         }
 
+        /// <summary>
+        /// Class from https://stackoverflow.com/a/9569546
+        /// Submitted by Bas on March 5 2012
+        /// Accessed Dec 1 2017
+        /// </summary>
+        private class Prompt
+        {
+            public static void ShowDialog(string title, string text)
+            {
+                Form prompt = new Form();
+                prompt.Width = 210;
+                prompt.Height = 150;
+                prompt.Text = text;
+                Label textLabel = new Label() { Left = 50, Top = 20, Text = title };
+                Button confirmation = new Button() { Text = "Ok", Left = 50, Width = 100, Top = 70 };
+                confirmation.Click += (sender, e) => { prompt.Close(); };
+                prompt.Controls.Add(confirmation);
+                prompt.Controls.Add(textLabel);
+                prompt.ShowDialog();
+            }
+        }
+
         private void btnBackManageAppointments_Click(object sender, EventArgs e)
         {
             pnlManageAppointments.Visible = false;
         }
-
+        
 
         private void btnSaveManageAppointments_Click(object sender, EventArgs e)
         {
-            pnlManageAppointments.Visible = false;
-            int appointmentID = Int32.Parse(manageAppointmentID.Text.Split(' ')[0]);
-            string type = manageAppointmentType.Text;
-            string date = manageAppointmentDate.Value.Date.ToString("d");
-            string time = manageAppointmentTime.Text;
-            int doctorID = Int32.Parse(manageAppointmentDoctor.Text.Split(' ')[0]);
-            string sql = "UPDATE Appointment " +
-                "SET Type = '" + type + "', " +
-                "Date = '" + date + "', " +
-                "Time = '" + time + "', " +
-                "StaffID_Fk = " + doctorID + " " +
-                "WHERE AppointmentID = " + appointmentID;
-            // Console.WriteLine(sql);
-            DatabaseConnection.getDatabaseConnectionInstance().getDataSet(sql);
+            try
+            {
+                int appointmentID = Int32.Parse(manageAppointmentID.Text.Split(' ')[0]);
+                string type = manageAppointmentType.Text;
+                string date = manageAppointmentDate.Value.Date.ToString("d");
+                string time = manageAppointmentTime.Text;
+                int doctorID = Int32.Parse(manageAppointmentDoctor.Text.Split(' ')[0]);
+                string sql = "UPDATE Appointment " +
+                    "SET Type = '" + type + "', " +
+                    "Date = '" + date + "', " +
+                    "Time = '" + time + "', " +
+                    "StaffID_Fk = " + doctorID + " " +
+                    "WHERE AppointmentID = " + appointmentID;
+                // Console.WriteLine(sql);
+                DatabaseConnection.getDatabaseConnectionInstance().getDataSet(sql);
+                pnlManageAppointments.Visible = false;
+            }
+            catch(Exception ex)
+            {
+                Prompt.ShowDialog("Missing data", "Error");
+            }
         }
 
         private void pnlManageAppointments_VisibleChanged(object sender, EventArgs e)

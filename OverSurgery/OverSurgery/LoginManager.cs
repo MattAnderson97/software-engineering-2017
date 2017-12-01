@@ -123,7 +123,6 @@ namespace OverSurgery
         public static string EncryptPassword(string password)
         {
             var sha512 = new SHA512CryptoServiceProvider();  // use var for readability with obvious type
-            int saltLength = 64; // 64 bits to match length of sha512
 
             // byte[] salt = GenSalt(saltLength); // Generate a 64 bit salt
             byte[] passwordBytes = Encoding.UTF8.GetBytes(password).ToArray(); // apply salt to password and store as byte array
@@ -140,28 +139,7 @@ namespace OverSurgery
 
             return hashedPassword;
         }
-
-        /// <summary>
-        /// Generate a salt of a provided length
-        /// salt generation source: https://codereview.stackexchange.com/a/93622
-        /// from answer by Heslacher (Jun 15 2015)
-        /// accessed 27/10/2017
-        /// </summary>
-        /// <param name="saltLength"></param>
-        /// <returns>salt</returns>
-        private static byte[] GenSalt(int saltLength)
-        {
-            var salt = new byte[saltLength];
-
-            // Cryptographically secure pseudo-random number generator
-            using (var csprng = new RNGCryptoServiceProvider())
-            {
-                csprng.GetNonZeroBytes(salt);
-            }
-
-            return salt;
-        }
-
+        
         /// <summary>
         /// Checks the database to see if the user details are a match.
         /// </summary>
