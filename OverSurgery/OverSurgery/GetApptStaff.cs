@@ -19,9 +19,6 @@ namespace OverSurgery
 
         // Creates a list to hold all staff members available for appointments.
         private List<string> availableStaffList = new List<string>();
-
-        // Creates a list to hold the names of staff members available for appointments.
-        private List<string> availableStaffNameList = new List<string>();
         #endregion
 
         #region METHODS
@@ -32,7 +29,7 @@ namespace OverSurgery
         /// <param name="chosenDate">Chosen appointment date.</param>
         /// <param name="chosenTime">Chosen appointment time.</param>
         /// <returns>List with names of available staff members.</returns>
-        public List<string> GetAvailableStaffNameList(string chosenDate, string chosenTime)
+        public List<string> GetAvailableStaffList(string chosenDate, string chosenTime)
         {
             // Gets a list of staff with appointments at a given date and time.
             GetBookedStaffList(chosenDate, chosenTime);

@@ -68,6 +68,7 @@ namespace OverSurgery
 
             // Uses a regular expression to make sure the telephone number string only has digits.
             // Code snipped adapted from Dot Net Perls, avaialble at: https://www.dotnetperls.com/regex
+            // Accessed 24 November 2017
             Regex telNumRegex = new Regex(@"\d+");
             Match telNumMatch = telNumRegex.Match(patientInfo.TelephoneNumber);
 

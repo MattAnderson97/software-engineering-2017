@@ -61,7 +61,7 @@ namespace OverSurgery
             // Create an instance of the GetApptStaff class.
             GetApptStaff staffList = new GetApptStaff();
 
-            return staffList.GetAvailableStaffNameList(chosenDate, chosenTime);
+            return staffList.GetAvailableStaffList(chosenDate, chosenTime);
         }
 
         /// <summary>

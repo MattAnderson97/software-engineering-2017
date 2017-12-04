@@ -90,24 +90,6 @@ namespace OverSurgery
                 txtUserName.Clear();
                 txtPassword.Clear();
             }
-
-            // Not sure what this is doing?
-            /*DataSet ds = new DataSet("Logins");
-         
-            foreach (DataRow dr in ds.Tables["Logins"].Rows)
-            {
-                if (dr["Username"].ToString() == "Username")
-                {
-                    if (dr["Password"].ToString() == "Password")
-                    {
-                        ApplicationLogin myForm1 = new ApplicationLogin();
-                        myForm1.Hide();
-                        break;
-                    }
-                }
-                else
-                    MessageBox.Show("Invalid username or password");
-            }*/
         }
 
         #endregion
