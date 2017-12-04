@@ -62,7 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddAppointment.cs" />
+    <Compile Include="AppointmentManager.cs" />
     <Compile Include="ApplicationMenu.cs">
       <SubType>Form</SubType>
     </Compile>

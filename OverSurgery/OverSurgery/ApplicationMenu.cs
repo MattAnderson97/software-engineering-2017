@@ -262,7 +262,7 @@ namespace OverSurgery
             List<string> appointmentTimes = new List<string>();
 
             // Gets the list items from the database.
-            appointmentTimes = AddAppointment.GetAddAppointmentInstance.GetAppointmentTimes(chosenDate);
+            appointmentTimes = AppointmentManager.GetAppointmentManagerInstance.GetAppointmentTimes(chosenDate);
 
             // Iterates through the list items, adding them to the list box.
             for(int i = 0; i < appointmentTimes.Count; i++)
@@ -287,13 +287,13 @@ namespace OverSurgery
             string chosenTime = lbxApptTimeAddApptPanel.GetItemText(lbxApptTimeAddApptPanel.SelectedItem);
 
             // Gets a list of available staff members.
-            staffIDList = AddAppointment.GetAddAppointmentInstance.GetAppointmentStaff(chosenDate, chosenTime);
+            staffIDList = AppointmentManager.GetAppointmentManagerInstance.GetAppointmentStaff(chosenDate, chosenTime);
 
             // Iterates through the list adding the items to the list box.
             for(int i =0; i < staffIDList.Count; i++)
             {
                 // Gets a data set containing a staff member.
-                DataSet dsStaffMember = AddAppointment.GetAddAppointmentInstance.GetStaffMemberName(staffIDList[i]);
+                DataSet dsStaffMember = AppointmentManager.GetAppointmentManagerInstance.GetStaffMemberName(staffIDList[i]);
 
                 // Adds their first name and last name based off their ID to the list box.
                 lbxApptStaffAddApptPanel.Items.Add(dsStaffMember.Tables[0].Rows[0]["FirstName"].ToString().Trim() + " " + dsStaffMember.Tables[0].Rows[0]["LastName"].ToString().Trim());
@@ -306,70 +306,65 @@ namespace OverSurgery
             // Creates a new instance of the appointment info class.
             AppointmentInfo appointmentInfo = new AppointmentInfo();
 
-            // Says there are empty fields.
-            bool noEmptyFields = false;
+            // Assigns the PatientID.
+            appointmentInfo.PatientID = patientID;
 
-            // Checks if any of the data entry fields are null.
-            if (patientID == null)
-            {
-                MessageBox.Show("No patient selected.", "Error!");
-            }
-            else if(lbxApptTimeAddApptPanel.SelectedItem == null)
-            {
-                MessageBox.Show("No time selected", "Error!");
-            }
-            else if(lbxApptStaffAddApptPanel.SelectedItem == null)
-            {
-                MessageBox.Show("No staff member selected", "Error!");
-            }
-            else
-            {
-                // Says there are no empty data entry fields.
-                noEmptyFields = true;
-            }
+            // Assigns the chosen date.
+            appointmentInfo.Date = dtpDateAddApptPanel.Value.ToShortDateString();
 
-            // If there are no empty data entry fields, the appointment is added to the database.
-            if (noEmptyFields == true)
+            if(lbxApptTimeAddApptPanel.SelectedItem != null)
             {
-                // Assigns the PatientID.
-                appointmentInfo.PatientID = Int32.Parse(patientID);
-
-                // Assigns the chosen date.
-                appointmentInfo.Date = dtpDateAddApptPanel.Value.ToShortDateString();
-
                 // Assigns the chosen time.
                 appointmentInfo.Time = lbxApptTimeAddApptPanel.SelectedItem.ToString();
-
-                // Gets the index number of the staff member selected.
-                int indexNumber = lbxApptStaffAddApptPanel.SelectedIndex;
-
-                // Sets the staffID to the number in the StaffID list at the chosen index.
-                staffID = staffIDList[indexNumber];
-
-                // Assigns the StaffID.
-                appointmentInfo.StaffID = Int32.Parse(staffID);
-
-                // Inserts the appointment into the database.
-                AddAppointment.GetAddAppointmentInstance.AddToDatabase(appointmentInfo);
-
-                // Tells the user the appointment is booked.
-                MessageBox.Show("Appointment booked.", "Done!");
-
-                // Hides the panel.
-                pnlAddAppointment.Visible = false;
-
-                // Resets all data entry fields.
-                lblPatientNameAddApptPanel.Visible = false;
-                btnAddPatientAddApptPanel.Visible = true;
-                patientID = null;
-                dtpDateAddApptPanel.Value = DateTime.Today;
-                lbxApptTimeAddApptPanel.Items.Clear();
-                lbxApptStaffAddApptPanel.Items.Clear();
             }
 
-            // Resets the date selected.
-            dtpDateAddApptPanel.Value = DateTime.Today;
-            
+            // Gets the index number of the staff member selected.
+            int indexNumber = lbxApptStaffAddApptPanel.SelectedIndex;
+
+            if (indexNumber != -1)
+            {
+                // Sets the staffID to the number in the StaffID list at the chosen index.
+                staffID = staffIDList[indexNumber];
+            }
+            // Assigns the StaffID.
+            appointmentInfo.StaffID = staffID;
+
+            switch (AppointmentManager.GetAppointmentManagerInstance.AddAppointment(appointmentInfo))
+            {
+                case 1:
+                    MessageBox.Show("No patient selected.", "Error!");
+                    break;
+
+                case 2:
+                    MessageBox.Show("No date selected.", "Error!");
+                    break;
+
+                case 3:
+                    MessageBox.Show("No time selected.", "Error!");
+                    break;
+
+                case 4:
+                    MessageBox.Show("No staff member selected.", "Error!");
+                    break;
+
+                case 5:
+                    MessageBox.Show("Appointment booked.", "Done!");
+
+                    // Hides the panel.
+                    pnlAddAppointment.Visible = false;
+
+                    // Resets all data entry fields.
+                    lblPatientNameAddApptPanel.Visible = false;
+                    btnAddPatientAddApptPanel.Visible = true;
+                    patientID = null;
+                    dtpDateAddApptPanel.Value = DateTime.Today;
+                    lbxApptTimeAddApptPanel.Items.Clear();
+                    lbxApptStaffAddApptPanel.Items.Clear();
+
+                    // Resets the date selected.
+                    dtpDateAddApptPanel.Value = DateTime.Today;
+                    break;
+            }
         }
 
         #endregion

@@ -4,20 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Windows.Forms;
 
 namespace OverSurgery
 {
-    class AddAppointment
+    class AppointmentManager
     {
         #region PROPERTIES
         // Declares an instance of the AddAppointment class.
-        private static AddAppointment _instance;
+        private static AppointmentManager _instance;
 
         // Instantiates a read-only object to use as a lock for the singleton.
         private static readonly object _lock = new object();
 
         // Ensures only one instance of the class can be instantiated.
-        public static AddAppointment GetAddAppointmentInstance
+        public static AppointmentManager GetAppointmentManagerInstance
         {
             get
             {
@@ -25,7 +26,7 @@ namespace OverSurgery
                 {
                     if(_instance == null)
                     {
-                        _instance = new AddAppointment();
+                        _instance = new AppointmentManager();
                     }
 
                     return _instance;
@@ -76,11 +77,36 @@ namespace OverSurgery
             return dsStaffMember;
         }
 
+        public int AddAppointment(AppointmentInfo appointmentInfo)
+        {
+            if (appointmentInfo.PatientID == null)
+            {
+                return 1;
+            }
+            else if (appointmentInfo.Date == null)
+            {
+                return 2;
+            }
+            else if (appointmentInfo.Time == null)
+            {
+                return 3;
+            }
+            else if (appointmentInfo.StaffID == null)
+            {
+                return 4;
+            }
+            else
+            {
+                InsertToDatabase(appointmentInfo);
+                return 5;
+            }
+        }
+
         /// <summary>
         /// Adds the appointment info to the database.
         /// </summary>
         /// <param name="appointmentInfo"></param>
-        public void AddToDatabase(AppointmentInfo appointmentInfo)
+        public void InsertToDatabase(AppointmentInfo appointmentInfo)
         {
             // Inserts appointment info into the database.
             DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.InsertAppointment(appointmentInfo));
@@ -89,7 +115,7 @@ namespace OverSurgery
 
         #region CONSTRUCTORS
 
-        private AddAppointment()
+        private AppointmentManager()
         {
 
         }
