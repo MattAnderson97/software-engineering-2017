@@ -224,6 +224,7 @@ namespace OverSurgery
             lblPatientNameAddApptPanel.Visible = false;
             btnAddPatientAddApptPanel.Visible = true;
             patientID = null;
+            dtpDateAddApptPanel.ResetText();
         }
   
         private void btnAddPatientAddApptPanel_Click(object sender, EventArgs e)
@@ -354,7 +355,7 @@ namespace OverSurgery
                     lblPatientNameAddApptPanel.Visible = false;
                     btnAddPatientAddApptPanel.Visible = true;
                     patientID = null;
-                    dtpDateAddApptPanel.Value = DateTime.Today;
+                    dtpDateAddApptPanel.ResetText();
                     break;
             }
         }

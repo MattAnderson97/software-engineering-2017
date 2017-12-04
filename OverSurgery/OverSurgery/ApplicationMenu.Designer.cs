@@ -43,6 +43,7 @@
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblCreateUser = new System.Windows.Forms.Label();
             this.pnlRegisterPatient = new System.Windows.Forms.Panel();
+            this.tbxTelNumRegisterPatientPnl = new System.Windows.Forms.TextBox();
             this.btnBackRegisterPatient = new System.Windows.Forms.Button();
             this.btnRegisterPatient = new System.Windows.Forms.Button();
             this.tbxAddress = new System.Windows.Forms.TextBox();
@@ -112,7 +113,8 @@
             this.dgvDebug2 = new System.Windows.Forms.DataGridView();
             this.pnlprescription = new System.Windows.Forms.Panel();
             this.prescriptions = new System.Windows.Forms.DataGridView();
-            this.tbxTelNumRegisterPatientPnl = new System.Windows.Forms.TextBox();
+            this.lblUsernameReqCreateUserPnl = new System.Windows.Forms.Label();
+            this.lblPasswordReqCreateUserPnl = new System.Windows.Forms.Label();
             this.pnlCreateUser.SuspendLayout();
             this.pnlRegisterPatient.SuspendLayout();
             this.pnlLogin.SuspendLayout();
@@ -189,6 +191,8 @@
             // 
             // pnlCreateUser
             // 
+            this.pnlCreateUser.Controls.Add(this.lblPasswordReqCreateUserPnl);
+            this.pnlCreateUser.Controls.Add(this.lblUsernameReqCreateUserPnl);
             this.pnlCreateUser.Controls.Add(this.btnBackCreateUser);
             this.pnlCreateUser.Controls.Add(this.tbxPassword);
             this.pnlCreateUser.Controls.Add(this.tbxUsername);
@@ -219,7 +223,7 @@
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.PasswordChar = '*';
             this.tbxPassword.Size = new System.Drawing.Size(200, 20);
-            this.tbxPassword.TabIndex = 9;
+            this.tbxPassword.TabIndex = 1;
             // 
             // tbxUsername
             // 
@@ -290,6 +294,15 @@
             this.pnlRegisterPatient.Size = new System.Drawing.Size(437, 357);
             this.pnlRegisterPatient.TabIndex = 16;
             this.pnlRegisterPatient.Visible = false;
+            // 
+            // tbxTelNumRegisterPatientPnl
+            // 
+            this.tbxTelNumRegisterPatientPnl.BackColor = System.Drawing.Color.White;
+            this.tbxTelNumRegisterPatientPnl.Location = new System.Drawing.Point(147, 210);
+            this.tbxTelNumRegisterPatientPnl.MaxLength = 15;
+            this.tbxTelNumRegisterPatientPnl.Name = "tbxTelNumRegisterPatientPnl";
+            this.tbxTelNumRegisterPatientPnl.Size = new System.Drawing.Size(200, 20);
+            this.tbxTelNumRegisterPatientPnl.TabIndex = 25;
             // 
             // btnBackRegisterPatient
             // 
@@ -461,7 +474,7 @@
             this.txtUserName.Location = new System.Drawing.Point(185, 122);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(100, 20);
-            this.txtUserName.TabIndex = 20;
+            this.txtUserName.TabIndex = 1;
             // 
             // label4
             // 
@@ -1032,27 +1045,36 @@
             this.prescriptions.Size = new System.Drawing.Size(407, 145);
             this.prescriptions.TabIndex = 0;
             // 
-            // tbxTelNumRegisterPatientPnl
+            // lblUsernameReqCreateUserPnl
             // 
-            this.tbxTelNumRegisterPatientPnl.BackColor = System.Drawing.Color.White;
-            this.tbxTelNumRegisterPatientPnl.Location = new System.Drawing.Point(147, 210);
-            this.tbxTelNumRegisterPatientPnl.MaxLength = 15;
-            this.tbxTelNumRegisterPatientPnl.Name = "tbxTelNumRegisterPatientPnl";
-            this.tbxTelNumRegisterPatientPnl.Size = new System.Drawing.Size(200, 20);
-            this.tbxTelNumRegisterPatientPnl.TabIndex = 25;
+            this.lblUsernameReqCreateUserPnl.AutoSize = true;
+            this.lblUsernameReqCreateUserPnl.Location = new System.Drawing.Point(67, 74);
+            this.lblUsernameReqCreateUserPnl.Name = "lblUsernameReqCreateUserPnl";
+            this.lblUsernameReqCreateUserPnl.Size = new System.Drawing.Size(126, 13);
+            this.lblUsernameReqCreateUserPnl.TabIndex = 12;
+            this.lblUsernameReqCreateUserPnl.Text = "Username: 10 characters";
+            // 
+            // lblPasswordReqCreateUserPnl
+            // 
+            this.lblPasswordReqCreateUserPnl.AutoSize = true;
+            this.lblPasswordReqCreateUserPnl.Location = new System.Drawing.Point(69, 95);
+            this.lblPasswordReqCreateUserPnl.Name = "lblPasswordReqCreateUserPnl";
+            this.lblPasswordReqCreateUserPnl.Size = new System.Drawing.Size(124, 13);
+            this.lblPasswordReqCreateUserPnl.TabIndex = 13;
+            this.lblPasswordReqCreateUserPnl.Text = "Password: 10 characters";
             // 
             // ApplicationMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 741);
+            this.Controls.Add(this.pnlCreateUser);
             this.Controls.Add(this.pnlRegisterPatient);
             this.Controls.Add(this.pnlStaff);
             this.Controls.Add(this.dgvDebug2);
             this.Controls.Add(this.dgvDebug);
             this.Controls.Add(this.pnlLogin);
             this.Controls.Add(this.pnlAddAppointment);
-            this.Controls.Add(this.pnlCreateUser);
             this.Controls.Add(this.pnlManageAppointments);
             this.Controls.Add(this.pnlMainMenu);
             this.Controls.Add(this.pnlprescription);
@@ -1170,5 +1192,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btnBackViewStaffPnl;
         private System.Windows.Forms.TextBox tbxTelNumRegisterPatientPnl;
+        private System.Windows.Forms.Label lblPasswordReqCreateUserPnl;
+        private System.Windows.Forms.Label lblUsernameReqCreateUserPnl;
     }
 }
