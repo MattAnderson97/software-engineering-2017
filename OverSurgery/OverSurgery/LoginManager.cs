@@ -176,5 +176,13 @@ namespace OverSurgery
             }
         }
         #endregion
+
+        #region CONSTRUCTORS
+
+        public LoginManager()
+        {
+
+        }
+        #endregion
     }
 }

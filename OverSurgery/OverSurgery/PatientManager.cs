@@ -102,5 +102,13 @@ namespace OverSurgery
             DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.RegisterPatient(patientInfo));            
         }
         #endregion
+
+        #region CONSTRUCTORS
+
+        public PatientManager()
+        {
+
+        }
+        #endregion
     }
 }

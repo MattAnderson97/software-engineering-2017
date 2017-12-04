@@ -41,8 +41,8 @@ namespace OverSurgery
         }
 
         // ID of patient who the appointment is for.
-        private int patientID;
-        public int PatientID
+        private string patientID;
+        public string PatientID
         {
             get
             {
@@ -56,8 +56,8 @@ namespace OverSurgery
         }
 
         // ID of staff member appointment is with.
-        private int staffID;
-        public int StaffID
+        private string staffID;
+        public string StaffID
         {
             get
             {
