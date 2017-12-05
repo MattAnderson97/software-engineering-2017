@@ -77,27 +77,39 @@ namespace OverSurgery
             return dsStaffMember;
         }
 
+        /// <summary>
+        /// Checks if any of the data fields are invalid then inserts
+        /// the appointment into the database.
+        /// </summary>
+        /// <param name="appointmentInfo">appointmentInfo object</param>
+        /// <returns>Integer associated with a particular message.</returns>
         public int AddAppointment(AppointmentInfo appointmentInfo)
         {
             if (appointmentInfo.PatientID == null)
             {
+                // No patient selected.
                 return 1;
             }
             else if (appointmentInfo.Date == null)
             {
+                // No date selected.
                 return 2;
             }
             else if (appointmentInfo.Time == null)
             {
+                // No time selected.
                 return 3;
             }
             else if (appointmentInfo.StaffID == null)
             {
+                // No staff member selected.
                 return 4;
             }
             else
             {
                 InsertToDatabase(appointmentInfo);
+
+                // Appointment inserted into database successfully.
                 return 5;
             }
         }

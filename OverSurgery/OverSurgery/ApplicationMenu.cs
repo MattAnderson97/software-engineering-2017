@@ -100,6 +100,8 @@ namespace OverSurgery
         {
             // If the back button is clicked the Create User panel will be hidden.
             pnlCreateUser.Visible = false;
+
+            // Clears text fields.
             tbxUsername.Text = "";
             tbxPassword.Text = "";
         }
@@ -144,6 +146,7 @@ namespace OverSurgery
         // Register Patient panel back button click event.
         private void btnBackRegisterPatient_Click(object sender, EventArgs e)
         {
+            // Closes panel and resets all data entry fields.
             pnlRegisterPatient.Visible = false;
             tbxFirstName.ResetText();
             tbxLastName.ResetText();
@@ -165,8 +168,8 @@ namespace OverSurgery
             patientInfo.Gender = cbxGender.Text;
             patientInfo.Address = tbxAddress.Text;
 
-            // Calls the register method in the patient class and gives it the patient info object,
-            // if none of the data entry fields are empty.
+            // Calls the register method in the patient class and gives it the patient info object.
+            // Switch displays messages depending on the outcome of running the method.
             switch (PatientManager.GetPatientInstance.Register(patientInfo))
             {
                 // Runs if the patient is registered.
@@ -185,7 +188,7 @@ namespace OverSurgery
                 break;
             }
 
-            // Resets fields back to empty.
+            // Closes panel and resets fields back to empty.
             pnlRegisterPatient.Visible = false;
             tbxFirstName.ResetText();
             tbxLastName.ResetText();
@@ -214,7 +217,7 @@ namespace OverSurgery
         // in the order their names are listed.
         private List<string> staffIDList = new List<string>();
 
-        // Runs when the back button is clicked.
+        // Add appointment panel back button click event.
         private void btnBackAddApptPanel_Click(object sender, EventArgs e)
         {
             // Hides the panel.
@@ -226,12 +229,13 @@ namespace OverSurgery
             patientID = null;
             dtpDateAddApptPanel.ResetText();
         }
-  
+        
+        // Add patient button click event.
         private void btnAddPatientAddApptPanel_Click(object sender, EventArgs e)
         {
             lblPatientNameAddApptPanel.Text = "";
 
-            // Runs search patient feature...gets a patientID and name back
+            // Runs search patient feature...gets a patientID and name back.
             patientID = "2";
             patientName = "John Smith";
 
@@ -245,7 +249,7 @@ namespace OverSurgery
             lblPatientNameAddApptPanel.Visible = true;
         }
 
-        // Runs when the selected date changes.
+        // Add appointment panel date time picker value changed event.
         private void dtpDateAddApptPanel_ValueChanged(object sender, EventArgs e)
         {
             // Clears the list boxes.
@@ -269,7 +273,7 @@ namespace OverSurgery
             }
         }
 
-        // Runs when a list box item is selected.
+        // Time list box value changed event.
         private void lbxApptTimeAddApptPanel_SelectedValueChanged(object sender, EventArgs e)
         {
             // Clears the StaffID list.
@@ -298,7 +302,7 @@ namespace OverSurgery
             }         
         }
 
-        // Runs when the add button is clicked.
+        // Add appointment button click event.
         private void btnAddAddApptPanel_Click(object sender, EventArgs e)
         {
             // Creates a new instance of the appointment info class.
@@ -310,6 +314,7 @@ namespace OverSurgery
             // Assigns the chosen date.
             appointmentInfo.Date = dtpDateAddApptPanel.Value.ToShortDateString();
 
+            // Runs only if a time is selected.
             if(lbxApptTimeAddApptPanel.SelectedItem != null)
             {
                 // Assigns the chosen time.
@@ -319,32 +324,40 @@ namespace OverSurgery
             // Gets the index number of the staff member selected.
             int indexNumber = lbxApptStaffAddApptPanel.SelectedIndex;
 
+            // Runs only if a staff member is selected.
             if (indexNumber != -1)
             {
                 // Sets the staffID to the number in the StaffID list at the chosen index.
                 staffID = staffIDList[indexNumber];
             }
+
             // Assigns the StaffID.
             appointmentInfo.StaffID = staffID;
 
+            // Runs the add appointment method and displays messages based on the result.
             switch (AppointmentManager.GetAppointmentManagerInstance.AddAppointment(appointmentInfo))
             {
+                // No patient is selected.
                 case 1:
                     MessageBox.Show("No patient selected.", "Error!");
                     break;
-
+                
+                // No date is selected.
                 case 2:
                     MessageBox.Show("No date selected.", "Error!");
                     break;
-
+                
+                // No time is selected.
                 case 3:
                     MessageBox.Show("No time selected.", "Error!");
                     break;
-
+                
+                // No staff member is selected.
                 case 4:
                     MessageBox.Show("No staff member selected.", "Error!");
                     break;
-
+                
+                // Appointment is inserted into the database successfully.
                 case 5:
                     MessageBox.Show("Appointment booked.", "Done!");
 
