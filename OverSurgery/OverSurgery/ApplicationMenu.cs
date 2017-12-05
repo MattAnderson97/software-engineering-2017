@@ -128,6 +128,8 @@ namespace OverSurgery
                 // Username and password fields left blank.
                 case 2:
                     MessageBox.Show("Please enter a username and password.", "Error!");
+                    tbxUsername.Text = "";
+                    tbxPassword.Text = "";
                     break;
                 
                 // Entered username already exists.
