@@ -35,6 +35,8 @@
             this.btnViewStaff = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.pnlCreateUser = new System.Windows.Forms.Panel();
+            this.lblPasswordReqCreateUserPnl = new System.Windows.Forms.Label();
+            this.lblUsernameReqCreateUserPnl = new System.Windows.Forms.Label();
             this.btnBackCreateUser = new System.Windows.Forms.Button();
             this.tbxPassword = new System.Windows.Forms.TextBox();
             this.tbxUsername = new System.Windows.Forms.TextBox();
@@ -113,8 +115,6 @@
             this.dgvDebug2 = new System.Windows.Forms.DataGridView();
             this.pnlprescription = new System.Windows.Forms.Panel();
             this.prescriptions = new System.Windows.Forms.DataGridView();
-            this.lblUsernameReqCreateUserPnl = new System.Windows.Forms.Label();
-            this.lblPasswordReqCreateUserPnl = new System.Windows.Forms.Label();
             this.pnlCreateUser.SuspendLayout();
             this.pnlRegisterPatient.SuspendLayout();
             this.pnlLogin.SuspendLayout();
@@ -205,6 +205,24 @@
             this.pnlCreateUser.Size = new System.Drawing.Size(437, 357);
             this.pnlCreateUser.TabIndex = 15;
             this.pnlCreateUser.Visible = false;
+            // 
+            // lblPasswordReqCreateUserPnl
+            // 
+            this.lblPasswordReqCreateUserPnl.AutoSize = true;
+            this.lblPasswordReqCreateUserPnl.Location = new System.Drawing.Point(69, 95);
+            this.lblPasswordReqCreateUserPnl.Name = "lblPasswordReqCreateUserPnl";
+            this.lblPasswordReqCreateUserPnl.Size = new System.Drawing.Size(124, 13);
+            this.lblPasswordReqCreateUserPnl.TabIndex = 13;
+            this.lblPasswordReqCreateUserPnl.Text = "Password: 10 characters";
+            // 
+            // lblUsernameReqCreateUserPnl
+            // 
+            this.lblUsernameReqCreateUserPnl.AutoSize = true;
+            this.lblUsernameReqCreateUserPnl.Location = new System.Drawing.Point(67, 74);
+            this.lblUsernameReqCreateUserPnl.Name = "lblUsernameReqCreateUserPnl";
+            this.lblUsernameReqCreateUserPnl.Size = new System.Drawing.Size(126, 13);
+            this.lblUsernameReqCreateUserPnl.TabIndex = 12;
+            this.lblUsernameReqCreateUserPnl.Text = "Username: 10 characters";
             // 
             // btnBackCreateUser
             // 
@@ -1044,24 +1062,6 @@
             this.prescriptions.Name = "prescriptions";
             this.prescriptions.Size = new System.Drawing.Size(407, 145);
             this.prescriptions.TabIndex = 0;
-            // 
-            // lblUsernameReqCreateUserPnl
-            // 
-            this.lblUsernameReqCreateUserPnl.AutoSize = true;
-            this.lblUsernameReqCreateUserPnl.Location = new System.Drawing.Point(67, 74);
-            this.lblUsernameReqCreateUserPnl.Name = "lblUsernameReqCreateUserPnl";
-            this.lblUsernameReqCreateUserPnl.Size = new System.Drawing.Size(126, 13);
-            this.lblUsernameReqCreateUserPnl.TabIndex = 12;
-            this.lblUsernameReqCreateUserPnl.Text = "Username: 10 characters";
-            // 
-            // lblPasswordReqCreateUserPnl
-            // 
-            this.lblPasswordReqCreateUserPnl.AutoSize = true;
-            this.lblPasswordReqCreateUserPnl.Location = new System.Drawing.Point(69, 95);
-            this.lblPasswordReqCreateUserPnl.Name = "lblPasswordReqCreateUserPnl";
-            this.lblPasswordReqCreateUserPnl.Size = new System.Drawing.Size(124, 13);
-            this.lblPasswordReqCreateUserPnl.TabIndex = 13;
-            this.lblPasswordReqCreateUserPnl.Text = "Password: 10 characters";
             // 
             // ApplicationMenu
             // 

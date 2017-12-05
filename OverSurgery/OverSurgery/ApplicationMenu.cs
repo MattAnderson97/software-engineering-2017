@@ -23,6 +23,7 @@ namespace OverSurgery
 
             // Sets the maximum date to the current date.
             dtpDateOfBirth.MaxDate = DateTime.Today;
+
         }
 
         #region pnlMainMenu
@@ -30,6 +31,7 @@ namespace OverSurgery
         private void btnRegisterPatientMainMenu_Click(object sender, EventArgs e)
         {
             pnlRegisterPatient.Visible = true;
+            dtpDateOfBirth.Value = dtpDateOfBirth.MaxDate;
         }
 
         // Main Menu settings button click event.
@@ -176,28 +178,44 @@ namespace OverSurgery
             {
                 // Runs if the patient is registered.
                 case 1:
-                MessageBox.Show("Patient has been registered.", "Registered!");
-                break;
+                    MessageBox.Show("Patient has been registered.", "Registered!");
+
+                    // Closes panel and resets fields back to empty.
+                    pnlRegisterPatient.Visible = false;
+                    tbxFirstName.ResetText();
+                    tbxLastName.ResetText();
+                    tbxTelNumRegisterPatientPnl.ResetText();
+                    dtpDateOfBirth.ResetText();
+                    cbxGender.ResetText();
+                    tbxAddress.ResetText();
+                    break;
 
                 // Runs if fields are missing details.
                 case 2:
-                MessageBox.Show("Please enter details into all fields.", "Empty fields!");
-                break;
+                    MessageBox.Show("Please enter details into all fields.", "Empty fields!");
+
+                    // Resets fields.
+                    tbxFirstName.ResetText();
+                    tbxLastName.ResetText();
+                    tbxTelNumRegisterPatientPnl.ResetText();
+                    dtpDateOfBirth.ResetText();
+                    cbxGender.ResetText();
+                    tbxAddress.ResetText();
+                    break;
 
                 // Runs if invalid characters are enetered into the telephone number field.
                 case 3:
-                MessageBox.Show("Please enter a correct telephone number.", "Invalid telephone number");
-                break;
-            }
+                     MessageBox.Show("Please enter a correct telephone number.", "Invalid telephone number");
 
-            // Closes panel and resets fields back to empty.
-            pnlRegisterPatient.Visible = false;
-            tbxFirstName.ResetText();
-            tbxLastName.ResetText();
-            tbxTelNumRegisterPatientPnl.ResetText();
-            dtpDateOfBirth.ResetText();
-            cbxGender.ResetText();
-            tbxAddress.ResetText();
+                    // Resets fields.
+                    tbxFirstName.ResetText();
+                    tbxLastName.ResetText();
+                    tbxTelNumRegisterPatientPnl.ResetText();
+                    dtpDateOfBirth.ResetText();
+                    cbxGender.ResetText();
+                    tbxAddress.ResetText();
+                    break;
+            }
         }
 
 
