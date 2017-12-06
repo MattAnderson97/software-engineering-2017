@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OverSurgery
 {
-    class Constants
+    public class Constants
     {
         #region DEBUG
         public static string selectAll = "SELECT * FROM Patient";

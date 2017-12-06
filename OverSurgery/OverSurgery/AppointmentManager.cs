@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace OverSurgery
 {
-    class AppointmentManager
+    public class AppointmentManager
     {
         #region PROPERTIES
         // Declares an instance of the AddAppointment class.
