@@ -52,9 +52,13 @@ namespace OverSurgery
             // If the add appointment button is clicked the panel will be displayed.
             pnlAddAppointment.Visible = true;
 
-            // Sets the displayed date and minDate to todays date.
+            // Sets the displayed date and minDate to todays date.           
             dtpDateAddApptPanel.MinDate = DateTime.Today;
             dtpDateAddApptPanel.Value = DateTime.Today;
+
+            // Sets the max date to (today's date + 1 month).
+            dtpDateAddApptPanel.MaxDate = DateTime.Today.AddMonths(1);
+            
         }
 
         private void btnViewStaff_Click(object sender, EventArgs e)
@@ -389,6 +393,7 @@ namespace OverSurgery
                     btnAddPatientAddApptPanel.Visible = true;
                     patientID = null;
                     dtpDateAddApptPanel.ResetText();
+                    staffID = null;
                     break;
             }
         }
