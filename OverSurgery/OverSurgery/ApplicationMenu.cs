@@ -178,7 +178,7 @@ namespace OverSurgery
 
             // Calls the register method in the patient class and gives it the patient info object.
             // Switch displays messages depending on the outcome of running the method.
-            switch (PatientManager.GetPatientInstance.Register(patientInfo))
+            switch (PatientManager.GetPatientManagerInstance.Register(patientInfo))
             {
                 // Runs if the patient is registered.
                 case 1:
@@ -853,17 +853,7 @@ namespace OverSurgery
         #region ApplicationMenuForm
         private void ApplicationMenu_Load(object sender, EventArgs e)
         {
-            DataSet dsDebug = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.selectAll);
-
-            DataTable dtDebug = dsDebug.Tables[0];
-
-            dgvDebug.DataSource = dtDebug;
-
-            DataSet dsDebug2 = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.selectAll2);
-
-            DataTable dtDebug2 = dsDebug2.Tables[0];
-
-            dgvDebug2.DataSource = dtDebug2;
+            
         }
         #endregion
     }

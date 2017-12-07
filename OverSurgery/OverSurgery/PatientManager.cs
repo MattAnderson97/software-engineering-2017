@@ -15,10 +15,10 @@ namespace OverSurgery
         private static readonly object _lock = new object();
 
         // Declares an instance of the patient class.
-        public static PatientManager _instance;
+        private static PatientManager _instance;
         
         // Ensures only one instance of the class can be instantiated.
-        public static PatientManager GetPatientInstance
+        public static PatientManager GetPatientManagerInstance
         {
             get
             {

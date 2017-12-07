@@ -17,7 +17,7 @@ namespace OverSurgery
         private static readonly object _lock = new object();
 
         // Declares instance of the LoginManager class.
-        public static LoginManager _instance;
+        private static LoginManager _instance;
 
         // Ensures only one instance of the class can be instantiated.
         public static LoginManager GetLoginManagerInstance
@@ -55,6 +55,8 @@ namespace OverSurgery
                 {
                     // Encrypts the password.
                     string encryptedPassword = EncryptPassword(password);
+
+                    Console.WriteLine(encryptedPassword);
 
                     // Inserts the user details into the database.
                     DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.CreateUser(userName, encryptedPassword));
