@@ -40,7 +40,7 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void ReturnsErrorMessageCodeIf_PatientIDLeftBlank()
+        public void ReturnsErrorMessageCodeIf_StaffIDLeftEmpty()
         {
             // Creates a new instance of AppointmentInfo
             AppointmentInfo appointmentInfo = new AppointmentInfo();
