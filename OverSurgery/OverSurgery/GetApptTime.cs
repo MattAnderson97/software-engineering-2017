@@ -30,7 +30,7 @@ namespace OverSurgery
         /// </summary>
         /// <param name="chosenDate">The chosen date.</param>
         /// <returns>List of possible booking times.</returns>
-        public List<string> FindChosenDate(string chosenDate)
+        public List<string> GetPossibleTimesList(string chosenDate)
         {
             // Gets data set of all distinct appointments for a chosen date.
             DataSet dsAppointment = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.SelectAllDates(chosenDate));
@@ -46,14 +46,14 @@ namespace OverSurgery
         /// </summary>
         /// <param name="dsAppointment"></param>
         /// <returns></returns>
-        public void GetBookedTimesList(DataSet dsAppointment, string chosenDate)
+        private void GetBookedTimesList(DataSet dsAppointment, string chosenDate)
         {
             // Checks to see if there are no bookings for the given date.
             if (dsAppointment.Tables[0].Rows.Count > 0)
             {
                 GetAppointmentTimeList(dsAppointment, chosenDate);
 
-                AddToBookedTimeList(dsAppointment, chosenDate);
+                AddToBookedTimesList(dsAppointment, chosenDate);
             }
             else
             {
@@ -66,7 +66,7 @@ namespace OverSurgery
         /// </summary>
         /// <param name="dsAppointment"></param>
         /// <param name="chosenDate"></param>
-        public void GetAppointmentTimeList(DataSet dsAppointment, string chosenDate)
+        private void GetAppointmentTimeList(DataSet dsAppointment, string chosenDate)
         {
             // Loops through all the data set rows.
             for (int i = 0; i < dsAppointment.Tables[0].Rows.Count; i++)
@@ -82,7 +82,7 @@ namespace OverSurgery
         /// </summary>
         /// <param name="dsAppointment"></param>
         /// <param name="chosenDate"></param>
-        public void AddToBookedTimeList(DataSet dsAppointment, string chosenDate)
+        private void AddToBookedTimesList(DataSet dsAppointment, string chosenDate)
         {
             // Loops through all the times in the list.
             for (int j = 0; j < appointmentTimeList.Count; j++)
@@ -104,13 +104,13 @@ namespace OverSurgery
                 }
             }
 
-            CompareTimeList();
+            CompareTimeLists();
         }
 
         /// <summary>
         // Creates a list with only times that are not fully booked.
         /// </summary>
-        public void CompareTimeList()
+        private void CompareTimeLists()
         {
             // Creates a list with all the times except ones which are fully booked.
             possibleTimeList = allTimeList.Except(bookedTimeList).ToList();
@@ -119,7 +119,7 @@ namespace OverSurgery
         /// <summary>
         /// Creates a list containg all possible appointment times.
         /// </summary>
-        public void GetAllTimesList()
+        private void GetAllTimesList()
         {
             // Sets the hour to 7.
             int hour = 7;

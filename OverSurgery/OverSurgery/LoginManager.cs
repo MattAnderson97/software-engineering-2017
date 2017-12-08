@@ -81,7 +81,7 @@ namespace OverSurgery
         /// </summary>
         /// <param name="userName">User's chosen username.</param>
         /// <returns>True or false depending if the username was unique.</returns>
-        public bool CheckExistingUsername(string userName)
+        private bool CheckExistingUsername(string userName)
         {
             // Finds all records in the Logins table with a particular username.
             DataSet dsLogins = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.CheckExistingUsername(userName));
@@ -130,7 +130,7 @@ namespace OverSurgery
         /// Matt
         /// </summary>
         /// <param name="password"></param>
-        public static string EncryptPassword(string password)
+        private static string EncryptPassword(string password)
         {
             var sha512 = new SHA512CryptoServiceProvider();  // use var for readability with obvious type
 
@@ -156,7 +156,7 @@ namespace OverSurgery
         /// <param name="userName">Given username.</param>
         /// <param name="password">Given password.</param>
         /// <returns>Bool representing whether the user can log in or not.</returns>
-        public bool ValidateCredentials(string userName, string encryptedPassword)
+        private bool ValidateCredentials(string userName, string encryptedPassword)
        {
             // Checks the database to see whether the username and password supplied by the user 
             // matches a record in the database.

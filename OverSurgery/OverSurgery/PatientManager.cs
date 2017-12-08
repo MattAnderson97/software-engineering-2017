@@ -96,7 +96,7 @@ namespace OverSurgery
         /// SQL command on the database.
         /// </summary>
         /// <param name="patientDetails">patientInfo object</param>
-        public void InsertToDatabase(PatientInfo patientInfo)
+        private void InsertToDatabase(PatientInfo patientInfo)
         {
             // Inserts patient details into the database.
             DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.RegisterPatient(patientInfo));            

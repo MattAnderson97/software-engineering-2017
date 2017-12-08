@@ -47,7 +47,7 @@ namespace OverSurgery
             // Create an instanec of the GetApptTime class.
             GetApptTime timeList = new GetApptTime();
 
-            return timeList.FindChosenDate(chosenDate);
+            return timeList.GetPossibleTimesList(chosenDate);
         }
 
         /// <summary>

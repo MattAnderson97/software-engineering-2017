@@ -36,7 +36,7 @@ namespace OverSurgery
 
             // Compares the list of booked staff with the list of all staff,
             // putting only available staff in a list.
-            CompareStaff();
+            CompareStaffLists();
 
             return availableStaffList;
         }
@@ -46,7 +46,7 @@ namespace OverSurgery
         /// </summary>
         /// <param name="chosenDate">Chosen appointment date.</param>
         /// <param name="chosenTime">Chosen appointment time.</param>
-        public void GetBookedStaffList(string chosenDate, string chosenTime)
+        private void GetBookedStaffList(string chosenDate, string chosenTime)
         {
             // Gets a data set of staff members with appointments at a given date and time.
             DataSet dsBookedStaff = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.GetBookedStaff(chosenDate, chosenTime));
@@ -61,7 +61,7 @@ namespace OverSurgery
         /// <summary>
         /// Gets a list of all staff members.
         /// </summary>
-        public void GetAllStaffList()
+        private void GetAllStaffList()
         {
             // Gets a data set of all staff members.
             DataSet dsAllApptStaff = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.GetAllStaff());
@@ -77,7 +77,7 @@ namespace OverSurgery
         /// Creates a list of staff members who don't have an appointment
         /// at a given date and time.
         /// </summary>
-        public void CompareStaff()
+        private void CompareStaffLists()
         {
             availableStaffList = allStaffList.Except(bookedStaffList).ToList();
         }
