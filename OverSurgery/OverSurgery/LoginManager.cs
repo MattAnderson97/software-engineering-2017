@@ -56,8 +56,6 @@ namespace OverSurgery
                     // Encrypts the password.
                     string encryptedPassword = EncryptPassword(password);
 
-                    Console.WriteLine(encryptedPassword);
-
                     // Inserts the user details into the database.
                     DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.CreateUser(userName, encryptedPassword));
 
