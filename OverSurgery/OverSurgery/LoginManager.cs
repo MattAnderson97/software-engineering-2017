@@ -51,7 +51,7 @@ namespace OverSurgery
             if (userName != "" && password != "")
             {
                 // If the username is unique the details will be added to the database.
-                if(CheckExistingUsername(userName) == true)
+                if(CheckExistingUsername(userName) == false)
                 {
                     // Encrypts the password.
                     string encryptedPassword = EncryptPassword(password);
@@ -92,11 +92,11 @@ namespace OverSurgery
             // If the number of rows is more than 0 the method returns false.
             if (sameUsernames > 0)
             {
-                return false;
+                return true;
             }
             else
             {
-                return true;
+                return false;
             }
         }
 
