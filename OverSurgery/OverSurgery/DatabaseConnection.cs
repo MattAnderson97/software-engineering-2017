@@ -13,8 +13,8 @@ namespace OverSurgery
         #region ATTRIBUTES 
         // Creates an instance of the DatabaseConnection class.
         private static DatabaseConnection _instance;
-
-        // To ask Cristina: In the example this is private but can be accessed in Program.cs but can't here without being public. Why?
+        
+        // Database connection string.
         private static string connectionStr;
         public static string ConnectionStr
         {
