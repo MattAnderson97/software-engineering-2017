@@ -40,6 +40,8 @@ namespace UnitTests
             Assert.IsTrue(LoginManager.GetLoginManagerInstance.CreateUser(username, password) == 2);
         }
 
+
+
         [TestMethod]
         public void IsLoginManagerASingleton()
         {
@@ -47,17 +49,6 @@ namespace UnitTests
             Assert.AreSame(LoginManager.GetLoginManagerInstance, LoginManager.GetLoginManagerInstance);
         }
 
-        /*[TestMethod]
-        public void RunsCheckExistingUsernameMethod()
-        {
-            string username = "username";
-            string password = "password";
-
-            LoginManager loginManager = new LoginManager();
-            DatabaseConnection databaseConnection = new DatabaseConnection();
-            Constants costants = new Constants();
-            DatabaseConnection.ConnectionStr = Properties.Settings.Default.DBConnection;
-            Assert.IsTrue(LoginManager.GetLoginManagerInstance.CreateUser(username, password) == 1);         
-        }*/
     }
 }
+
