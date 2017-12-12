@@ -221,9 +221,6 @@ namespace OverSurgery
                     break;
             }
         }
-
-
-
         #endregion
 
         #region pnlAddAppointment       
