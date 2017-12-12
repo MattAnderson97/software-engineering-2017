@@ -38,6 +38,8 @@ namespace OverSurgery
             // Calls GetBookedTimeList method.
             GetBookedTimesList(dsAppointment, chosenDate);
 
+            CompareTimeLists();
+
             return possibleTimeList;
         }
 
@@ -54,6 +56,7 @@ namespace OverSurgery
                 GetAppointmentTimeList(dsAppointment, chosenDate);
 
                 AddToBookedTimesList(dsAppointment, chosenDate);
+                
             }
             else
             {
@@ -102,9 +105,7 @@ namespace OverSurgery
                 {
                     bookedTimeList.Add(appointmentTimeList[j]);
                 }
-            }
-
-            CompareTimeLists();
+            }         
         }
 
         /// <summary>
