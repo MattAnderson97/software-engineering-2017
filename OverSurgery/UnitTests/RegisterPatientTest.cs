@@ -61,6 +61,9 @@ namespace UnitTests
             Assert.IsTrue(PatientManager.GetPatientInstance.Register(patientInfo) == 3);
         }
 
+        //Code adapted from:
+        //Adolphe, R., (2016). Code with the Singleton pattern. [video online] Available at:
+        //https://www.lynda.com/C-tutorials/Code-Singleton-pattern/473890/498782-4.html
         [TestMethod]
         public void IsPatientManagerASingleton()
         {
