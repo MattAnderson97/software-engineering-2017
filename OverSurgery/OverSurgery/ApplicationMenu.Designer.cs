@@ -547,7 +547,7 @@
             this.btnBackViewStaffPnl.TabIndex = 26;
             this.btnBackViewStaffPnl.Text = "BACK";
             this.btnBackViewStaffPnl.UseVisualStyleBackColor = true;
-            this.btnBackViewStaffPnl.Click += new System.EventHandler(this.btnBackViewStaffPnl_Click);
+
             // 
             // label13
             // 

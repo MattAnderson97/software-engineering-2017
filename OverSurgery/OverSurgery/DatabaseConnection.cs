@@ -84,67 +84,11 @@ namespace OverSurgery
             // Return the dataset.
             return dataSet;
         }
-        public void AddShift(string StartDate, string StartTime, string EndTime, int StaffID, string AppointmentID)
-        {
-            connectionToDB.Open();
+        
 
-            SqlCommand cmd = connectionToDB.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = Constants.AddShift(StartDate, StartTime, EndTime, StaffID, AppointmentID);
-            cmd.ExecuteNonQuery();
-            connectionToDB.Close();
-        }
+        
 
-        public void UpdateShift(string StartDate, string StartTime, string EndTime, int StaffID, string AppointmentID)
-        {
-            connectionToDB.Open();
-            SqlCommand cmd = connectionToDB.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = Constants.UpdateShift(StartDate, StartTime, EndTime, StaffID, AppointmentID);
-            cmd.ExecuteNonQuery();
-
-            connectionToDB.Close();
-        }
-
-        public string GetStaffID(string FirstName, string LastName)
-        {
-            connectionToDB.Open();
-
-            SqlCommand cmd = connectionToDB.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = Constants.GetStaffID(FirstName, LastName);
-            cmd.ExecuteNonQuery();
-            string str = Convert.ToString(cmd.ExecuteScalar());
-            connectionToDB.Close();
-
-            return str;
-        }
-        public int CheckStaffBusy(int StaffID, string Date, string Time)
-        {
-            int i = 0;
-            string StaffString = Convert.ToString(StaffID);
-            DataSet dsStaff = DatabaseConnection.getDatabaseConnectionInstance().getDataSet(Constants.SpecificStaffMember(StaffString, Date, Time));
-
-            //get the table to be displayed from the data set
-            DataTable dtShift = dsStaff.Tables[0];
-
-            i = Convert.ToInt32(dtShift.Rows.Count.ToString());
-            return i;
-        }
-
-        public int GetIntValue(String sqlStatement)
-        {
-            connectionToDB.Open();
-
-            SqlCommand cmd = connectionToDB.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = sqlStatement;
-            cmd.ExecuteNonQuery();
-            int value = Convert.ToInt32(cmd.ExecuteScalar());
-            connectionToDB.Close();
-
-            return value;
-        }
+     
 
         /// <summary>
         /// Close the connection.
