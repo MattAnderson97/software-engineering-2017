@@ -1056,9 +1056,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(541, 397);
-            this.Controls.Add(this.pnlPrescription);
             this.Controls.Add(this.pnlLogin);
             this.Controls.Add(this.pnlRegisterPatient);
+            this.Controls.Add(this.pnlPrescription);
             this.Controls.Add(this.pnlCreateUser);
             this.Controls.Add(this.pnlAddAppointment);
             this.Controls.Add(this.pnlManageAppointments);

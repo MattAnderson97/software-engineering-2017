@@ -106,18 +106,10 @@ namespace OverSurgery
         /// <param name="userName"></param>
         /// <param name="password"></param>
         public bool Login(string userName, string password)
-        {//
+        {//checks login username and password is valid
             if (ValidateCredentials(userName, EncryptPassword(password)) == true)
             {
-                /*DataTable dttable = new DataTable();
-                string SQL = "SELECT FROM Login where userName ='" + userName + "' AND Password ='" + password + "'";
-                SqlDataAdapter Consultantdataadapter = new SqlDataAdapter();
-                Consultantdataadapter.Fill(dttable);
-                foreach (DataRow myrow in consultanttable.Rows)
-                    if (DataTable.Rows.Count > 0)
-                    {
-
-                    }*/
+               
                 return true;
             }
             else
