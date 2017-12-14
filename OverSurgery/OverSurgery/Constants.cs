@@ -135,7 +135,7 @@ namespace OverSurgery
         /// Enters the extended medicine prescription details to the database
         /// </summary>
         /// <param name="PrescriptionextendDetails">Struct containg medicine extention prescription details.</param>
-        /// <returns>SQL statement.</returns>
+        /// <returns>SQL Statement.</returns>
         public static string ExtendPrescription(Prescription prescription)
         {
             return String.Format(@"INSERT INTO Prescription (MedicineName, Length, ExtentionDate, Note)

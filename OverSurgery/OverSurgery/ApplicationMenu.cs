@@ -579,16 +579,7 @@ namespace OverSurgery
 
         #region pnlPrescription
 
-        // selecting back button on prescription panel
-        private void btnBackPrescription_Click(object sender, EventArgs e)
-        {
-            // hides the panel and resets all data entry fields
-            pnlPrescription.Visible = false;
-            tbxMedicineName.ResetText();
-            tbxLength.ResetText();
-            datepicker.ResetText();
-            tbxNote.ResetText();
-        }
+
 
         // Extend prescription button selected
         private void btnExtendPrescription_Click(object sender, EventArgs e)
@@ -625,6 +616,17 @@ namespace OverSurgery
 
 
             }
+
+        }
+        // selecting back button on prescription panel
+        private void btnBackPrescription_Click(object sender, EventArgs e)
+        {
+            // hides the panel and resets all data entry fields
+            pnlPrescription.Visible = false;
+            tbxMedicineName.ResetText();
+            tbxLength.ResetText();
+            datepicker.ResetText();
+            tbxNote.ResetText();
         }
         #endregion
 

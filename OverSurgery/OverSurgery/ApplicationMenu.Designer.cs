@@ -954,6 +954,7 @@
             // 
             // btnExtendPrescription
             // 
+            this.btnExtendPrescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExtendPrescription.Location = new System.Drawing.Point(159, 261);
             this.btnExtendPrescription.Name = "btnExtendPrescription";
             this.btnExtendPrescription.Size = new System.Drawing.Size(166, 30);
@@ -1003,36 +1004,40 @@
             // lblNote
             // 
             this.lblNote.AutoSize = true;
-            this.lblNote.Location = new System.Drawing.Point(88, 202);
+            this.lblNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNote.Location = new System.Drawing.Point(45, 191);
             this.lblNote.Name = "lblNote";
-            this.lblNote.Size = new System.Drawing.Size(30, 13);
+            this.lblNote.Size = new System.Drawing.Size(44, 18);
             this.lblNote.TabIndex = 17;
             this.lblNote.Text = "Note";
             // 
             // lblExtentionDate
             // 
             this.lblExtentionDate.AutoSize = true;
-            this.lblExtentionDate.Location = new System.Drawing.Point(64, 151);
+            this.lblExtentionDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExtentionDate.Location = new System.Drawing.Point(21, 147);
             this.lblExtentionDate.Name = "lblExtentionDate";
-            this.lblExtentionDate.Size = new System.Drawing.Size(77, 13);
+            this.lblExtentionDate.Size = new System.Drawing.Size(118, 18);
             this.lblExtentionDate.TabIndex = 14;
             this.lblExtentionDate.Text = "Extention Date";
             // 
             // lblLength
             // 
             this.lblLength.AutoSize = true;
-            this.lblLength.Location = new System.Drawing.Point(75, 117);
+            this.lblLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLength.Location = new System.Drawing.Point(29, 114);
             this.lblLength.Name = "lblLength";
-            this.lblLength.Size = new System.Drawing.Size(40, 13);
+            this.lblLength.Size = new System.Drawing.Size(58, 18);
             this.lblLength.TabIndex = 13;
             this.lblLength.Text = "Length";
             // 
             // lblMedicineName
             // 
             this.lblMedicineName.AutoSize = true;
-            this.lblMedicineName.Location = new System.Drawing.Point(60, 76);
+            this.lblMedicineName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMedicineName.Location = new System.Drawing.Point(17, 74);
             this.lblMedicineName.Name = "lblMedicineName";
-            this.lblMedicineName.Size = new System.Drawing.Size(81, 13);
+            this.lblMedicineName.Size = new System.Drawing.Size(124, 18);
             this.lblMedicineName.TabIndex = 12;
             this.lblMedicineName.Text = "Medicine Name";
             // 
@@ -1040,7 +1045,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(114, 11);
+            this.label16.Location = new System.Drawing.Point(129, 15);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(295, 25);
             this.label16.TabIndex = 12;
@@ -1051,9 +1056,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(541, 397);
+            this.Controls.Add(this.pnlPrescription);
             this.Controls.Add(this.pnlLogin);
             this.Controls.Add(this.pnlRegisterPatient);
-            this.Controls.Add(this.pnlPrescription);
             this.Controls.Add(this.pnlCreateUser);
             this.Controls.Add(this.pnlAddAppointment);
             this.Controls.Add(this.pnlManageAppointments);

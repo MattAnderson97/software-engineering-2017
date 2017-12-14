@@ -31,3 +31,14 @@ C:\Users\soman\Downloads\only last\software-engineering-2017-master\OverSurgery\
 C:\Users\soman\Downloads\only last\software-engineering-2017-master\OverSurgery\OverSurgery\obj\Debug\OverSurgery.csproj.CoreCompileInputs.cache
 C:\Users\soman\Downloads\only last\software-engineering-2017-master\OverSurgery\OverSurgery\obj\Debug\OverSurgery.exe
 C:\Users\soman\Downloads\only last\software-engineering-2017-master\OverSurgery\OverSurgery\obj\Debug\OverSurgery.pdb
+F:\FIIIIIIIINAAAAAAL SOFTWARE\software-engineering-2017-master\OverSurgery\OverSurgery\bin\Debug\SurgeryDatabase.mdf
+F:\FIIIIIIIINAAAAAAL SOFTWARE\software-engineering-2017-master\OverSurgery\OverSurgery\bin\Debug\SurgeryDatabase_log.ldf
+F:\FIIIIIIIINAAAAAAL SOFTWARE\software-engineering-2017-master\OverSurgery\OverSurgery\bin\Debug\OverSurgery.exe.config
+F:\FIIIIIIIINAAAAAAL SOFTWARE\software-engineering-2017-master\OverSurgery\OverSurgery\bin\Debug\OverSurgery.exe
+F:\FIIIIIIIINAAAAAAL SOFTWARE\software-engineering-2017-master\OverSurgery\OverSurgery\bin\Debug\OverSurgery.pdb
+F:\FIIIIIIIINAAAAAAL SOFTWARE\software-engineering-2017-master\OverSurgery\OverSurgery\obj\Debug\OverSurgery.csprojResolveAssemblyReference.cache
+F:\FIIIIIIIINAAAAAAL SOFTWARE\software-engineering-2017-master\OverSurgery\OverSurgery\obj\Debug\OverSurgery.ApplicationMenu.resources
+F:\FIIIIIIIINAAAAAAL SOFTWARE\software-engineering-2017-master\OverSurgery\OverSurgery\obj\Debug\OverSurgery.csproj.GenerateResource.Cache
+F:\FIIIIIIIINAAAAAAL SOFTWARE\software-engineering-2017-master\OverSurgery\OverSurgery\obj\Debug\OverSurgery.csproj.CoreCompileInputs.cache
+F:\FIIIIIIIINAAAAAAL SOFTWARE\software-engineering-2017-master\OverSurgery\OverSurgery\obj\Debug\OverSurgery.exe
+F:\FIIIIIIIINAAAAAAL SOFTWARE\software-engineering-2017-master\OverSurgery\OverSurgery\obj\Debug\OverSurgery.pdb
