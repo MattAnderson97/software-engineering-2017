@@ -1,0 +1,12 @@
+We ended up missing a few of the user stories when implementing the system because we ran out of time. These include checking availability of staff members, checking on-duty staff members, creating and viewing/printing patient test results and searching for patients. If we had more time to work on the system, we may want to add these features.
+
+We also may want to add some extra features such as stronger password encryption. In creating the system, SHA512 was used to hash the passwords, however, this isn't a good encryption method, as it can be cracked quickly. For example, an 8 digit password using only uppercase or lowercase characters hashed using sha-256 can be cracked in about 1 minute, and a combination of uppercase and lowercase characters can be cracked in under 4 hours(Kamal, 2017). Adding to this, SHA-512 can be up to 50\% faster than SHA-256 in generating hashes (Dilli and Reddy, 2016)
+
+A more suitable password hashing algorithm would be Bcrypt because it can take much longer to crack even a 4 character password using a mix upper and lowercase passwords compared to sha-256  (Kamal, 2017)
+
+
+
+references:
+Kamal, Parves, "A Study on the Security of Password Hashing Based on GPU Based, Password Cracking using High-Performance Cloud Computing" (2017)
+
+Dilli, Ravilla and Reddy, Putta Chandra Shekar, "Trade-off between length of the Hash code and performance of hybrid routing protocols in MANETs" (2016)
